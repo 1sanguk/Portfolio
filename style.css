@@ -423,10 +423,10 @@ section.block.collapsed .collapsible {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -442,7 +442,7 @@ section.block.collapsed .collapsible {
 
 .career-job .job-meta {
   margin-top: -0.375rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .proj-item {
@@ -586,7 +586,7 @@ section.block.collapsed .collapsible {
 
 /* Career detail company nav + timeline */
 .career-toc {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 .career-toc ol {
@@ -626,6 +626,10 @@ section.block.collapsed .collapsible {
   color: var(--text);
   border-color: var(--accent);
   background: var(--card-hover);
+}
+
+#career-detail {
+  padding-top: 2.5rem;
 }
 
 .career-timeline {
