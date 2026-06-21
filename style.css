@@ -968,3 +968,69 @@ footer a {
     font-size: 0.9375rem;
   }
 }
+
+/* Print / PDF export */
+@media print {
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  nav.topnav {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  nav.topnav .mini-toc {
+    display: none;
+  }
+
+  /* scroll-reveal animation never fires without scrolling — force everything visible */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  section.block.collapsed .collapsible,
+  .career-job.collapsed .job-collapsible {
+    grid-template-rows: 1fr !important;
+  }
+
+  h2.toggle .chevron,
+  .career-job .job-chevron {
+    display: none;
+  }
+
+  #career-detail .proj-item {
+    cursor: default;
+    padding-right: 1.375rem;
+  }
+
+  #career-detail .proj-title .proj-chevron {
+    display: none;
+  }
+
+  .proj-detail {
+    display: block !important;
+  }
+
+  .proj-item {
+    page-break-inside: avoid;
+  }
+
+  .proj-item:hover,
+  .tags span:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .career-toc {
+    display: none;
+  }
+}
