@@ -25,6 +25,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll(".career-job .job-head").forEach((head) => {
+    head.addEventListener("click", () => {
+      head.closest(".career-job").classList.toggle("collapsed");
+    });
+  });
+
+  const nav = document.querySelector("nav.topnav");
+  const isMobile = () => window.matchMedia("(max-width: 640px)").matches;
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const currentY = window.scrollY;
+
+      if (!isMobile()) {
+        nav.classList.remove("nav-hidden");
+        lastScrollY = currentY;
+        return;
+      }
+
+      if (currentY > lastScrollY && currentY > nav.offsetHeight) {
+        nav.classList.add("nav-hidden");
+      } else {
+        nav.classList.remove("nav-hidden");
+      }
+      lastScrollY = currentY;
+    },
+    { passive: true }
+  );
+
   const miniTocLinks = document.querySelectorAll(".mini-toc a");
   if (miniTocLinks.length) {
     const sections = Array.from(miniTocLinks)
