@@ -17,6 +17,7 @@
       <li><a href="#career">경력사항</a></li>
       <li><a href="#lang-cert">어학/자격증</a></li>
       <li><a href="#skills">활용능력</a></li>
+      <li><a href="#highlights">대표 프로젝트</a></li>
       <li><a href="#career-detail">프로젝트 목록</a></li>
     </ul>
   </div>
@@ -48,6 +49,7 @@
       <li><a href="#career">경력사항</a></li>
       <li><a href="#lang-cert">어학 / 자격증</a></li>
       <li><a href="#skills">활용능력</a></li>
+      <li><a href="#highlights">대표 프로젝트</a></li>
       <li><a href="#career-detail">프로젝트 목록</a></li>
     </ol>
   </div>
@@ -194,6 +196,137 @@
         <span>PWA</span><span>OKTA SSO</span><span>Looker Studio</span>
       </div>
     </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="block reveal" id="highlights">
+  <div class="wrap">
+    <h2 class="toggle">대표 프로젝트<span class="chevron">▾</span></h2>
+    <div class="collapsible"><div class="collapsible-inner">
+
+    <div class="star-legend">
+      <span><b>S</b>ituation 상황</span>
+      <span><b>T</b>ask 과제</span>
+      <span><b>A</b>ction 행동</span>
+      <span><b>R</b>esult 결과</span>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-head">
+        <span class="company">코코마인</span>
+        <span class="period">SKYWALK · 2024.12 ~ 2026.02</span>
+        <span class="highlight-chevron">▾</span>
+      </div>
+      <p class="proj-genre">코지 라이프 시뮬레이션 SNS · 가입자 3만+ · 피크 동접 500~1,000명</p>
+
+      <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
+      <div class="star-grid">
+        <div class="star-row">
+          <span class="star-label">S</span>
+          <p>가입자 3만+, 피크 동접 500~1,000명 환경에서 로그인 API마다 락이 걸려 있어 사람이 몰리면 세션이 모두 순서대로 대기해야 했고, 광장·빌리지는 모든 유저가 1채널에 몰려 렉·끊김이 발생했습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">T</span>
+          <p>로그인 안정화, 광장·빌리지 채널 분산 로직 개선, 채팅 서버 신규 구축, 운영툴 설계를 맡았습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">A</span>
+          <ul class="duty">
+            <li>채팅 서버를 설계부터 구현까지 단독으로 신규 개발</li>
+            <li>채널당 인원 임계치를 도입해 광장·빌리지의 1채널 과밀 구조를 개선 — 블라인드 테스트로 50명에서도 버벅임이 느껴져 30명까지 낮춰 안정화</li>
+            <li>로그인 시 API마다 개별로 걸려있던 락 때문에 세션이 순차 대기하던 구조를 멀티쓰레드로 분리해 각자 처리되도록 수정, DB 커넥션 풀 확충과 누락된 인덱스 추가</li>
+            <li>기부 기여도 점수·패션매치 투표 점수를 Redis로 실시간 반영해 MySQL 부하 없이 랭킹 갱신</li>
+            <li>랭킹을 매번 MySQL에서 직접 조회하던 방식을 페이징 + Redis 캐싱 구조로 변경해 동시 조회 부하를 분산</li>
+            <li>운영팀이 쓰는 운영툴을 단독으로 설계·개발</li>
+          </ul>
+        </div>
+        <div class="star-row star-result">
+          <span class="star-label">R</span>
+          <div class="stat-pairs">
+            <div class="stat-pair"><span class="stat-name">로그인 처리 시간</span><b>2~3분</b><span class="arrow">→</span><b class="good">10~30초</b></div>
+            <div class="stat-pair"><span class="stat-name">채널 인원 임계치</span><b>50명</b><span class="arrow">→</span><b class="good">30명 (혼잡 해소)</b></div>
+            <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><b>10~20초</b><span class="arrow">→</span><b class="good">1~2초</b></div>
+          </div>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-head">
+        <span class="company">놀러와, 마이홈</span>
+        <span class="period">SKYWALK · 2024.01 ~ 2026.02</span>
+        <span class="highlight-chevron">▾</span>
+      </div>
+      <p class="proj-genre">SNG · 라이프스타일 시뮬레이션 · 한국/일본/대만/영미 4개국 운영 · 가입자 20만+ · 동접 200~2,000명</p>
+
+      <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
+      <div class="star-grid">
+        <div class="star-row">
+          <span class="star-label">S</span>
+          <p>4개국에서 가입자 20만+ · 동접 200~2,000명 규모로 운영 중, MySQL 5.7→8.0 버전업 대응이 필요했고, 네트워크 지연 시 결제가 하루 4~5건씩 실패했으며 일부는 결제만 되고 아이템이 지급되지 않는 현상도 있었습니다. 운영팀은 필요한 데이터를 매번 직접 요청해야 했습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">T</span>
+          <p>MySQL 8.0 마이그레이션 대응, 결제 안정화, 운영팀용 데이터 시각화 대시보드 구축을 담당했습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">A</span>
+          <ul class="duty">
+            <li>5.7→8.0 마이그레이션 호환성 대응과 함께 아이템 조회 등 주요 쿼리에 인덱싱·최적화 적용</li>
+            <li>결제 응답이 늦어질 때 자동으로 재시도(retry)하는 로직 추가</li>
+            <li>재시도 시 이전 실패 건을 조회·대조해 결제만 되고 아이템이 지급되지 않는 현상을 차단</li>
+            <li>Looker Studio 기반 재화·토큰 통계 대시보드를 구축해 운영팀이 직접 데이터를 확인할 수 있도록 지원</li>
+          </ul>
+        </div>
+        <div class="star-row star-result">
+          <span class="star-label">R</span>
+          <div class="star-result-body">
+            <div class="stat-pairs">
+              <div class="stat-pair"><span class="stat-name">아이템 조회 속도</span><b class="good">3~10초 단축</b></div>
+              <div class="stat-pair"><span class="stat-name">결제 실패 빈도</span><b>하루 4~5건</b><span class="arrow">→</span><b class="good">1~2주에 1건</b></div>
+            </div>
+            <p>대시보드 도입 후 운영팀의 단건 데이터 요청이 "이런 통계도 보고 싶다"는 기획성 요청으로 바뀌었고, 오류가 빈발하는 구간을 직접 파악할 수 있게 됐습니다.</p>
+          </div>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-head">
+        <span class="company">충청북도교육청 인사관리 시스템</span>
+        <span class="period">UXIS · 2021.12 ~ 2022.07</span>
+        <span class="highlight-chevron">▾</span>
+      </div>
+      <p class="proj-genre">교육공무직원 인사 행정 시스템 · 대상 인원 약 6,400~10,000명</p>
+
+      <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
+      <div class="star-grid">
+        <div class="star-row">
+          <span class="star-label">S</span>
+          <p>약 6,400~10,000명 규모의 교육공무직원 전보(인사이동)를 담당 공무원이 제출 서류를 직접 받아 수기·엑셀로 점수를 계산해 판별하고 있었습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">T</span>
+          <p>팀 내에서 전보 점수제 기반 자동 매칭 알고리즘 구현을 맡았습니다.</p>
+        </div>
+        <div class="star-row">
+          <span class="star-label">A</span>
+          <ul class="duty">
+            <li>직원이 제출한 서류 데이터를 항목별로 점수화하고, top-down 정렬로 우선순위를 판별하는 전보 알고리즘 설계</li>
+            <li>동점자·중복 점수가 발생하는 케이스를 구분해내는 판별 로직을 별도로 구현 (가장 까다로웠던 부분)</li>
+          </ul>
+        </div>
+        <div class="star-row star-result">
+          <span class="star-label">R</span>
+          <p>6,400~10,000명 규모의 인사이동 판별을 수기·엑셀 계산 방식에서 점수 기반 자동 알고리즘 처리로 전환했습니다.</p>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
     </div></div>
   </div>
 </section>

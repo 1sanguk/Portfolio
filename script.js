@@ -31,6 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll(".highlight-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("collapsed");
+    });
+  });
+
   const nav = document.querySelector("nav.topnav");
   const isMobile = () => window.matchMedia("(max-width: 640px)").matches;
   let lastScrollY = window.scrollY;
