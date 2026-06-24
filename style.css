@@ -277,8 +277,11 @@ section.block.collapsed .collapsible {
 }
 
 .collapsible .collapsible-inner {
-  overflow: hidden;
   min-height: 0;
+}
+
+section.block.collapsed .collapsible-inner {
+  overflow: hidden;
 }
 
 /* TOC */
@@ -518,6 +521,13 @@ section.block.collapsed .collapsible {
   color: var(--text-dim);
 }
 
+.proj-item > .proj-genre {
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.625rem;
+}
+
 .proj-item .stack {
   margin-top: 0.625rem;
   font-size: 0.875rem;
@@ -622,6 +632,28 @@ section.block.collapsed .collapsible {
 
 .proj-detail-text p + p {
   margin-top: 0.625rem;
+}
+
+.duty-detail {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.duty-detail li b {
+  display: block;
+  font-size: 1.0312rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.duty-detail .detail-sub {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.6;
 }
 
 /* Highlight projects (STAR cards) */
@@ -983,6 +1015,79 @@ section.block.collapsed .collapsible {
   color: var(--text);
   background: var(--card-hover);
   transform: translateY(-0.125rem);
+}
+
+/* Skill level tooltip */
+.skill-tag {
+  position: relative;
+  border-width: 0.0938rem;
+}
+
+.skill-tag[data-level="상"] {
+  border-color: #ff5c8a;
+  color: #ff8fae;
+}
+
+.skill-tag[data-level="중상"] {
+  border-color: var(--accent);
+  color: #b9a6ff;
+}
+
+.skill-tag[data-level="중"] {
+  border-color: var(--accent2);
+  color: #8fe9e0;
+}
+
+.skill-tag[data-level="중하"] {
+  border-color: #4f7cff;
+  color: #9db8ff;
+}
+
+.skill-tag[data-level="하"] {
+  border-color: var(--line);
+  color: var(--text-dim);
+}
+
+.skill-tag::after {
+  content: "레벨: " attr(data-level) "\A" attr(data-years) " 사용";
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(0.25rem);
+  white-space: pre;
+  text-align: center;
+  background: var(--bg-soft);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+}
+
+.skill-tag::before {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.125rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(0.25rem);
+  border: 0.3125rem solid transparent;
+  border-top-color: var(--line);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 10;
+}
+
+.skill-tag:hover::after,
+.skill-tag:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Project grid (portfolio page) */
