@@ -29,7 +29,7 @@
     <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
     <div class="meta">
       <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
-      <span><b>경력</b> 4년 0개월</span>
+      <span><b>경력</b> 4년</span>
       <span><b>나이</b> 32세 (94년생)</span>
       <span><b>병역</b> 군필 (병장 만기제대)</span>
     </div>
@@ -97,7 +97,7 @@
 
 <section class="block reveal" id="career">
   <div class="wrap">
-    <h2 class="toggle">경력사항 (총 4년 0개월)<span class="chevron">▾</span></h2>
+    <h2 class="toggle">경력사항 (총 4년)<span class="chevron">▾</span></h2>
     <div class="collapsible"><div class="collapsible-inner">
 
     <div class="career-timeline">
@@ -340,6 +340,7 @@
       <ol>
         <li><a href="#job-skywalk">SKYWALK</a></li>
         <li><a href="#job-uxis">UXIS</a></li>
+        <li><a href="#job-etc">ETC</a></li>
       </ol>
     </div>
 
@@ -467,7 +468,7 @@
       <div class="job-head">
         <div class="job-head-main">
           <span class="company">UXIS</span>
-          <span class="period">2023.04 ~ 2023.08 (5개월)</span>
+          <span class="period">2023.04 ~ 2023.08 (4개월)</span>
         </div>
         <span class="job-chevron">▾</span>
       </div>
@@ -683,6 +684,41 @@
             </ul>
           </div>
           <img src="images/드리지.png" alt="DRIZ(드리지)" class="proj-image">
+        </div></div>
+      </div>
+      </div></div>
+    </div>
+
+    <div class="career-job" id="job-etc">
+      <div class="job-head">
+        <div class="job-head-main">
+          <span class="company">ETC</span>
+          <span class="period">카카오테크 부트캠프 · 개인 프로젝트</span>
+        </div>
+        <span class="job-chevron">▾</span>
+      </div>
+      <div class="job-collapsible"><div class="job-collapsible-inner">
+
+      <div class="proj-item">
+        <div class="proj-title">한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">카카오테크 부트캠프 딥다이브 · GPT 아키텍처 직접 구현 + RAG / LangChain / LangGraph / Claude API</p>
+        <ul class="duty">
+          <li>GPT 아키텍처(~97M params) 및 자모 단위 BPE 토크나이저 직접 설계·구현</li>
+          <li>KorQuAD·AI Hub 데이터 기반 다단계 학습 파이프라인 구축 (이어쓰기 → QA → 스팬 → DPO)</li>
+          <li>TF-IDF / BM25+FAISS 하이브리드 검색기 기반 RAG 파이프라인 및 LangChain/LangGraph 체인 구성</li>
+          <li>Claude API 연동 및 질문 자동 분류 라우팅, FastAPI + SSE 스트리밍 서빙</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>GPT 아키텍처(~97M params) 및 자모 단위 BPE 토크나이저 직접 설계·구현</b><span class="detail-sub">→ 한글을 NFD로 분해해 초성·중성·종성 자모 단위로 BPE를 적용하고 NFC로 재조합하는 토크나이저를 직접 구현했습니다. CausalSelfAttention(12 heads) + MLP(GELU) + Pre-norm 구조의 GPT 디코더를 처음부터 설계했고, KV Cache 기반 증분 디코딩과 temperature/top-k/top-p/repetition penalty 샘플링도 직접 구현했습니다.</span></li>
+              <li><b>KorQuAD·AI Hub 데이터 기반 다단계 학습 파이프라인 구축</b><span class="detail-sub">→ kowikitext + AI Hub 한국어 대화 데이터로 이어쓰기(Stage 1) → Q&A 파인튜닝(Stage 2) → 스팬 추출 헤드를 추가한 추출형 RAG QA(Stage 4) 순으로 단계적으로 학습했고, DPO 선호 학습(Stage 5)도 진행했습니다. bf16 혼합 정밀도, gradient accumulation, cosine LR decay를 적용했습니다.</span></li>
+              <li><b>TF-IDF / BM25+FAISS 하이브리드 검색기 기반 RAG 파이프라인 및 LangChain/LangGraph 체인 구성</b><span class="detail-sub">→ 1단계로 TF-IDF 기반 RAG를 구현한 뒤, BM25(sparse)+FAISS(dense) 하이브리드 검색기로 개선해 라우팅 정확도를 73.3%→82.7%로 높였습니다. LangChain LCEL로 체인을 조립하고, LangGraph StateGraph로 검색→평가→재시도→생성 흐름을 명시적 그래프로 표현하며 임계값을 단계적으로 완화하는 retry 루프를 내장했습니다.</span></li>
+              <li><b>Claude API 연동 및 질문 자동 분류 라우팅, FastAPI + SSE 스트리밍 서빙</b><span class="detail-sub">→ 동일한 RAG 검색기를 재사용하고 생성 노드만 Claude API(claude-haiku-4-5)로 교체해 SOP_GPT와 실시간 비교하는 분할화면 UI를 구성했습니다. Claude Haiku(temperature=0)로 질문을 잡담/사실형/일반으로 자동 분류해 적합한 체인으로 라우팅하며, FastAPI + SSE 스트리밍으로 서빙합니다.</span></li>
+            </ul>
+          </div>
+          <img src="images/chatbot.png" alt="한국어 Mini-GPT 챗봇" class="proj-image">
         </div></div>
       </div>
       </div></div>
