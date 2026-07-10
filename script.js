@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0, rootMargin: "0px 0px 200px 0px" }
+    { threshold: 0, rootMargin: "0px 0px -60px 0px" }
   );
   targets.forEach((el) => observer.observe(el));
 
@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const isMobile = () => window.matchMedia("(max-width: 640px)").matches;
   let lastScrollY = window.scrollY;
 
+  const topBtn = document.getElementById("topBtn");
+
   window.addEventListener(
     "scroll",
     () => {
@@ -49,15 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isMobile()) {
         nav.classList.remove("nav-hidden");
         lastScrollY = currentY;
-        return;
+      } else {
+        if (currentY > lastScrollY && currentY > nav.offsetHeight) {
+          nav.classList.add("nav-hidden");
+        } else {
+          nav.classList.remove("nav-hidden");
+        }
+        lastScrollY = currentY;
       }
 
-      if (currentY > lastScrollY && currentY > nav.offsetHeight) {
-        nav.classList.add("nav-hidden");
-      } else {
-        nav.classList.remove("nav-hidden");
+      if (topBtn) {
+        topBtn.classList.toggle("visible", currentY > 300);
       }
-      lastScrollY = currentY;
     },
     { passive: true }
   );

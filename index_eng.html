@@ -26,18 +26,38 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="tag">ABOUT ME</div>
-    <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-    <div class="meta">
-      <span><b>Role</b> Game Server · Backend Developer</span>
-      <span><b>Experience</b> 4 Years</span>
-      <span><b>Age</b> 32 (Born 1994)</span>
-      <span><b>Military</b> Military Service Completed</span>
-    </div>
-    <div class="meta">
-      <span><b>Phone</b> 010-9929-0034</span>
-      <span><b>E-mail</b> 1sanguk@naver.com</span>
-      <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+    <div class="hero-body">
+      <div class="tag">ABOUT ME</div>
+      <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
+      <p class="hero-intro">Game Server · Backend Developer. From operating live multi-region services to building an AI chatbot from scratch — I dig deep until the problem is solved.</p>
+      <div class="meta">
+        <span><b>Role</b> Game Server · Backend Developer</span>
+        <span><b>Experience</b> 4 Years</span>
+        <span><b>Age</b> 32 (Born 1994)</span>
+        <span><b>Military</b> Military Service Completed</span>
+      </div>
+      <div class="meta">
+        <span><b>Phone</b> 010-9929-0034</span>
+        <span><b>E-mail</b> 1sanguk@naver.com</span>
+        <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <div class="hero-card-icon">🎮</div>
+          <div class="hero-card-title">Game Server Dev</div>
+          <div class="hero-card-desc">Multi-region live ops · performance tuning · real-time chat server from scratch</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">⚡</div>
+          <div class="hero-card-title">Performance</div>
+          <div class="hero-card-desc">DB indexing · Redis caching · up to 10× response time reduction</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🤖</div>
+          <div class="hero-card-title">AI · LLM</div>
+          <div class="hero-card-desc">GPT from scratch · RAG · LangGraph · Claude API</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -703,25 +723,23 @@
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">Korean Mini-GPT Chatbot <span class="pdate">2026.05 –</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">KakaoTech Bootcamp Deep Dive · GPT Architecture from Scratch + RAG / LangChain / LangGraph / Claude API</p>
+        <div class="proj-title">RPG &amp; Game-Specialized Korean Mini-GPT Chatbot <span class="pdate">2026.05 –</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">KakaoTech Bootcamp Deep Dive · GPT Architecture from Scratch + Qwen3 Local LLM + RAG / LangChain / LangGraph / Claude API</p>
         <ul class="duty">
-          <li>Designed and implemented GPT architecture (~97M params) and character-unit BPE tokenizer from scratch</li>
-          <li>Built multi-stage training pipeline on KorQuAD &amp; AI Hub data (continuation → QA → span extraction → DPO)</li>
-          <li>TF-IDF / BM25+FAISS hybrid retriever-based RAG pipeline and LangChain/LangGraph chain</li>
-          <li>Claude API integration with auto question classification routing; FastAPI + SSE streaming serving</li>
+          <li>Designed GPT (~97M params) &amp; jamo-unit BPE tokenizer from scratch; completed multi-stage training (continuation → QA → span → DPO)</li>
+          <li>BM25+FAISS hybrid RAG + LangGraph 4-graph pipeline / Qwen3-1.7B local LLM in BF16 &amp; GGUF Q4_K_M modes</li>
+          <li>Claude Haiku auto question classification routing + 4-panel real-time comparison UI, FastAPI + SSE streaming</li>
         </ul>
-        <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span></div>
+        <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>Qwen3</span><span>GGUF</span><span>llama-cpp</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>GPT architecture (~97M params) and character-unit BPE tokenizer from scratch</b><span class="detail-sub">→ Implemented a tokenizer that decomposes Korean via NFD into jamo units, applies BPE, and recomposes via NFC. Designed a GPT decoder (CausalSelfAttention + MLP(GELU) + Pre-norm) from scratch, including KV Cache incremental decoding and various sampling strategies.</span></li>
-              <li><b>Multi-stage training pipeline on KorQuAD &amp; AI Hub data</b><span class="detail-sub">→ Trained on kowikitext + AI Hub Korean dialogue data through: continuation (Stage 1) → QA fine-tuning → span extraction RAG QA → DPO preference learning. Applied bf16 mixed precision and cosine LR decay.</span></li>
-              <li><b>BM25+FAISS hybrid retriever RAG pipeline and LangChain/LangGraph chain</b><span class="detail-sub">→ Started with TF-IDF RAG, then upgraded to a BM25+FAISS hybrid retriever, improving routing accuracy from 73.3% to 82.7%. Assembled chains via LangChain LCEL and expressed the retrieve→evaluate→retry→generate flow as an explicit LangGraph StateGraph with a gradual threshold retry loop.</span></li>
-              <li><b>Claude API integration, auto question routing, FastAPI + SSE streaming</b><span class="detail-sub">→ Reused the same RAG retriever, swapping only the generation node to Claude API for a split-screen real-time comparison UI. Claude API classifies questions into casual/factual/general and routes to the appropriate chain; served via FastAPI + SSE streaming.</span></li>
+              <li><b>GPT (~97M params) &amp; jamo-unit BPE tokenizer from scratch + multi-stage training</b><span class="detail-sub">→ Implemented a tokenizer that decomposes Korean via NFD into jamo units and applies BPE. Designed a GPT decoder (CausalSelfAttention + MLP(GELU) + Pre-norm) from scratch, and built a staged training pipeline on kowikitext + AI Hub data: continuation → QA fine-tuning → span extraction → DPO preference learning, with bf16 mixed precision and cosine LR decay.</span></li>
+              <li><b>BM25+FAISS hybrid RAG + LangGraph 4-graph pipeline / Qwen3-1.7B local LLM in two modes</b><span class="detail-sub">→ Upgraded from TF-IDF to a BM25+FAISS hybrid retriever, improving routing accuracy from 73.3% to 82.7%. Built 4 LangGraph StateGraphs (SOP_GPT / Claude / Qwen BF16 / Qwen Q4) using a node factory pattern. Integrated Qwen3-1.7B as both BF16 via Transformers+MPS and GGUF Q4_K_M via llama-cpp — benchmarked on 100 KorQuAD questions, Q4_K_M was 3.3× faster with &lt;2%p accuracy gap.</span></li>
+              <li><b>Claude Haiku auto routing + 4-panel comparison UI + FastAPI SSE streaming</b><span class="detail-sub">→ Claude Haiku classifies each question into casual / factual / general and routes it to the appropriate chain automatically. All 4 models (SOP_GPT · Claude · Qwen BF16 · Qwen Q4) stream responses simultaneously in a 4-panel UI via FastAPI + SSE. Login secured with PBKDF2-HMAC-SHA256; conversation context persisted across sessions via LangGraph MemorySaver (short-term) + JSON files (long-term).</span></li>
             </ul>
           </div>
-          <img src="images/chatbot.png" alt="Korean Mini-GPT Chatbot" class="proj-image">
+          <img src="images/chatbot.png" alt="RPG &amp; Game-Specialized Korean Mini-GPT Chatbot" class="proj-image">
         </div></div>
       </div>
       </div></div>
@@ -730,6 +748,8 @@
     </div></div>
   </div>
 </section>
+
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
 
 <footer>
   © 2026 Park Sang Ouk (Steve Park) · <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a>

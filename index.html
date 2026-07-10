@@ -26,18 +26,38 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="tag">ABOUT ME</div>
-    <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-    <div class="meta">
-      <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
-      <span><b>경력</b> 4년</span>
-      <span><b>나이</b> 32세 (94년생)</span>
-      <span><b>병역</b> 군필 (병장 만기제대)</span>
-    </div>
-    <div class="meta">
-      <span><b>연락처</b> 010-9929-0034</span>
-      <span><b>E-mail</b> 1sanguk@naver.com</span>
-      <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+    <div class="hero-body">
+      <div class="tag">ABOUT ME</div>
+      <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
+      <p class="hero-intro">게임 서버 · 백엔드 개발자. 실서비스 운영부터 AI 챗봇 직접 구현까지, 문제를 끝까지 파고드는 개발자입니다.</p>
+      <div class="meta">
+        <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
+        <span><b>경력</b> 4년</span>
+        <span><b>나이</b> 32세 (94년생)</span>
+        <span><b>병역</b> 군필 (병장 만기제대)</span>
+      </div>
+      <div class="meta">
+        <span><b>연락처</b> 010-9929-0034</span>
+        <span><b>E-mail</b> 1sanguk@naver.com</span>
+        <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <div class="hero-card-icon">🎮</div>
+          <div class="hero-card-title">게임 서버 개발</div>
+          <div class="hero-card-desc">다중 국가 실서비스 운영 · 성능 개선 · 실시간 채팅 서버 신규 구축</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">⚡</div>
+          <div class="hero-card-title">성능 최적화</div>
+          <div class="hero-card-desc">DB 인덱싱 · Redis 캐싱 · 응답속도 최대 10배 단축</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🤖</div>
+          <div class="hero-card-title">AI · LLM</div>
+          <div class="hero-card-desc">GPT 아키텍처 직접 구현 · RAG · LangGraph · Claude API</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -702,25 +722,23 @@
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">카카오테크 부트캠프 딥다이브 · GPT 아키텍처 직접 구현 + RAG / LangChain / LangGraph / Claude API</p>
+        <div class="proj-title">RPG·게임 특화 한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">카카오테크 부트캠프 딥다이브 · GPT 아키텍처 직접 구현 + Qwen3 로컬 LLM + RAG / LangChain / LangGraph / Claude API</p>
         <ul class="duty">
-          <li>GPT 아키텍처(~97M params) 및 자모 단위 BPE 토크나이저 직접 설계·구현</li>
-          <li>KorQuAD·AI Hub 데이터 기반 다단계 학습 파이프라인 구축 (이어쓰기 → QA → 스팬 → DPO)</li>
-          <li>TF-IDF / BM25+FAISS 하이브리드 검색기 기반 RAG 파이프라인 및 LangChain/LangGraph 체인 구성</li>
-          <li>Claude API 연동 및 질문 자동 분류 라우팅, FastAPI + SSE 스트리밍 서빙</li>
+          <li>GPT 아키텍처(~97M params) · 자모 BPE 토크나이저 직접 구현, 다단계 학습(이어쓰기→QA→스팬→DPO) 완료</li>
+          <li>BM25+FAISS 하이브리드 RAG + LangGraph 4그래프 구성 / Qwen3-1.7B 로컬 LLM BF16·GGUF Q4_K_M 두 모드 서빙</li>
+          <li>Claude Haiku 질문 자동 분류 라우팅 + 4분할 실시간 비교 UI, FastAPI + SSE 스트리밍</li>
         </ul>
-        <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span></div>
+        <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>Qwen3</span><span>GGUF</span><span>llama-cpp</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>GPT 아키텍처(~97M params) 및 자모 단위 BPE 토크나이저 직접 설계·구현</b><span class="detail-sub">→ 한글을 NFD로 분해해 자모 단위 BPE를 적용하는 토크나이저를 직접 구현했습니다. CausalSelfAttention + MLP(GELU) + Pre-norm 구조의 GPT 디코더를 처음부터 설계했고, KV Cache 기반 증분 디코딩과 다양한 샘플링 기법도 직접 구현했습니다.</span></li>
-              <li><b>KorQuAD·AI Hub 데이터 기반 다단계 학습 파이프라인 구축</b><span class="detail-sub">→ kowikitext + AI Hub 데이터로 이어쓰기 → QA 파인튜닝 → 스팬 추출 RAG QA → DPO 선호 학습 순으로 단계적 학습 파이프라인을 구축했고, bf16 혼합 정밀도와 cosine LR decay를 적용했습니다.</span></li>
-              <li><b>TF-IDF / BM25+FAISS 하이브리드 검색기 기반 RAG 파이프라인 및 LangChain/LangGraph 체인 구성</b><span class="detail-sub">→ TF-IDF 기반 RAG를 구현한 뒤 BM25+FAISS 하이브리드 검색기로 개선해 라우팅 정확도를 73.3%→82.7%로 높였습니다. LangChain LCEL로 체인을 조립하고, LangGraph StateGraph로 검색→평가→재시도→생성 흐름을 명시적 그래프로 구성했습니다.</span></li>
-              <li><b>Claude API 연동 및 질문 자동 분류 라우팅, FastAPI + SSE 스트리밍 서빙</b><span class="detail-sub">→ 동일한 RAG 검색기에서 생성 노드만 Claude API로 교체해 분할화면 실시간 비교 UI를 구성했습니다. Claude API로 질문을 잡담/사실형/일반으로 자동 분류해 적합한 체인으로 라우팅하며, FastAPI + SSE 스트리밍으로 서빙합니다.</span></li>
+              <li><b>GPT 아키텍처(~97M params) · 자모 BPE 토크나이저 직접 구현 + 다단계 학습</b><span class="detail-sub">→ 한글을 NFD로 분해해 자모 단위 BPE를 적용하는 토크나이저를 직접 구현했습니다. CausalSelfAttention + MLP(GELU) + Pre-norm 구조의 GPT 디코더를 처음부터 설계하고, kowikitext + AI Hub 데이터로 이어쓰기 → QA 파인튜닝 → 스팬 추출 → DPO 선호 학습 순으로 단계적 학습 파이프라인을 구축했습니다.</span></li>
+              <li><b>BM25+FAISS 하이브리드 RAG + LangGraph 4그래프 / Qwen3-1.7B 로컬 LLM 두 모드 서빙</b><span class="detail-sub">→ BM25+FAISS 하이브리드 검색기로 라우팅 정확도를 73.3%→82.7%로 높였습니다. LangGraph StateGraph로 검색→평가→재시도→생성 흐름을 4가지 그래프(SOP_GPT / Claude / Qwen BF16 / Qwen Q4)로 조립했고, Qwen3-1.7B를 Transformers+MPS(BF16)와 llama-cpp(GGUF Q4_K_M) 두 모드로 서빙해 KorQuAD 100문항 기준 Q4_K_M이 3.3배 빠름을 확인했습니다.</span></li>
+              <li><b>Claude Haiku 자동 분류 라우팅 + 4분할 비교 UI + FastAPI SSE 스트리밍</b><span class="detail-sub">→ Claude Haiku가 질문을 잡담 / 사실형 / 일반으로 자동 분류해 적합한 체인으로 라우팅합니다. 4분할 화면(SOP_GPT · Claude · Qwen BF16 · Qwen Q4)에서 동일 질문에 대한 4개 모델 응답을 SSE 스트리밍으로 동시 비교하며, PBKDF2-HMAC-SHA256 로그인과 MemorySaver·JSON 이중 메모리로 세션 간 대화 맥락을 유지합니다.</span></li>
             </ul>
           </div>
-          <img src="images/chatbot.png" alt="한국어 Mini-GPT 챗봇" class="proj-image">
+          <img src="images/chatbot.png" alt="RPG·게임 특화 한국어 Mini-GPT 챗봇" class="proj-image">
         </div></div>
       </div>
       </div></div>
@@ -729,6 +747,8 @@
     </div></div>
   </div>
 </section>
+
+<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
 
 <footer>
   © 2026 Park Sang Ouk (Steve Park) · <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a>

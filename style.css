@@ -196,9 +196,66 @@ nav.topnav .links a:not(.active):hover {
 
 /* Hero */
 .hero {
-  padding: 6.25rem 0 4rem;
+  height: 100vh;
+  padding: 7rem 0 4rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
+
+.hero-body {
+  width: 100%;
+}
+
+.hero-intro {
+  font-size: 1.125rem;
+  color: var(--text-dim);
+  margin-top: 1.375rem;
+  max-width: 40rem;
+  line-height: 1.75;
+}
+
+.hero-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.875rem;
+  padding: 1.5rem 1.375rem;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.hero-card:hover {
+  border-color: rgba(124, 92, 255, 0.4);
+  transform: translateY(-0.1875rem);
+  box-shadow: var(--shadow);
+}
+
+.hero-card-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.hero-card-title {
+  font-size: 1.0312rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.375rem;
+}
+
+.hero-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
 
 .hero .tag {
   display: inline-block;
@@ -1240,7 +1297,18 @@ footer a {
     padding: 2.75rem 0;
   }
   .hero {
-    padding: 4.5rem 0 2.5rem;
+    height: auto;
+    padding: 5.5rem 0 4rem;
+    align-items: flex-start;
+    overflow: visible;
+  }
+  .hero-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .hero-intro {
+    font-size: 1rem;
   }
   .hero h1 {
     font-size: 2.25rem;
@@ -1392,4 +1460,35 @@ footer a {
   .career-toc {
     display: none;
   }
+}
+
+/* ── Top 버튼 ── */
+.top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 900;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.top-btn:hover {
+  background: var(--accent2);
 }
