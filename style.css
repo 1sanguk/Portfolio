@@ -1415,6 +1415,10 @@ footer a {
     display: none;
   }
 
+  .lang-switch {
+    display: none;
+  }
+
   /* scroll-reveal animation never fires without scrolling — force everything visible */
   .reveal {
     opacity: 1 !important;
@@ -1459,6 +1463,36 @@ footer a {
 
   .career-toc {
     display: none;
+  }
+
+  /* Tighter top/bottom whitespace per exported page (PowerPoint-like density) */
+  .hero {
+    height: auto;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .hero-cards {
+    margin-top: 1.5rem;
+  }
+
+  section.block {
+    padding: 1.5rem 0;
+  }
+
+  section.block h2 {
+    margin-bottom: 1.125rem;
+  }
+
+  #career-detail {
+    padding-top: 0.5rem;
+  }
+
+  .career-timeline {
+    margin-bottom: 1.125rem;
+  }
+
+  footer {
+    padding: 1.25rem 0;
   }
 }
 
