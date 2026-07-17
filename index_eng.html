@@ -50,7 +50,7 @@
         <div class="hero-card">
           <div class="hero-card-icon">⚡</div>
           <div class="hero-card-title">Performance</div>
-          <div class="hero-card-desc">DB indexing · Redis caching · up to 10× response time reduction</div>
+          <div class="hero-card-desc">DB indexing · Redis caching · ranking queries cut from 10–20s to 1–2s</div>
         </div>
         <div class="hero-card">
           <div class="hero-card-icon">🤖</div>
@@ -168,7 +168,7 @@
     <div class="row-list">
       <div class="row">
         <div class="period">2026.03.25</div>
-        <div class="content"><b>OPIc IH (English)</b><span class="sub">FIMX-CN2J-COMM-OA7F-UFL7 · ACTFL</span></div>
+        <div class="content"><b>OPIc IH (English)</b><span class="sub">ACTFL</span></div>
       </div>
       <div class="row">
         <div class="period">2024.06</div>
@@ -208,7 +208,7 @@
     <div class="skill-group">
       <div class="label">Frameworks / Tools</div>
       <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="3">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5">GitHub</span><span class="skill-tag" data-level="중상" data-years="3">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1">Spring Boot</span><span class="skill-tag" data-level="중" data-years="3">SVN</span><span class="skill-tag" data-level="하" data-years="1">Nexacro</span><span class="skill-tag" data-level="하" data-years="1">React Native</span>
+        <span class="skill-tag" data-level="중상" data-years="3">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5">GitHub</span><span class="skill-tag" data-level="중상" data-years="3">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1">Spring Boot</span><span class="skill-tag" data-level="중" data-years="2">ASP.NET Core</span><span class="skill-tag" data-level="중" data-years="3">SVN</span><span class="skill-tag" data-level="하" data-years="1">Nexacro</span><span class="skill-tag" data-level="하" data-years="1">React Native</span>
       </div>
     </div>
     <div class="skill-group">
@@ -250,25 +250,28 @@
         </div>
         <div class="star-row">
           <span class="star-label">T</span>
-          <p>Responsible for login stabilization, plaza/village channel distribution, new chat server development, and operations tool design.</p>
+          <p>Responsible for login stabilization, plaza/village channel distribution, new chat server development, ranking query performance, and operations tool design.</p>
         </div>
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
+            <li>Identified that per-API locks in the login flow were serializing every user's requests — narrowed lock scope to per-user so different users' logins run in parallel, and replaced shared state with thread-safe structures such as ConcurrentDictionary to eliminate lock contention entirely. Expanded the DB connection pool and added missing indexes to clear the remaining bottlenecks.</li>
+            <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact — protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
+            <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels — the 30-user capacity was validated through blind testing.</li>
             <li>Independently designed and built a new chat server from scratch</li>
-            <li>Introduced per-channel capacity limits to address single-channel overcrowding. Blind testing showed noticeable lag at 50 concurrent users, so the limit was reduced to 30 to ensure stable performance.</li>
-            <li>Reduced unnecessary lock contention in the login flow and parallelized independently executable operations. Expanded the DB connection pool and added missing indexes.</li>
             <li>Stored contribution and fashion-match voting scores in Redis to support real-time ranking updates without adding load to MySQL.</li>
             <li>Switched ranking reads from direct MySQL queries to paging + Redis caching to distribute concurrent query load</li>
-            <li>Independently designed and developed the operations team's operations tool</li>
+            <li>Independently designed and developed the operations team's tool on ASP.NET Core</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="stat-pairs">
-            <div class="stat-pair"><span class="stat-name">Login processing time</span><b>2–3 min</b><span class="arrow">→</span><b class="good">10–30 sec</b></div>
-            <div class="stat-pair"><span class="stat-name">Channel user limit</span><b>50</b><span class="arrow">→</span><b class="good">30 (congestion resolved)</b></div>
-            <div class="stat-pair"><span class="stat-name">Ranking query time</span><b>10–20 sec</b><span class="arrow">→</span><b class="good">1–2 sec</b></div>
+          <div class="star-result-body">
+            <div class="stat-pairs">
+              <div class="stat-pair"><span class="stat-name">Login processing time</span><b>30 sec–3 min</b><span class="arrow">→</span><b class="good">10–30 sec</b></div>
+              <div class="stat-pair"><span class="stat-name">Ranking query time</span><b>10–20 sec</b><span class="arrow">→</span><b class="good">1–2 sec</b></div>
+            </div>
+            <p>The single-channel overcrowding in the plaza and village was resolved through least-loaded channel placement and automatic channel scale-out near capacity, keeping the service stable without lag or disconnections.</p>
           </div>
         </div>
       </div>
@@ -306,7 +309,7 @@
           <span class="star-label">R</span>
           <div class="star-result-body">
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Item lookup speed</span><b class="good">3–10 sec faster</b></div>
+              <div class="stat-pair"><span class="stat-name">Item lookup time</span><b class="good">3–10 sec faster</b></div>
               <div class="stat-pair"><span class="stat-name">Payment failure rate</span><b>4–5 / day</b><span class="arrow">→</span><b class="good">1 / 1–2 weeks</b></div>
             </div>
             <p>After the dashboard launch, operations team requests shifted from one-off data pulls to feature-driven analytics requests, and they could identify error-prone periods on their own.</p>
@@ -385,11 +388,11 @@
           <li>Developed chat/plaza/village/district servers for diverse user interactions</li>
           <li>Redis-based ranking management and game server content development</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Stabilized large-scale user environment through data management and optimization</b><span class="detail-sub">→ Built on CocoMine Sanrio, identified bottlenecks and applied indexing/query optimization, reducing item and ranking data processing from 5–15s to 2–6s, and login time from 30s–3min to 10–30s.</span></li>
+              <li><b>Stabilized large-scale user environment through data management and optimization</b><span class="detail-sub">→ While developing on the CocoMine Sanrio codebase, identified bottlenecks and applied indexing/query optimization, reducing item and ranking data processing from 5–15s to 2–6s. Reworked the login system — narrowing per-API locks to per-user scope so different users' logins run in parallel, backed by ConcurrentDictionary-based concurrent structures — cutting login time from 30s–3min to 10–30s.</span></li>
               <li><b>Developed chat/plaza/village/district servers for diverse user interactions</b><span class="detail-sub">→ Added village and district servers for new content variety; introduced interactive items, interaction motions, and an address system within the village.</span></li>
               <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">→ Migrated the frequently-queried ranking system to Redis, reducing query time from 10–20s to 1–2s.</span></li>
             </ul>
@@ -406,13 +409,13 @@
           <li>Built chat and plaza servers for real-time user interaction</li>
           <li>Redis-based ranking management and thread-based session isolation for stability and scalability</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Led full administrative system development; improved server performance</b><span class="detail-sub">→ Designed and built the administrative page for the operations team, added a BigQuery-powered game currency and item statistics dashboard, and removed redundant or overlapping logic to improve performance.</span></li>
+              <li><b>Led full administrative system development; improved server performance</b><span class="detail-sub">→ Designed and built the ASP.NET Core-based administrative page for the operations team, added a BigQuery-powered game currency and item statistics dashboard, and removed redundant or overlapping logic to improve performance.</span></li>
               <li><b>Built chat and plaza servers for real-time user interaction</b><span class="detail-sub">→ Extended the solo farming and decorating space into a shared environment where users can chat and see each other's avatars.</span></li>
-              <li><b>Redis-based ranking management and thread-based session isolation</b><span class="detail-sub">→ Migrated the ranking system to Redis, reducing query time from 10–20s to 1–2s.</span></li>
+              <li><b>Redis-based ranking management and thread-based session isolation</b><span class="detail-sub">→ Migrated the ranking system to Redis, reducing query time from 10–20s to 1–2s. Also isolated user session handling into separate threads so a delayed request from one user no longer blocks other users' sessions, keeping the server responsive as concurrency grows.</span></li>
             </ul>
           </div>
           <img src="images/코코마인산리오캐릭터즈.png" alt="CocoMine Sanrio Characters" class="proj-image">

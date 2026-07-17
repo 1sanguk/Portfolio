@@ -29,7 +29,7 @@
     <div class="hero-body">
       <div class="tag">ABOUT ME</div>
       <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">게임 서버 · 백엔드 개발자. 실서비스 운영부터 AI 챗봇 직접 구현까지, 문제를 끝까지 파고드는 개발자입니다.</p>
+      <p class="hero-intro">게임 서버 · 백엔드 개발자. 실서비스 운영부터 AI 챗봇 직접 구현까지, 문제를 끝까지 파고듭니다.</p>
       <div class="meta">
         <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
         <span><b>경력</b> 4년</span>
@@ -50,7 +50,7 @@
         <div class="hero-card">
           <div class="hero-card-icon">⚡</div>
           <div class="hero-card-title">성능 최적화</div>
-          <div class="hero-card-desc">DB 인덱싱 · Redis 캐싱 · 응답속도 최대 10배 단축</div>
+          <div class="hero-card-desc">DB 인덱싱 · Redis 캐싱 · 랭킹 조회 10~20초 → 1~2초 단축</div>
         </div>
         <div class="hero-card">
           <div class="hero-card-icon">🤖</div>
@@ -168,7 +168,7 @@
     <div class="row-list">
       <div class="row">
         <div class="period">2026.03.25</div>
-        <div class="content"><b>OPIc IH</b><span class="sub">FIMX-CN2J-COMM-OA7F-UFL7 · ACTFL</span></div>
+        <div class="content"><b>OPIc IH</b><span class="sub">ACTFL</span></div>
       </div>
       <div class="row">
         <div class="period">2024.06</div>
@@ -208,7 +208,7 @@
     <div class="skill-group">
       <div class="label">프레임워크 / 협업툴</div>
       <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="3년">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5년">GitHub</span><span class="skill-tag" data-level="중상" data-years="3년">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1년">Spring Boot</span><span class="skill-tag" data-level="중" data-years="3년">SVN</span><span class="skill-tag" data-level="하" data-years="1년">Nexacro</span><span class="skill-tag" data-level="하" data-years="1년">React Native</span>
+        <span class="skill-tag" data-level="중상" data-years="3년">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5년">GitHub</span><span class="skill-tag" data-level="중상" data-years="3년">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1년">Spring Boot</span><span class="skill-tag" data-level="중" data-years="2년">ASP.NET Core</span><span class="skill-tag" data-level="중" data-years="3년">SVN</span><span class="skill-tag" data-level="하" data-years="1년">Nexacro</span><span class="skill-tag" data-level="하" data-years="1년">React Native</span>
       </div>
     </div>
     <div class="skill-group">
@@ -250,25 +250,28 @@
         </div>
         <div class="star-row">
           <span class="star-label">T</span>
-          <p>로그인 안정화, 광장·빌리지 채널 분산 로직 개선, 채팅 서버 신규 구축, 운영툴 설계를 맡았습니다.</p>
+          <p>로그인 안정화, 광장·빌리지 채널 분산 로직 개선, 채팅 서버 신규 구축, 랭킹 조회 성능 개선, 운영툴 설계를 맡았습니다.</p>
         </div>
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
+            <li>로그인 과정에서 API마다 걸려있던 락이 모든 유저의 요청을 직렬화하는 병목임을 확인 — 락 범위를 유저 단위로 좁혀 서로 다른 유저의 로그인이 병렬로 처리되도록 개선하고, 공유 상태는 ConcurrentDictionary 등 스레드 안전 자료구조로 교체해 락 경합 자체를 제거. DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소</li>
+            <li>광장·빌리지에 채널 풀(기본 5개)을 두고 인원 기반 최소 부하 채널로 신규 유저를 배치하는 분산 로직을 설계, 채널별 유저 상태를 격리 관리해 같은 채널 유저끼리만 상호작용하도록 구성 — 동시 접속 시 채널별 인원 카운터가 꼬이는 경쟁 상태(race condition)를 Go의 mutex(sync.Mutex)로 보호해 정합성 확보</li>
+            <li>전체 채널이 정원 30명 중 25명에 근접하면 채널 5개를 자동으로 일괄 증설하는 스케일아웃 로직을 구현하되, 증설 직후 유저가 새 채널로 한꺼번에 몰리는 부하 폭주(thundering herd)를 막기 위해 신규 유저를 점진적·분산 배치 — 정원 수치는 블라인드 테스트로 검증해 30명으로 확정</li>
             <li>채팅 서버를 설계부터 구현까지 단독으로 신규 개발</li>
-            <li>채널당 인원 임계치를 도입해 광장·빌리지의 1채널 과밀 구조를 개선 — 블라인드 테스트로 50명에서도 버벅임이 느껴져 30명까지 낮춰 안정화</li>
-            <li>로그인 시 API마다 개별로 걸려있던 락 때문에 세션이 순차 대기하던 구조를 멀티쓰레드로 분리해 각자 처리되도록 수정, DB 커넥션 풀 확충과 누락된 인덱스 추가</li>
             <li>기부 기여도 점수·패션매치 투표 점수를 Redis로 실시간 반영해 MySQL 부하 없이 랭킹 갱신</li>
             <li>랭킹을 매번 MySQL에서 직접 조회하던 방식을 페이징 + Redis 캐싱 구조로 변경해 동시 조회 부하를 분산</li>
-            <li>운영팀이 쓰는 운영툴을 단독으로 설계·개발</li>
+            <li>운영팀이 쓰는 운영툴을 ASP.NET Core 기반으로 단독 설계·개발</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="stat-pairs">
-            <div class="stat-pair"><span class="stat-name">로그인 처리 시간</span><b>2~3분</b><span class="arrow">→</span><b class="good">10~30초</b></div>
-            <div class="stat-pair"><span class="stat-name">채널 인원 임계치</span><b>50명</b><span class="arrow">→</span><b class="good">30명 (혼잡 해소)</b></div>
-            <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><b>10~20초</b><span class="arrow">→</span><b class="good">1~2초</b></div>
+          <div class="star-result-body">
+            <div class="stat-pairs">
+              <div class="stat-pair"><span class="stat-name">로그인 처리 시간</span><b>30초~3분</b><span class="arrow">→</span><b class="good">10~30초</b></div>
+              <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><b>10~20초</b><span class="arrow">→</span><b class="good">1~2초</b></div>
+            </div>
+            <p>광장·빌리지의 1채널 과밀 문제는 최소 부하 채널 배치와 정원 근접 시 자동 채널 증설 로직으로 해결해, 렉·끊김 없이 안정적으로 운영되도록 개선했습니다.</p>
           </div>
         </div>
       </div>
@@ -298,7 +301,7 @@
           <ul class="duty">
             <li>5.7→8.0 마이그레이션 호환성 대응과 함께 아이템 조회 등 주요 쿼리에 인덱싱·최적화 적용</li>
             <li>결제 응답이 늦어질 때 자동으로 재시도(retry)하는 로직 추가</li>
-            <li>재시도 전에 이전 결제 및 지급 내역을 대조해 중복 지급을 방지하고, 결제 완료 후 아이템이 지급되지 않은 건을 안전하게 복구했습니다.</li>
+            <li>재시도 전에 이전 결제 및 지급 내역을 대조해 중복 지급을 방지하고, 결제 완료 후 아이템이 지급되지 않은 건을 안전하게 복구</li>
             <li>Looker Studio 기반 재화·토큰 통계 대시보드를 구축해 운영팀이 직접 데이터를 확인할 수 있도록 지원</li>
           </ul>
         </div>
@@ -306,7 +309,7 @@
           <span class="star-label">R</span>
           <div class="star-result-body">
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">아이템 조회 속도</span><b class="good">3~10초 단축</b></div>
+              <div class="stat-pair"><span class="stat-name">아이템 조회 시간</span><b class="good">3~10초 단축</b></div>
               <div class="stat-pair"><span class="stat-name">결제 실패 빈도</span><b>하루 4~5건</b><span class="arrow">→</span><b class="good">1~2주에 1건</b></div>
             </div>
             <p>대시보드 도입 후 운영팀의 단건 데이터 요청이 "이런 통계도 보고 싶다"는 기획성 요청으로 바뀌었고, 오류가 빈발하는 구간을 직접 파악할 수 있게 됐습니다.</p>
@@ -385,11 +388,11 @@
           <li>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</li>
           <li>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>데이터 관리·최적화 및 서버 구조 개선으로 대규모 유저 환경 안정성 확보</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈를 바탕으로 렉이 걸리는 부분을 발견하고 인덱싱·쿼리 최적화를 적용해 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간을 5~15초에서 2~6초로 단축했고, 로그인 시스템 개편으로 로그인 시간을 30초~3분에서 10~30초로 줄였습니다.</span></li>
+              <li><b>데이터 관리·최적화 및 서버 구조 개선으로 대규모 유저 환경 안정성 확보</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 기반으로 개발하면서 렉이 걸리는 부분을 발견하고 인덱싱·쿼리 최적화를 적용해 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간을 5~15초에서 2~6초로 단축했습니다. 또 로그인 과정의 API 단위 락을 유저 단위로 좁혀 서로 다른 유저의 로그인이 병렬 처리되도록 하고, 공유 상태를 ConcurrentDictionary 기반 동시성 자료구조로 교체하는 로그인 시스템 개편으로 로그인 시간을 30초~3분에서 10~30초로 줄였습니다.</span></li>
               <li><b>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</b><span class="detail-sub">→ 빌리지·지적도 서버를 새로 추가해 콘텐츠를 다양화했고, 빌리지 안에서 사용할 수 있는 인터랙티브 아이템과 상호작용 모션, 주소 시스템을 새롭게 추가했습니다.</span></li>
               <li><b>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
             </ul>
@@ -404,15 +407,15 @@
         <ul class="duty">
           <li>어드민 전체 기능 개발 주도, 데이터 관리 및 최적화로 서버 성능 개선</li>
           <li>채팅 서버·광장 서버 개발로 유저 간 실시간 상호작용 지원</li>
-          <li>Redis 기반 랭킹 관리, 쓰레드 이용 세션 분리로 안정성·확장성 확보</li>
+          <li>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>어드민 전체 기능 개발 주도, 데이터 관리 및 최적화로 서버 성능 개선</b><span class="detail-sub">→ 운영팀이 게임 콘텐츠나 요소에 쉽게 접근할 수 있도록 어드민 홈페이지를 직접 설계·개발했고, BigQuery로 게임 재화·아이템 등 게임 로그 통계 사이트를 추가해 운영팀의 게임 운영을 도왔습니다. 서버 성능 개선을 위해 인덱싱과 불필요·중복 로직을 찾아내어 제거했습니다.</span></li>
+              <li><b>어드민 전체 기능 개발 주도, 데이터 관리 및 최적화로 서버 성능 개선</b><span class="detail-sub">→ 운영팀이 게임 콘텐츠나 요소에 쉽게 접근할 수 있도록 ASP.NET Core 기반 어드민 홈페이지를 직접 설계·개발했고, BigQuery로 게임 재화·아이템 등 게임 로그 통계 사이트를 추가해 운영팀의 게임 운영을 도왔습니다. 서버 성능 개선을 위해 인덱싱과 불필요·중복 로직을 찾아내어 제거했습니다.</span></li>
               <li><b>채팅 서버·광장 서버 개발로 유저 간 실시간 상호작용 지원</b><span class="detail-sub">→ 혼자 파밍하고 집을 꾸미던 공간에서 여러 사람과 대화를 나누고 서로의 아바타를 볼 수 있는 채팅·광장 공간을 새롭게 지원했습니다.</span></li>
-              <li><b>Redis 기반 랭킹 관리, 쓰레드 이용 세션 분리로 안정성·확장성 확보</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
+              <li><b>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다. 또 유저 세션 처리를 스레드 단위로 분리해, 특정 유저의 요청이 지연되더라도 다른 유저의 세션이 함께 대기하지 않도록 개선해 동접이 늘어도 안정적으로 처리할 수 있는 구조를 만들었습니다.</span></li>
             </ul>
           </div>
           <img src="images/코코마인산리오캐릭터즈.png" alt="코코마인 산리오캐릭터즈" class="proj-image">
