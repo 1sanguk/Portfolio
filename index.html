@@ -29,7 +29,7 @@
     <div class="hero-body">
       <div class="tag">ABOUT ME</div>
       <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">게임 서버 · 백엔드 개발자. 실서비스 운영부터 AI 챗봇 직접 구현까지, 문제를 끝까지 파고듭니다.</p>
+      <p class="hero-intro">게임 서버 · 백엔드 개발자. 다국가 실서비스 운영, 성능 최적화, 운영 인프라 구축까지 — 문제를 끝까지 파고듭니다.</p>
       <div class="meta">
         <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
         <span><b>경력</b> 4년</span>
@@ -53,9 +53,9 @@
           <div class="hero-card-desc">DB 인덱싱 · Redis 캐싱 · 랭킹 조회 10~20초 → 1~2초 단축</div>
         </div>
         <div class="hero-card">
-          <div class="hero-card-icon">🤖</div>
-          <div class="hero-card-title">AI · LLM</div>
-          <div class="hero-card-desc">GPT 아키텍처 직접 구현 · RAG · LangGraph · Claude API</div>
+          <div class="hero-card-icon">🔧</div>
+          <div class="hero-card-title">운영 · 인프라</div>
+          <div class="hero-card-desc">어드민·운영툴 직접 설계 · 데이터 대시보드 구축 · DB 마이그레이션</div>
         </div>
       </div>
     </div>
@@ -267,9 +267,9 @@
             <li>로그인 과정에서 API마다 걸려있던 락이 모든 유저의 요청을 직렬화하는 병목임을 확인 — 락 범위를 유저 단위로 좁혀 서로 다른 유저의 로그인이 병렬로 처리되도록 개선하고, 공유 상태는 ConcurrentDictionary 등 스레드 안전 자료구조로 교체해 락 경합 자체를 제거. DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소</li>
             <li>광장·빌리지에 채널 풀(기본 5개)을 두고 인원 기반 최소 부하 채널로 신규 유저를 배치하는 분산 로직을 설계, 채널별 유저 상태를 격리 관리해 같은 채널 유저끼리만 상호작용하도록 구성 — 동시 접속 시 채널별 인원 카운터가 꼬이는 경쟁 상태(race condition)를 Go의 mutex(sync.Mutex)로 보호해 정합성 확보</li>
             <li>전체 채널이 정원 30명 중 25명에 근접하면 채널 5개를 자동으로 일괄 증설하는 스케일아웃 로직을 구현하되, 증설 직후 유저가 새 채널로 한꺼번에 몰리는 부하 폭주(thundering herd)를 막기 위해 신규 유저를 점진적·분산 배치 — 정원 수치는 블라인드 테스트로 검증해 30명으로 확정</li>
-            <li>채팅 기능이 없던 문제를 해소하기 위해 채팅 서버를 설계부터 구현까지 단독으로 신규 개발했습니다</li>
-            <li>MySQL 직접 조회로 부하가 컸던 랭킹은 기부 기여도·패션매치 점수를 Redis로 실시간 반영하고, 조회를 페이징 + Redis 캐싱 구조로 전환해 동시 요청 부하를 분산했습니다</li>
-            <li>운영팀이 데이터를 직접 확인할 수 있도록 ASP.NET Core 기반 운영툴을 단독 설계·개발했습니다</li>
+            <li>채팅 기능이 없던 문제를 해소하기 위해 기획팀과 스펙 협의를 거쳐 채팅 서버를 설계부터 구현까지 신규 개발했습니다</li>
+            <li>슬로우 쿼리 로그로 랭킹 조회가 DB 병목의 주요 원인임을 특정한 뒤, 기부 기여도·패션매치 점수를 Redis로 실시간 반영하고 조회를 페이징 + Redis 캐싱 구조로 전환해 동시 요청 부하를 분산했습니다</li>
+            <li>운영팀 담당자와 필요 기능을 협의해 요구사항을 확정하고, ASP.NET Core 기반 운영툴을 설계·개발했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -320,7 +320,7 @@
           <ul class="duty">
             <li>EOL에 따른 8.0 마이그레이션에서 인증 방식·GROUP BY 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정했고, 주요 쿼리에 인덱싱·최적화를 함께 적용해 성능도 개선했습니다</li>
             <li>결제 실패 문제는 네트워크 지연 시 자동 재시도(retry) 로직을 추가하는 것으로 해소했습니다. 재시도 전 이전 결제·지급 내역을 대조해 중복 지급을 방지했고, 결제는 완료됐으나 아이템이 지급되지 않은 건은 안전하게 복구하는 처리도 함께 구현했습니다</li>
-            <li>운영팀의 데이터 요청 의존도를 줄이기 위해 BigQuery와 Looker Studio를 연동한 재화·토큰 통계 대시보드를 구축해, 운영팀이 직접 필요한 데이터를 확인할 수 있도록 했습니다</li>
+            <li>운영팀과 필요 지표를 직접 논의해 BigQuery·Looker Studio 기반 재화·토큰 통계 대시보드를 구축, 운영팀이 데이터를 직접 확인할 수 있도록 했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -412,9 +412,7 @@
         <div class="proj-title">코코마인 <span class="pdate">2024.12 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">장르: 소셜 네트워킹 서비스(SNS) · 코지 라이프 시뮬레이션</p>
         <ul class="duty">
-          <li>데이터 관리·최적화 및 서버 구조 개선으로 대규모 유저 환경 안정성 확보</li>
-          <li>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</li>
-          <li>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</li>
+          <li>로그인 병목 해소 (30초~3분 → 10~30초) · 랭킹 Redis 전환 (10~20초 → 1~2초) · 채팅 서버 신규 구축 · 채널 분산 로직 설계</li>
         </ul>
         <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
@@ -496,10 +494,8 @@
         <div class="proj-title">놀러와, 마이홈 <span class="pdate">2024.01 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">장르: SNG(소셜 네트워크 게임) · 라이프스타일 시뮬레이션</p>
         <ul class="duty">
-          <li>한국/일본/대만/영미 4개국 서버 유지보수로 안정적인 서비스 운영 지원</li>
-          <li>데이터 관리 및 최적화로 서버 성능 개선, 신규 콘텐츠 개발</li>
-          <li>MySQL 버전업 대응 소스 코드 수정으로 시스템 호환성·안정성 확보</li>
-          <li>Looker Studio 기반 데이터 시각화 대시보드 구축으로 운영팀 효율성 향상</li>
+          <li>결제 실패 빈도 개선 (하루 4~5건 → 1~2주 1건) · MySQL 5.7→8.0 마이그레이션 대응 · Looker Studio 대시보드 구축</li>
+          <li>한국/일본/대만/영미 4개국 서버 유지보수</li>
         </ul>
         <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
@@ -620,14 +616,14 @@
       <div class="proj-item">
         <div class="proj-title">충청북도교육청 인사관리 시스템 <span class="pdate">2021.12 ~ 2022.07</span><span class="proj-chevron">▾</span></div>
         <ul class="duty">
-          <li>전보 및 전보 점수제 기능, 전보 알고리즘 구현으로 인사 이동 관리 효율화</li>
+          <li>6,400~10,000명 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘으로 전환 · 동점자 처리 로직 구현</li>
           <li>인사기록 관리, 근무성적평정, 설문조사 및 통계 기능 개발</li>
         </ul>
         <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>EgovFramework & Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>전보 및 전보 점수제 기능, 전보 알고리즘 구현으로 인사 이동 관리 효율화</b><span class="detail-sub">→ 기존에는 개개인이 수기로 점수화하고 취합하는 절차가 매우 많았는데, 프로그램이 자동으로 처리하도록 만들어 인사 이동 판단을 빠르게 할 수 있게 됐습니다. 점수를 부여할 때마다 과정을 일일이 확인할 필요가 없어졌습니다.</span></li>
+              <li><b>6,400~10,000명 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘으로 전환</b><span class="detail-sub">→ 기존에는 개개인이 수기로 점수화하고 취합하는 절차가 매우 많았는데, 프로그램이 자동으로 처리하도록 만들어 인사 이동 판단을 빠르게 할 수 있게 됐습니다. 점수를 부여할 때마다 과정을 일일이 확인할 필요가 없어졌습니다.</span></li>
               <li><b>인사기록 관리, 근무성적평정, 설문조사 및 통계 기능 개발</b><span class="detail-sub">→ 통계 기능을 바탕으로 어떤 부서에서 이동이 많은지, 어떤 부서를 가장 선호하는지 파악할 수 있게 됐습니다. 또 기존에 문서로 보관해 찾아봐야 했던 인사기록을 하나로 통합해 한 번에 조회할 수 있도록 만들었습니다.</span></li>
             </ul>
           </div>

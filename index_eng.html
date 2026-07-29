@@ -29,7 +29,7 @@
     <div class="hero-body">
       <div class="tag">ABOUT ME</div>
       <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">Game Server · Backend Developer. From operating live multi-region services to building an AI chatbot from scratch — I dig deep until the problem is solved.</p>
+      <p class="hero-intro">Game Server · Backend Developer. From multi-region live service ops to performance tuning and ops infrastructure — I dig deep until the problem is solved.</p>
       <div class="meta">
         <span><b>Role</b> Game Server · Backend Developer</span>
         <span><b>Experience</b> 4 Years</span>
@@ -53,9 +53,9 @@
           <div class="hero-card-desc">DB indexing · Redis caching · ranking queries cut from 10–20s to 1–2s</div>
         </div>
         <div class="hero-card">
-          <div class="hero-card-icon">🤖</div>
-          <div class="hero-card-title">AI · LLM</div>
-          <div class="hero-card-desc">GPT from scratch · RAG · LangGraph · Claude API</div>
+          <div class="hero-card-icon">🔧</div>
+          <div class="hero-card-title">Ops · Infrastructure</div>
+          <div class="hero-card-desc">Admin & ops tool design · data dashboard build · DB migration</div>
         </div>
       </div>
     </div>
@@ -267,10 +267,9 @@
             <li>Identified that per-API locks in the login flow were serializing every user's requests — narrowed lock scope to per-user so different users' logins run in parallel, and replaced shared state with thread-safe structures such as ConcurrentDictionary to eliminate lock contention entirely. Expanded the DB connection pool and added missing indexes to clear the remaining bottlenecks.</li>
             <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact — protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
             <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels — the 30-user capacity was validated through blind testing.</li>
-            <li>Independently designed and built a new chat server from scratch</li>
-            <li>Stored contribution and fashion-match voting scores in Redis to support real-time ranking updates without adding load to MySQL.</li>
-            <li>Switched ranking reads from direct MySQL queries to paging + Redis caching to distribute concurrent query load</li>
-            <li>Independently designed and developed the operations team's tool on ASP.NET Core</li>
+            <li>To resolve the missing chat feature, coordinated specs with the planning team and built a new chat server from design through implementation</li>
+            <li>Used slow query logs to identify ranking queries as the primary DB bottleneck, then migrated to Redis real-time updates and paging + Redis caching to distribute concurrent read load</li>
+            <li>Discussed requirements directly with the operations team to finalize the feature scope, then designed and built the ops tool on ASP.NET Core</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -322,7 +321,7 @@
             <li>Handled MySQL 5.7→8.0 compatibility and applied indexing/optimization to key queries including item lookups</li>
             <li>Added automatic retry logic for delayed payment responses</li>
             <li>Cross-checked previous transaction records before retrying to prevent duplicate grants and safely recover cases where payment succeeded but items were not delivered.</li>
-            <li>Built a Looker Studio dashboard connected to BigQuery for real-time currency and token statistics, enabling the operations team to check data independently</li>
+            <li>Discussed the required metrics directly with the operations team, then built a BigQuery · Looker Studio dashboard for real-time currency and token statistics so the team could access data independently</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -414,9 +413,7 @@
         <div class="proj-title">CocoMine <span class="pdate">2024.12 – 2026.02</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">Genre: Social Networking Service (SNS) · Cozy Life Simulation</p>
         <ul class="duty">
-          <li>Stabilized large-scale user environment through data management, optimization, and server architecture improvements</li>
-          <li>Developed chat/plaza/village/district servers for diverse user interactions</li>
-          <li>Redis-based ranking management and game server content development</li>
+          <li>Login bottleneck fix (30s–3min → 10–30s) · Ranking Redis migration (10–20s → 1–2s) · New chat server · Channel distribution logic</li>
         </ul>
         <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
@@ -498,19 +495,17 @@
         <div class="proj-title">Welcome to My Home <span class="pdate">2024.01 – 2026.02</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">Genre: SNG · Lifestyle Simulation</p>
         <ul class="duty">
-          <li>Maintained KR/JP/TW/EN servers for stable global service operation</li>
-          <li>Data management and optimization; new content development</li>
-          <li>MySQL version upgrade (5.7→8.0) for system compatibility and stability</li>
-          <li>Built Looker Studio data dashboard to improve operations team efficiency</li>
+          <li>Payment failure rate improvement (4–5/day → 1/1–2 weeks) · MySQL 5.7→8.0 migration · Looker Studio dashboard build</li>
+          <li>KR/JP/TW/EN 4-region server maintenance</li>
         </ul>
         <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Maintained KR/JP/TW/EN servers for stable global service</b><span class="detail-sub">→ Tracked and fixed region-specific content errors across 4 countries, and maintained an ongoing bug and content tracking document for the team.</span></li>
-              <li><b>Data management, optimization, and new content development</b><span class="detail-sub">→ Applied indexing and query optimization during new content development to prevent data duplication and ensure performance.</span></li>
-              <li><b>MySQL 5.7→8.0 upgrade for compatibility and stability</b><span class="detail-sub">→ As MySQL 5.7 reached end of life, identified breaking changes in authentication and GROUP BY handling, patched the source code, thoroughly tested, and deployed without issues.</span></li>
-              <li><b>Built Looker Studio dashboard for the operations team</b><span class="detail-sub">→ Connected BigQuery with Looker Studio to provide a real-time currency and log dashboard, enabling the operations team to make data-driven decisions independently.</span></li>
+              <li><b>Stable service operation across KR/JP/TW/EN 4-region servers</b><span class="detail-sub">→ Tracked down and fixed errors caused by differing content per region; created and continuously updated a content/bug documentation list so other developers could also manage it smoothly.</span></li>
+              <li><b>Server performance improvement and new content development through data management and optimization</b><span class="detail-sub">→ Applied indexing and query optimization during new content development to ensure features like item systems worked correctly without data duplication.</span></li>
+              <li><b>MySQL version migration — source code fixes to secure system compatibility and stability</b><span class="detail-sub">→ With MySQL 5.7 reaching end-of-life, an upgrade to 8.0 was required. Identified breaking changes (authentication method, GROUP BY handling, etc.), updated source code, ran thorough testing, and deployed with zero issues.</span></li>
+              <li><b>Looker Studio data visualization dashboard to improve operations team efficiency</b><span class="detail-sub">→ Connected BigQuery with Looker Studio so game currency and log data could be checked at a glance on the dashboard, directly supporting the operations team's decision-making.</span></li>
             </ul>
           </div>
           <img src="images/놀러와마이홈.png" alt="Welcome to My Home" class="proj-image">
@@ -622,15 +617,15 @@
       <div class="proj-item">
         <div class="proj-title">Chungcheongbuk-do Education Office HR System <span class="pdate">2021.12 – 2022.07</span><span class="proj-chevron">▾</span></div>
         <ul class="duty">
-          <li>Implemented transfer scoring system and automated matching algorithm</li>
+          <li>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with score-based automated algorithm · tie-breaking logic</li>
           <li>Developed HR records, performance evaluation, survey, and statistics features</li>
         </ul>
         <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Transfer scoring system and automated matching algorithm</b><span class="detail-sub">→ Automated previously manual processes where clerks calculated scores on paper. The system now handles the entire transfer decision flow automatically, eliminating per-case manual review.</span></li>
-              <li><b>HR records, performance evaluation, and statistics features</b><span class="detail-sub">→ Statistics features now reveal which departments see the most transfers and which are most preferred. HR records previously stored as paper documents are now consolidated and searchable in one place.</span></li>
+              <li><b>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with score-based automated algorithm</b><span class="detail-sub">→ Previously each person had to manually score and consolidate data through many steps. By automating the process, personnel transfer decisions became much faster. There was no longer a need to verify the process every time a score was assigned.</span></li>
+              <li><b>Developed HR records, performance evaluation, survey, and statistics features</b><span class="detail-sub">→ The statistics feature made it possible to see which departments have the most transfers and which are most preferred. HR records that were previously stored in physical documents were consolidated into a single system for instant lookup.</span></li>
             </ul>
           </div>
           <img src="images/충청북도.png" alt="Chungcheongbuk-do Education Office HR System" class="proj-image">
