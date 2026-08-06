@@ -370,6 +370,25 @@ section.block.collapsed .collapsible-inner {
   overflow: hidden;
 }
 
+/* Introduce */
+.introduce-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.introduce-body p {
+  font-size: 1.125rem;
+  line-height: 2;
+  color: var(--text-dim);
+  word-break: keep-all;
+}
+
+.introduce-body p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 /* TOC */
 .toc-list {
   list-style: none;

@@ -69,6 +69,16 @@
   </div>
 </header>
 
+<section class="block reveal" id="introduce">
+  <div class="wrap">
+    <h2>Introduce</h2>
+    <div class="introduce-body">
+      <p>Over 4 years as a game server and backend developer, I've built hands-on experience that spans far beyond maintenance and new features — covering performance optimization, operational infrastructure, and real-time server design. Directly responsible for live services running simultaneously across Korea, Japan, Taiwan, and English-speaking regions, I've tracked down and resolved issues that cut straight to the heart of stability and performance: eliminating login bottlenecks, migrating ranking systems to Redis, building a chat server from the ground up, stabilizing payments, and executing DB migrations.</p>
+      <p>Years of incident response and structural refactoring have reinforced one conviction: patching surface symptoms is a temporary fix, but understanding the root cause and redesigning the structure is what actually lasts. Backend work happens entirely out of sight — but the quieter the server, the more freely users stay immersed, and the more the operations team can focus on building rather than firefighting. I find meaning in that invisible work: where silence is the only sign that anything was done at all.</p>
+    </div>
+  </div>
+</section>
+
 <section class="block reveal toc">
   <div class="wrap">
     <h2>Table of Contents</h2>
@@ -274,7 +284,7 @@
             <li>Identified that per-API locks in the login flow were serializing every user's requests — narrowed lock scope to per-user so different users' logins run in parallel, and replaced shared state with thread-safe structures such as ConcurrentDictionary to eliminate lock contention entirely. Expanded the DB connection pool and added missing indexes to clear the remaining bottlenecks.</li>
             <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact — protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
             <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels — the 30-user capacity was validated through blind testing.</li>
-            <li>To resolve the missing chat feature, coordinated specs with the planning team and built a new chat server from design through implementation</li>
+            <li>To add real-time chat that the game lacked, coordinated specs with the planning team and built a new chat server from design through implementation</li>
             <li>Used slow query logs to identify ranking queries as the primary DB bottleneck, then migrated to Redis real-time updates and paging + Redis caching to distribute concurrent read load</li>
             <li>Discussed requirements directly with the operations team to finalize the feature scope, then designed and built the ops tool on ASP.NET Core</li>
           </ul>
@@ -429,7 +439,7 @@
               <li><b>Stabilized large-scale user environment through data management and optimization</b><span class="detail-sub">→ While developing on the CocoMine Sanrio codebase, identified bottlenecks and applied indexing/query optimization, reducing item and ranking data processing from 5–15s to 2–6s. Reworked the login system — narrowing per-API locks to per-user scope so different users' logins run in parallel, backed by ConcurrentDictionary-based concurrent structures — cutting login time from 30s–3min to 10–30s.</span></li>
               <li><b>Developed chat/plaza/village/district servers for diverse user interactions</b><span class="detail-sub">→ Added village and district servers for new content variety; introduced interactive items, interaction motions, and an address system within the village.</span></li>
               <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">→ Migrated the frequently-queried ranking system to Redis, reducing query time from 10–20s to 1–2s.</span></li>
-              <li><b>Team collaboration and technical direction review</b><span class="detail-sub">→ Worked as one of two server developers in a team of 2 server · 5 client · 1 UI, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions — such as channel distribution and scale-out logic — with the CTO before applying. After the other server developer left mid-project, continued solo and following launch, independently identified and resolved structural issues in the existing codebase.</span></li>
+              <li><b>Team collaboration and technical direction review</b><span class="detail-sub">→ Worked as one of two server developers in a team of 2 server · 5 client · 1 UI, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions — such as channel distribution and scale-out logic — with the CTO before applying. After the other server developer left mid-project, continued solo; after launch, independently identified and resolved structural issues in the existing codebase.</span></li>
               <li><b>Pre-launch load testing via custom bot — bottleneck detection</b><span class="detail-sub">→ Built an automated load-testing bot covering connection, login, and basic gameplay to verify stability before launch. Identified high load on the login, item, and plaza/chat paths, then restructured those areas and reviewed the codebase for lock contention, race conditions, and potential deadlocks.</span></li>
               <li><b>On-call incident response — missing event launch · login delays</b><span class="detail-sub">→ Responded to a late-night incident where a planning team event failed to go live; investigation revealed the data had been omitted from the commit. Received the re-committed file and hot-deployed without downtime to restore the event. Also resolved a separate incident where a specific user's excessive item count triggered a lock that delayed all other users' logins — applied indexing and a limit-based mitigation immediately, then redesigned the lock structure as a long-term fix.</span></li>
               <li><b>Production data mismatch response and prevention — achievement system</b><span class="detail-sub">→ After adding achievement features and passing staging tests, a data mismatch surfaced in production for users who had already sold or consumed the relevant items, leaving their achievements unprocessable. Analyzed usage logs and transaction history to identify affected users and applied a bulk achievement update to restore correct state. Added more granular edge-case checks to the server-side achievement ingestion logic to prevent recurrence.</span></li>
@@ -473,7 +483,7 @@
           <div class="proj-detail-text">
             <ul class="duty-detail">
               <li><b>Server maintenance and administrative system feature additions</b><span class="detail-sub">→ Tracked intermittent errors, resolved conflicts between legacy code and new content, and added a statistics system and new content management features to the administrative system to help the operations team manage the game more efficiently.</span></li>
-              <li><b>Data management and optimization</b><span class="detail-sub">→ Improved poorly optimized queries and missing indexes, reducing stage-clear item delivery processing time from 10–20s to 2–5s.</span></li>
+              <li><b>Data management and optimization</b><span class="detail-sub">→ Fixed poorly optimized queries and added missing indexes, reducing stage-clear item delivery processing time from 10–20s to 2–5s.</span></li>
               <li><b>DB migration from AWS to on-premise server</b><span class="detail-sub">→ Performed large-scale data backup and migration as part of a cost-reduction move from AWS to on-premise.</span></li>
             </ul>
           </div>
