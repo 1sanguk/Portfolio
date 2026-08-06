@@ -558,6 +558,17 @@ section.block.collapsed .collapsible-inner {
   color: var(--accent2);
 }
 
+.career-job .job-head .proj-count {
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: rgba(124, 92, 255, 0.12);
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .career-job .job-head .job-chevron {
   font-size: 1.625rem;
   line-height: 1;
