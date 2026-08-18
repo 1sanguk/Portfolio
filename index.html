@@ -255,6 +255,7 @@
       </div>
       <p class="proj-genre">코지 라이프 시뮬레이션 SNS · 가입자 3만+ · 피크 동접 500~1,000명</p>
       <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -313,6 +314,7 @@
       </div>
       <p class="proj-genre">SNG · 라이프스타일 시뮬레이션 · 한국/일본/대만/영미 4개국 운영 · 가입자 20만+ · 동접 200~2,000명</p>
       <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
+      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -337,7 +339,7 @@
           <ul class="duty">
             <li>EOL에 따른 8.0 마이그레이션에서 인증 방식·GROUP BY 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정했고, 주요 쿼리에 인덱싱·최적화를 함께 적용해 성능도 개선했습니다</li>
             <li>결제 실패 문제는 네트워크 지연 시 자동 재시도(retry) 로직을 추가하는 것으로 해소했습니다. 재시도 전 이전 결제·지급 내역을 대조해 중복 지급을 방지했고, 결제는 완료됐으나 아이템이 지급되지 않은 건은 안전하게 복구하는 처리도 함께 구현했습니다</li>
-            <li>운영팀과 필요 지표를 직접 논의해 BigQuery·Looker Studio 기반 재화·토큰 통계 대시보드를 구축, 운영팀이 데이터를 직접 확인할 수 있도록 했습니다</li>
+            <li>운영팀과 필요한 지표를 정한 뒤 BigQuery와 Looker Studio로 재화·토큰 통계 대시보드를 구축해, 개발팀에 요청하지 않고도 데이터를 확인하게 했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -365,6 +367,7 @@
       </div>
       <p class="proj-genre">교육공무직원 인사 행정 시스템 · 대상 인원 약 6,400~10,000명</p>
       <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>eGovFramework</span><span>Spring</span></div>
+      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -392,6 +395,58 @@
           <ul class="duty">
             <li>6,400~10,000명 규모의 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘 처리로 전환</li>
           </ul>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-head">
+        <span class="company">C++ 네트워크 게임 서버 학습 프로젝트</span>
+        <span class="period">개인 프로젝트 · 2026.07 ~ 진행 중</span>
+        <span class="highlight-chevron">▾</span>
+      </div>
+      <p class="proj-genre">서버 구조를 단계별로 구현하고 GUI에서 동작 차이까지 비교하는 네트워크 서버 실험 프로젝트</p>
+      <div class="tags"><span>C++20</span></div>
+      <br/>
+
+      <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
+      <div class="star-grid">
+        <div class="star-row">
+          <span class="star-label">S</span>
+          <ul class="duty">
+            <li>C++ 기반 게임 서버의 접속·통신·멀티스레드 처리 방식을 직접 구현하며 서버 구조의 기본기에 대한 이해 필요</li>
+          </ul>
+        </div>
+        <div class="star-row">
+          <span class="star-label">T</span>
+          <ul class="duty">
+            <li>단일 접속 서버부터 다중 접속, 스레드 풀, Linux epoll, Windows IOCP 서버까지 단계적으로 구현하고 같은 조건으로 테스트</li>
+            <li>서버 구조별 동작 차이를 같은 환경에서 직접 재현하고 비교할 수 있는 GUI 실험 도구 구축</li>
+          </ul>
+        </div>
+        <div class="star-row">
+          <span class="star-label">A</span>
+          <ul class="duty">
+            <li>v1~v6를 직접 구현하며 접속 수가 늘어날 때 스레드를 효율적으로 사용하고, 네트워크 처리와 작업 처리를 분리하는 구조를 학습했습니다</li>
+            <li>데이터가 여러 번 나뉘어 전송되는 상황에서도 순서와 내용이 유지되도록 송신 큐와 이어 보내기 로직을 구현했습니다</li>
+            <li>반복 접속·해제와 서버 종료 상황을 자동 테스트하고 메모리 오류가 없는지 검사했습니다</li>
+            <li>v1~v6 선택 및 실행, 다중 클라이언트 연결, 개별·지연·반복 전송, Echo 응답 집계를 한 화면에서 수행하는 GUI를 개발했습니다. 현재 OS에 맞춰 Native 또는 Docker 실행 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드하도록 구성했습니다</li>
+          </ul>
+        </div>
+        <div class="star-row star-result">
+          <span class="star-label">R</span>
+          <div class="star-result-body">
+            <div class="stat-pairs">
+              <div class="stat-pair"><span class="stat-name">Linux 서버</span><b class="good">동시 접속 2,000개 · 메시지 40,000건 처리</b></div>
+              <div class="stat-pair"><span class="stat-name">Windows 서버</span><b class="good">동시 접속 200개 · 메시지 2,000건 처리</b></div>
+            </div>
+            <ul class="duty">
+              <li>4 MiB 데이터를 여러 조각으로 나누어 전송해도 전체 내용이 정확히 전달되는 것을 확인</li>
+              <li>부하 테스트로 네트워크 처리 스레드에 작업이 집중되는 병목을 발견하고 다음 개선 지점을 도출</li>
+              <li>macOS·Linux·Windows의 실행 가능 범위를 판별하고, GUI에서 각 서버 구조의 차이를 직접 재현하는 크로스플랫폼 실험 환경 구축</li>
+            </ul>
+          </div>
         </div>
       </div>
       </div></div>
@@ -436,7 +491,7 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>데이터 관리·최적화 및 서버 구조 개선으로 대규모 유저 환경 안정성 확보</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 기반으로 개발하면서 렉이 걸리는 부분을 발견하고 인덱싱·쿼리 최적화를 적용해 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간을 5~15초에서 2~6초로 단축했습니다. 또 로그인 과정의 API 단위 락을 유저 단위로 좁혀 서로 다른 유저의 로그인이 병렬 처리되도록 하고, 공유 상태를 ConcurrentDictionary 기반 동시성 자료구조로 교체하는 로그인 시스템 개편으로 로그인 시간을 30초~3분에서 10~30초로 줄였습니다.</span></li>
+              <li><b>조회 지연과 로그인 병목 개선</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 토대로 개발하던 중 렉이 발생하는 구간을 찾아 인덱싱·쿼리 최적화를 적용했습니다. 그 결과 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간이 5~15초에서 2~6초로 줄었습니다. 로그인 과정의 API 단위 락은 유저 단위로 좁히고, 공유 상태는 ConcurrentDictionary 기반 동시성 자료구조로 교체했습니다. 서로 다른 유저의 로그인을 병렬로 처리하면서 로그인 시간도 30초~3분에서 10~30초로 단축했습니다.</span></li>
               <li><b>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</b><span class="detail-sub">→ 빌리지·지적도 서버를 새로 추가해 콘텐츠를 다양화했고, 빌리지 안에서 사용할 수 있는 인터랙티브 아이템과 상호작용 모션, 주소 시스템을 새롭게 추가했습니다.</span></li>
               <li><b>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
               <li><b>팀 협업 및 기술 방향 검토</b><span class="detail-sub">→ 서버 2명·클라 5명·UI 1명 구성의 팀에서 서버 콘텐츠 개발을 담당했습니다. 개발회의에서 구현 일정과 테스트 계획을 팀 단위로 조율했고, 채널 분산·스케일아웃 등 주요 기술 방향은 CTO와 검토 후 적용했습니다. 개발 중반 서버 팀원 이탈로 단독 체제가 된 이후, 런칭 후 기존 구조의 문제점을 직접 발견하고 분석해 수정했습니다.</span></li>
@@ -461,8 +516,8 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>어드민 전체 기능 개발 주도, 데이터 관리 및 최적화로 서버 성능 개선</b><span class="detail-sub">→ 운영팀이 게임 콘텐츠나 요소에 쉽게 접근할 수 있도록 ASP.NET Core 기반 어드민 홈페이지를 직접 설계·개발했고, BigQuery로 게임 재화·아이템 등 게임 로그 통계 사이트를 추가해 운영팀의 게임 운영을 도왔습니다. 서버 성능 개선을 위해 인덱싱과 불필요·중복 로직을 찾아내어 제거했습니다.</span></li>
-              <li><b>채팅 서버·광장 서버 개발로 유저 간 실시간 상호작용 지원</b><span class="detail-sub">→ 혼자 파밍하고 집을 꾸미던 공간에서 여러 사람과 대화를 나누고 서로의 아바타를 볼 수 있는 채팅·광장 공간을 새롭게 지원했습니다.</span></li>
+              <li><b>어드민 설계·개발과 서버 성능 개선</b><span class="detail-sub">→ 운영팀이 게임 콘텐츠를 직접 관리하도록 ASP.NET Core 어드민 홈페이지를 설계·개발했습니다. BigQuery를 연동한 통계 사이트에서는 게임 재화·아이템 로그를 바로 확인하게 했고, 서버에서는 인덱싱을 적용하고 불필요하거나 중복된 로직을 제거했습니다.</span></li>
+              <li><b>채팅·광장 서버 신규 개발</b><span class="detail-sub">→ 혼자 파밍하고 집을 꾸미던 기존 공간에 채팅·광장 서버를 추가했습니다. 유저들이 대화를 나누고 서로의 아바타를 볼 수 있는 실시간 상호작용 공간을 구현했습니다.</span></li>
               <li><b>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다. 또 유저 세션 처리를 스레드 단위로 분리해, 특정 유저의 요청이 지연되더라도 다른 유저의 세션이 함께 대기하지 않도록 개선해 동접이 늘어도 안정적으로 처리할 수 있는 구조를 만들었습니다.</span></li>
             </ul>
           </div>
@@ -474,7 +529,7 @@
         <div class="proj-title">걸글로브 <span class="pdate">2024.04 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">장르: 스타일링 게임 (패션 드레스업)</p>
         <ul class="duty">
-          <li>서버 유지보수 및 어드민 시스템 관리·추가 기능 개발로 운영 효율성 향상</li>
+          <li>서버 오류 추적·수정 및 어드민 통계·콘텐츠 관리 기능 개발</li>
           <li>데이터 관리 및 최적화로 대규모 유저 데이터 안정적 처리</li>
           <li>DB 이전 작업 수행으로 시스템 업그레이드 지원</li>
         </ul>
@@ -482,7 +537,7 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>서버 유지보수 및 어드민 시스템 관리·추가 기능 개발로 운영 효율성 향상</b><span class="detail-sub">→ 간혹 발생하는 에러를 추적해 기존 코드와 신규 콘텐츠가 중복되거나 서로 충돌하는 부분을 찾아 수정했고, 어드민에 없던 통계 시스템과 신규 콘텐츠 관리 기능을 추가해 운영팀이 더 수월히 운영할 수 있도록 지원했습니다.</span></li>
+              <li><b>서버 오류 수정과 어드민 기능 확장</b><span class="detail-sub">→ 간헐적으로 발생하는 에러를 추적해 기존 코드와 신규 콘텐츠가 중복되거나 충돌하는 부분을 수정했습니다. 어드민에는 통계와 신규 콘텐츠 관리 기능을 추가해 운영팀이 필요한 작업을 직접 처리하게 했습니다.</span></li>
               <li><b>데이터 관리 및 최적화로 대규모 유저 데이터 안정적 처리</b><span class="detail-sub">→ 최적화되지 않은 쿼리와 인덱스가 적용되어 있지 않아 시간이 오래 걸리던 부분을 개선해, 스테이지 클리어 후 아이템 지급 등 시스템 업데이트 처리 시간을 10~20초에서 2~5초로 단축했습니다.</span></li>
               <li><b>DB 이전 작업 수행으로 시스템 업그레이드 지원</b><span class="detail-sub">→ 비용 문제로 AWS에서 로컬 서버로 옮기는 과정에서 대규모 데이터 백업과 마이그레이션을 직접 수행했습니다.</span></li>
             </ul>
@@ -523,10 +578,10 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>한국/일본/대만/영미 4개국 서버 유지보수로 안정적인 서비스 운영 지원</b><span class="detail-sub">→ 4개국마다 콘텐츠가 달라 발생하는 오류를 직접 찾아 수정했고, 이후 다른 개발자도 원활히 관리할 수 있도록 콘텐츠·버그 목록 문서를 만들어 계속 갱신했습니다.</span></li>
+              <li><b>한국·일본·대만·영미권 4개국 서버 운영</b><span class="detail-sub">→ 국가마다 다른 콘텐츠에서 발생하는 오류를 찾아 수정했습니다. 다른 개발자도 운영 이력을 빠르게 파악하도록 콘텐츠·버그 목록을 문서화하고 계속 갱신했습니다.</span></li>
               <li><b>데이터 관리 및 최적화로 서버 성능 개선, 신규 콘텐츠 개발</b><span class="detail-sub">→ 신규 콘텐츠 개발 시 인덱싱과 쿼리 최적화를 적용해 아이템 기능이 정확하게 동작하고 데이터 중복이 발생하지 않도록 개발했습니다.</span></li>
-              <li><b>MySQL 버전업 대응 소스 코드 수정으로 시스템 호환성·안정성 확보</b><span class="detail-sub">→ MySQL 5.7의 지원이 종료되면서 8.0으로 업그레이드가 필요했고, 인증 방식·GROUP BY 처리 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정한 뒤 충분히 테스트하고 배포해 문제없음을 확인했습니다.</span></li>
-              <li><b>Looker Studio 기반 데이터 시각화 대시보드 구축으로 운영팀 효율성 향상</b><span class="detail-sub">→ BigQuery와 Looker Studio를 연동해 게임 재화와 로그를 대시보드에서 바로 확인할 수 있도록 만들어 운영팀의 의사결정을 지원했습니다.</span></li>
+              <li><b>MySQL 5.7에서 8.0으로 마이그레이션</b><span class="detail-sub">→ MySQL 5.7의 지원 종료에 맞춰 8.0으로 업그레이드했습니다. 인증 방식·GROUP BY 처리 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정하고, 테스트를 거쳐 배포했습니다.</span></li>
+              <li><b>게임 재화·로그 대시보드 구축</b><span class="detail-sub">→ BigQuery와 Looker Studio를 연동해 운영팀이 게임 재화와 로그를 대시보드에서 바로 확인하도록 했습니다.</span></li>
               <li><b>새벽 장애 대응 — 일본 서버 디스크 풀 다운</b><span class="detail-sub">→ 새벽에 일본 서버가 다운돼 df 명령으로 확인하니 디스크가 가득 찬 상태였습니다. crontab으로 설정해둔 로그 정리 배치가 오작동해 로그가 과다하게 쌓인 것이 원인이었습니다. 즉시 오래된 로그 파일을 정리해 서버를 복구하고, 배치를 재점검·수정해 재발을 방지했습니다.</span></li>
             </ul>
           </div>
@@ -572,14 +627,14 @@
         <div class="proj-title">강원도 교육청 학교 진단 시스템 <span class="pdate">2023.04 ~ 2023.05</span><span class="proj-chevron">▾</span></div>
         <ul class="duty">
           <li>만족도 시스템 기능 개발, 학교 자체 설문 기능 구현</li>
-          <li>운영 중 발생한 오류 수정으로 시스템 안정성 확보</li>
+          <li>운영 중 발생한 오류 추적 및 수정</li>
         </ul>
         <div class="tags"><span>PHP</span><span>MySQL</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
               <li><b>만족도 시스템 기능 개발, 학교 자체 설문 기능 구현</b><span class="detail-sub">→ 학부모와 교사들이 학교에 대한 만족도 설문 콘텐츠를 만들고, 결과를 수집해 통계를 내고 PDF로 문서화할 수 있는 페이지를 추가해 관리자들이 편리하게 운영할 수 있도록 했습니다.</span></li>
-              <li><b>운영 중 발생한 오류 수정으로 시스템 안정성 확보</b><span class="detail-sub">→ 기존 시스템에서 동작하지 않거나 에러가 발생하던 부분을 수정해 민원을 다소 줄였습니다.</span></li>
+              <li><b>운영 오류 추적 및 수정</b><span class="detail-sub">→ 기존 시스템에서 동작하지 않거나 에러가 발생하던 기능을 찾아 수정했습니다.</span></li>
             </ul>
           </div>
           <img src="images/강원도.png" alt="강원도 교육청 학교 조직 진단도구 온라인 시스템" class="proj-image">
@@ -630,8 +685,8 @@
           <div class="proj-detail-text">
             <ul class="duty-detail">
               <li><b>개발 PM으로 전체 개발 총괄</b><span class="detail-sub">→ 디자인·프론트엔드를 제외한 기획부터 백엔드 개발까지 총괄했습니다. 디자인은 PK밸브 담당 과장님의 의견을 바탕으로 구성했고, 일정과 기능 구현·검토는 PK밸브 직원들과 논의하며 정했습니다.</span></li>
-              <li><b>자원 관리 시스템 및 QR 코드 인식 기능 구현</b><span class="detail-sub">→ 모바일 앱에서 바로 QR코드를 인식해 해당 장비 정보를 확인할 수 있도록 구성해, 자원 관리가 편리하도록 시스템을 만들었습니다.</span></li>
-              <li><b>PWA 기반 시스템으로 모바일 환경 자원 관리 지원</b><span class="detail-sub">→ PWA 기반으로 구성해 앱 스토어 없이도 모바일에서 앱처럼 사용할 수 있고, 홈 화면에 추가해 설치형으로도 사용 가능하도록 구성했습니다.</span></li>
+              <li><b>자원 관리 시스템 및 QR 코드 인식 기능 구현</b><span class="detail-sub">→ 모바일에서 QR 코드를 인식하면 해당 장비 정보를 바로 조회하도록 구현했습니다.</span></li>
+              <li><b>모바일 자원 관리 PWA 개발</b><span class="detail-sub">→ 앱 스토어를 거치지 않고 모바일에서 앱처럼 사용하거나 홈 화면에 설치할 수 있는 PWA로 개발했습니다.</span></li>
             </ul>
           </div>
           <img src="images/pkvalve.png" alt="PKValve & Engineering PWA" class="proj-image">
@@ -667,7 +722,7 @@
           <div class="proj-detail-text">
             <ul class="duty-detail">
               <li><b>즐겨찾기 기능, 사용자 페이지 개발</b><span class="detail-sub">→ 커뮤니티 페이지의 즐겨찾기 기능과 사용자용 페이지의 일부 콘텐츠를 개발했습니다.</span></li>
-              <li><b>공지사항, 1:1 문의사항 기능 개발</b><span class="detail-sub">→ 사용자에게 필요한 공지 페이지와 1:1 문의 기능을 짧은 일정 내에 개발해, 홈페이지 개발에 있어 부담을 덜어주었습니다.</span></li>
+              <li><b>공지사항, 1:1 문의사항 기능 개발</b><span class="detail-sub">→ 짧은 일정 안에 공지 페이지와 1:1 문의 기능을 구현했습니다.</span></li>
             </ul>
           </div>
           <img src="images/유디저브.png" alt="UDESERVE (유디저브)" class="proj-image">
@@ -768,15 +823,60 @@
       <div class="job-head">
         <div class="job-head-main">
           <span class="company">ETC</span>
-          <span class="period">카카오테크 부트캠프 · 개인 프로젝트</span>
-          <span class="proj-count">프로젝트 1개</span>
+          <span class="period">개인 프로젝트 · 카카오테크 부트캠프</span>
+          <span class="proj-count">프로젝트 3개</span>
         </div>
         <span class="job-chevron">▾</span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">RPG·게임 특화 한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title">C++ 네트워크 게임 서버 학습 프로젝트 <span class="pdate">2026.07 ~ 진행 중</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">접속 처리 방식을 v1~v6으로 발전시키고 GUI에서 구조별 차이를 재현·비교하는 프로젝트</p>
+        <a href="https://github.com/1sanguk/CPP_Server" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>단일 접속 서버에서 시작해 다중 접속, 스레드 풀, Linux epoll, Windows IOCP 서버까지 단계별 구현</li>
+          <li>데이터 분할 전송, 전송 순서 보장, 안전한 접속 종료와 서버 종료 처리 구현</li>
+          <li>GUI에서 서버 버전 실행과 다중 클라이언트의 실시간·지연·반복 전송을 통합 제어</li>
+          <li>Linux에서 동시 접속 2,000개·메시지 40,000건, Windows에서 동시 접속 200개·메시지 2,000건 처리 성공</li>
+        </ul>
+        <div class="tags"><span>C++20</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>접속 처리 방식을 단계적으로 확장</b><span class="detail-sub">→ 한 번에 한 명만 처리하는 서버에서 시작해 접속마다 스레드를 만드는 방식, 정해진 수의 스레드를 재사용하는 방식, Linux epoll과 Windows IOCP 방식까지 구현했습니다. 이전 버전에서 확인한 한계를 다음 버전에서 개선하며 각 구조의 차이를 익혔습니다.</span></li>
+              <li><b>데이터 전송과 서버 종료를 안정적으로 처리</b><span class="detail-sub">→ 큰 데이터가 한 번에 전송되지 않는 상황을 고려해 남은 데이터를 이어 보내고, 같은 사용자의 메시지 순서가 바뀌지 않도록 송신 큐를 구성했습니다. 접속이 남아 있는 상태에서도 서버가 안전하게 종료되도록 작업과 스레드의 종료 순서도 구현했습니다.</span></li>
+              <li><b>부하 테스트와 자동 검사로 결과 검증</b><span class="detail-sub">→ Linux 서버는 동시 접속 2,000개에서 메시지 40,000건을 모두 처리했고, Windows 서버는 동시 접속 200개에서 메시지 2,000건을 모두 처리했습니다. 4 MiB 분할 전송의 데이터 일치 여부와 반복 접속·종료 과정의 메모리 오류도 자동 테스트로 확인했습니다.</span></li>
+              <li><b>서버 구조 비교를 위한 크로스플랫폼 GUI 개발</b><span class="detail-sub">→ 서버 버전 선택·실행, 최대 200개 클라이언트 연결, 개별 메시지와 지연·반복 전송, Echo 응답 집계를 한 화면에서 제어하도록 구현했습니다. 호스트 OS에 따라 실행 가능한 버전과 Native·Docker 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드합니다. 이를 통해 v1의 연결 대기부터 스레드 풀·epoll·IOCP의 처리 차이를 같은 UI에서 직접 재현할 수 있습니다.</span></li>
+            </ul>
+          </div>
+          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image">
+        </div></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">카카오 약관 RAG 성능 개선 대회 <span class="pdate">2026.08.11 ~ 2026.08.13</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">카카오 약관 질문에 답변과 근거 조항을 제공하는 RAG 시스템과 답변 평가 도구 개발</p>
+        <a href="https://github.com/1sanguk/AI_Performance_Contest" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>키워드 검색과 의미 검색을 결합해 질문에 맞는 약관 조항을 더 정확하게 탐색</li>
+          <li>Colab T4 환경에서 약관 준비부터 검색·답변 생성까지 한 번에 실행되는 RAG 시스템 구축</li>
+          <li>공식 연습평가 93.915점 달성, 초기 기준선 대비 5.724점 개선 및 17팀 중 TOP 5 진출</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>RAG</span><span>BM25</span><span>BGE-M3</span><span>RRF</span><span>Qwen2.5</span><span>FastAPI</span><span>Gemini</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>키워드 검색과 의미 검색을 결합해 근거 정확도 개선</b><span class="detail-sub">→ 정확한 용어와 수치를 찾는 BM25와 문장의 의미를 비교하는 BGE-M3 검색 결과를 RRF로 결합했습니다. 중복된 검색 결과를 정리하고 질문과 관련된 핵심 원문을 답변 모델에 제공해 수치·조건·예외가 빠지지 않도록 구성했습니다.</span></li>
+              <li><b>제한된 GPU 환경에서 실행되는 답변·평가 파이프라인 구현</b><span class="detail-sub">→ Qwen2.5-7B-Instruct를 4-bit로 경량화하고 약관 데이터, 검색 인덱스와 FastAPI를 한 번에 준비하는 Colab 노트북을 구성했습니다. 별도의 평가 도구는 Gemini를 활용해 후보 답변을 검증하고 정해진 JSON 형식으로 점수를 생성하도록 개발했습니다.</span></li>
+              <li><b>실험 기록을 기반으로 93.915점까지 성능 개선</b><span class="detail-sub">→ 검색 근거 강조, 누락된 핵심 원문 보완, 중복 제거를 한 번에 하나씩 변경하며 결과와 선택 이유를 기록했습니다. 공식 연습평가에서 MRR 1.0000, 키팩트 F1 0.8080, LLM 판정 99.350, 총점 93.915를 달성해 초기 기준선보다 5.724점 향상했고 17팀 중 TOP 5에 진출했습니다.</span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">RPG·게임 특화 한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~ 잠정 보류</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">카카오테크 부트캠프 딥다이브 · GPT 아키텍처 직접 구현 + Qwen3 로컬 LLM + RAG / LangChain / LangGraph / Claude API</p>
         <a href="https://github.com/1sanguk/KTB-Deepdive/tree/main/LLM_Project/chatbot" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
