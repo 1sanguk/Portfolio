@@ -36,7 +36,7 @@
     <div class="hero-body">
       <div class="tag">ABOUT ME</div>
       <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">게임 서버 · 백엔드 개발자. 다국가 실서비스 운영, 성능 최적화, 운영 인프라 구축까지 — 문제를 끝까지 파고듭니다.</p>
+      <p class="hero-intro">게임 서버 · 백엔드 개발자. 다권역 실서비스 운영, 성능 최적화, 운영 인프라 구축까지 — 문제를 끝까지 파고듭니다.</p>
       <div class="meta">
         <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
         <span><b>경력</b> 4년</span>
@@ -52,7 +52,7 @@
         <div class="hero-card">
           <div class="hero-card-icon">🎮</div>
           <div class="hero-card-title">게임 서버 개발</div>
-          <div class="hero-card-desc">다중 국가 실서비스 운영 · 성능 개선 · 실시간 채팅 서버 신규 구축</div>
+          <div class="hero-card-desc">다권역 실서비스 운영 · 성능 개선 · 실시간 채팅 서버 신규 구축</div>
         </div>
         <div class="hero-card">
           <div class="hero-card-icon">⚡</div>
@@ -73,7 +73,7 @@
   <div class="wrap">
     <h2>Introduce</h2>
     <div class="introduce-body">
-      <p>게임 서버·백엔드 개발자로 4년간 근무하며, 유지보수와 신규 개발을 넘어 성능 최적화·운영 인프라 구축·실시간 서버 설계까지 폭넓은 실무를 경험했습니다. 한국·일본·대만·영미권 4개국에서 동시 운영되는 실서비스를 직접 담당하면서 로그인 병목 해소, Redis 기반 랭킹 전환, 채팅 서버 신규 구축, 결제 안정화, DB 마이그레이션 등 서비스 안정성과 성능에 직결되는 문제들을 발견하고 끝까지 해결해 왔습니다.</p>
+      <p>게임 서버·백엔드 개발자로 4년간 근무하며, 유지보수와 신규 개발을 넘어 성능 최적화·운영 인프라 구축·실시간 서버 설계까지 폭넓은 실무를 경험했습니다. 한국·일본·대만·영문권 4개 권역에서 운영되는 실서비스를 직접 담당하면서 로그인 병목 해소, Redis 기반 랭킹 전환, 채팅 서버 신규 구축, 결제 안정화, DB 마이그레이션 등 서비스 안정성과 성능에 직결되는 문제들을 발견하고 끝까지 해결해 왔습니다.</p>
       <p>여러 장애 대응과 구조 개선을 반복하며 얻은 확신은, 표면적인 증상만 처리하는 임시방편보다 원인을 파악하고 구조를 바꾸는 것이 결국 더 안전하고 오래간다는 것입니다. 백엔드는 철저히 무대 뒤에 있지만, 서버가 조용할수록 유저는 끊김 없이 몰입하고 운영팀은 문제 대신 기획에 집중할 수 있습니다. 존재가 드러나지 않을수록 잘 되고 있다는 뜻이라 생각하며, 그 보이지 않는 자리에서 사람들의 경험을 채우는 일에서 보람을 찾습니다.</p>
     </div>
   </div>
@@ -254,7 +254,7 @@
         <span class="highlight-chevron">▾</span>
       </div>
       <p class="proj-genre">코지 라이프 시뮬레이션 SNS · 가입자 3만+ · 피크 동접 500~1,000명</p>
-      <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+      <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
       <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
@@ -282,11 +282,11 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>로그인 과정에서 API마다 걸려있던 락이 모든 유저의 요청을 직렬화하는 병목임을 확인 — 락 범위를 유저 단위로 좁혀 서로 다른 유저의 로그인이 병렬로 처리되도록 개선하고, 공유 상태는 ConcurrentDictionary 등 스레드 안전 자료구조로 교체해 락 경합 자체를 제거. DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소</li>
+            <li>로그인 과정에서 API마다 걸린 락 때문에 요청이 직렬 처리되는 병목을 확인 — 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬 처리. DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소</li>
             <li>광장·빌리지에 채널 풀(기본 5개)을 두고 인원 기반 최소 부하 채널로 신규 유저를 배치하는 분산 로직을 설계, 채널별 유저 상태를 격리 관리해 같은 채널 유저끼리만 상호작용하도록 구성 — 동시 접속 시 채널별 인원 카운터가 꼬이는 경쟁 상태(race condition)를 Go의 mutex(sync.Mutex)로 보호해 정합성 확보</li>
             <li>전체 채널이 정원 30명 중 25명에 근접하면 채널 5개를 자동으로 일괄 증설하는 스케일아웃 로직을 구현하되, 증설 직후 유저가 새 채널로 한꺼번에 몰리는 부하 폭주(thundering herd)를 막기 위해 신규 유저를 점진적·분산 배치 — 정원 수치는 블라인드 테스트로 검증해 30명으로 확정</li>
             <li>채팅 기능이 없던 문제를 해소하기 위해 기획팀과 스펙 협의를 거쳐 채팅 서버를 설계부터 구현까지 신규 개발했습니다</li>
-            <li>슬로우 쿼리 로그로 랭킹 조회가 DB 병목의 주요 원인임을 특정한 뒤, 기부 기여도·패션매치 점수를 Redis로 실시간 반영하고 조회를 페이징 + Redis 캐싱 구조로 전환해 동시 요청 부하를 분산했습니다</li>
+            <li>랭킹을 조회할 때마다 MySQL에서 데이터를 가져오던 구조를 기부 기여도·패션매치 점수의 Redis 실시간 반영과 페이징 + Redis 캐싱 방식으로 바꿔 반복 조회 부하를 줄였습니다</li>
             <li>운영팀 담당자와 필요 기능을 협의해 요구사항을 확정하고, ASP.NET Core 기반 운영툴을 설계·개발했습니다</li>
           </ul>
         </div>
@@ -298,7 +298,7 @@
               <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><b>10~20초</b><span class="arrow">→</span><b class="good">1~2초</b></div>
             </div>
             <ul class="duty">
-              <li>광장·빌리지 1채널 과밀: 최소 부하 채널 배치 + 자동 채널 증설로 렉·끊김 없이 안정 운영</li>
+              <li>광장·빌리지 1채널 과밀: 최소 부하 채널 배치 + 자동 채널 증설로 렉·끊김 완화</li>
             </ul>
           </div>
         </div>
@@ -312,7 +312,7 @@
         <span class="period">SKYWALK · 2024.01 ~ 2026.02</span>
         <span class="highlight-chevron">▾</span>
       </div>
-      <p class="proj-genre">SNG · 라이프스타일 시뮬레이션 · 한국/일본/대만/영미 4개국 운영 · 가입자 20만+ · 동접 200~2,000명</p>
+      <p class="proj-genre">SNG · 라이프스타일 시뮬레이션 · 한국·일본·대만·영문권 4개 권역 운영 · 가입자 20만+ · 동접 200~2,000명</p>
       <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
       <br/>
 
@@ -438,8 +438,8 @@
           <span class="star-label">R</span>
           <div class="star-result-body">
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Linux 서버</span><b class="good">동시 접속 2,000개 · 메시지 40,000건 처리</b></div>
-              <div class="stat-pair"><span class="stat-name">Windows 서버</span><b class="good">동시 접속 200개 · 메시지 2,000건 처리</b></div>
+              <div class="stat-pair"><span class="stat-name">Linux 서버</span><b class="good">동시 접속 28,000개 · 메시지 560,000건 처리</b></div>
+              <div class="stat-pair"><span class="stat-name">Windows 서버</span><b class="good">순간 접속 2,000개 · 점진 유지 12,000개 · 메시지 120,000건 처리</b></div>
             </div>
             <ul class="duty">
               <li>4 MiB 데이터를 여러 조각으로 나누어 전송해도 전체 내용이 정확히 전달되는 것을 확인</li>
@@ -487,11 +487,11 @@
         <ul class="duty">
           <li>로그인 병목 해소 (30초~3분 → 10~30초) · 랭킹 Redis 전환 (10~20초 → 1~2초) · 채팅 서버 신규 구축 · 채널 분산 로직 설계</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>조회 지연과 로그인 병목 개선</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 토대로 개발하던 중 렉이 발생하는 구간을 찾아 인덱싱·쿼리 최적화를 적용했습니다. 그 결과 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간이 5~15초에서 2~6초로 줄었습니다. 로그인 과정의 API 단위 락은 유저 단위로 좁히고, 공유 상태는 ConcurrentDictionary 기반 동시성 자료구조로 교체했습니다. 서로 다른 유저의 로그인을 병렬로 처리하면서 로그인 시간도 30초~3분에서 10~30초로 단축했습니다.</span></li>
+              <li><b>조회 지연과 로그인 병목 개선</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 토대로 개발하던 중 렉이 발생하는 구간을 찾아 인덱싱·쿼리 최적화를 적용했습니다. 그 결과 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간이 5~15초에서 2~6초로 줄었습니다. 로그인 과정에서는 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬로 처리했습니다. DB 커넥션 풀과 인덱스도 보완해 로그인 시간을 30초~3분에서 10~30초로 단축했습니다.</span></li>
               <li><b>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</b><span class="detail-sub">→ 빌리지·지적도 서버를 새로 추가해 콘텐츠를 다양화했고, 빌리지 안에서 사용할 수 있는 인터랙티브 아이템과 상호작용 모션, 주소 시스템을 새롭게 추가했습니다.</span></li>
               <li><b>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
               <li><b>팀 협업 및 기술 방향 검토</b><span class="detail-sub">→ 서버 2명·클라 5명·UI 1명 구성의 팀에서 서버 콘텐츠 개발을 담당했습니다. 개발회의에서 구현 일정과 테스트 계획을 팀 단위로 조율했고, 채널 분산·스케일아웃 등 주요 기술 방향은 CTO와 검토 후 적용했습니다. 개발 중반 서버 팀원 이탈로 단독 체제가 된 이후, 런칭 후 기존 구조의 문제점을 직접 발견하고 분석해 수정했습니다.</span></li>
@@ -512,7 +512,7 @@
           <li>채팅 서버·광장 서버 개발로 유저 간 실시간 상호작용 지원</li>
           <li>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
@@ -572,13 +572,13 @@
         <p class="proj-genre">장르: SNG(소셜 네트워크 게임) · 라이프스타일 시뮬레이션</p>
         <ul class="duty">
           <li>결제 실패 빈도 개선 (하루 4~5건 → 1~2주 1건) · MySQL 5.7→8.0 마이그레이션 대응 · Looker Studio 대시보드 구축</li>
-          <li>한국/일본/대만/영미 4개국 서버 유지보수</li>
+          <li>한국·일본·대만·영문권 4개 권역 서버 유지보수</li>
         </ul>
         <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>한국·일본·대만·영미권 4개국 서버 운영</b><span class="detail-sub">→ 국가마다 다른 콘텐츠에서 발생하는 오류를 찾아 수정했습니다. 다른 개발자도 운영 이력을 빠르게 파악하도록 콘텐츠·버그 목록을 문서화하고 계속 갱신했습니다.</span></li>
+              <li><b>한국·일본·대만·영문권 4개 권역 서버 운영</b><span class="detail-sub">→ 권역마다 다른 콘텐츠에서 발생하는 오류를 찾아 수정했습니다. 다른 개발자도 운영 이력을 빠르게 파악하도록 콘텐츠·버그 목록을 문서화하고 계속 갱신했습니다.</span></li>
               <li><b>데이터 관리 및 최적화로 서버 성능 개선, 신규 콘텐츠 개발</b><span class="detail-sub">→ 신규 콘텐츠 개발 시 인덱싱과 쿼리 최적화를 적용해 아이템 기능이 정확하게 동작하고 데이터 중복이 발생하지 않도록 개발했습니다.</span></li>
               <li><b>MySQL 5.7에서 8.0으로 마이그레이션</b><span class="detail-sub">→ MySQL 5.7의 지원 종료에 맞춰 8.0으로 업그레이드했습니다. 인증 방식·GROUP BY 처리 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정하고, 테스트를 거쳐 배포했습니다.</span></li>
               <li><b>게임 재화·로그 대시보드 구축</b><span class="detail-sub">→ BigQuery와 Looker Studio를 연동해 운영팀이 게임 재화와 로그를 대시보드에서 바로 확인하도록 했습니다.</span></li>
@@ -838,7 +838,7 @@
           <li>단일 접속 서버에서 시작해 다중 접속, 스레드 풀, Linux epoll, Windows IOCP 서버까지 단계별 구현</li>
           <li>데이터 분할 전송, 전송 순서 보장, 안전한 접속 종료와 서버 종료 처리 구현</li>
           <li>GUI에서 서버 버전 실행과 다중 클라이언트의 실시간·지연·반복 전송을 통합 제어</li>
-          <li>Linux에서 동시 접속 2,000개·메시지 40,000건, Windows에서 동시 접속 200개·메시지 2,000건 처리 성공</li>
+          <li>Docker 내부 네트워크의 Linux 서버에서 동시 접속 28,000개·메시지 560,000건, Windows IOCP 서버에서 순간 접속 2,000개와 점진 유지 12,000개·메시지 120,000건 처리 성공</li>
         </ul>
         <div class="tags"><span>C++20</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
@@ -846,7 +846,7 @@
             <ul class="duty-detail">
               <li><b>접속 처리 방식을 단계적으로 확장</b><span class="detail-sub">→ 한 번에 한 명만 처리하는 서버에서 시작해 접속마다 스레드를 만드는 방식, 정해진 수의 스레드를 재사용하는 방식, Linux epoll과 Windows IOCP 방식까지 구현했습니다. 이전 버전에서 확인한 한계를 다음 버전에서 개선하며 각 구조의 차이를 익혔습니다.</span></li>
               <li><b>데이터 전송과 서버 종료를 안정적으로 처리</b><span class="detail-sub">→ 큰 데이터가 한 번에 전송되지 않는 상황을 고려해 남은 데이터를 이어 보내고, 같은 사용자의 메시지 순서가 바뀌지 않도록 송신 큐를 구성했습니다. 접속이 남아 있는 상태에서도 서버가 안전하게 종료되도록 작업과 스레드의 종료 순서도 구현했습니다.</span></li>
-              <li><b>부하 테스트와 자동 검사로 결과 검증</b><span class="detail-sub">→ Linux 서버는 동시 접속 2,000개에서 메시지 40,000건을 모두 처리했고, Windows 서버는 동시 접속 200개에서 메시지 2,000건을 모두 처리했습니다. 4 MiB 분할 전송의 데이터 일치 여부와 반복 접속·종료 과정의 메모리 오류도 자동 테스트로 확인했습니다.</span></li>
+              <li><b>부하 테스트와 자동 검사로 결과 검증</b><span class="detail-sub">→ Docker 내부 네트워크의 Linux 서버는 동시 접속 28,000개에서 메시지 560,000건을 모두 처리했습니다. 30,000개 시도에서는 클라이언트의 임시 포트 범위가 먼저 소진됐고, 연결된 28,231개 클라이언트가 보낸 메시지는 전부 정상 처리했습니다. Windows IOCP 서버의 Debug 빌드는 순간 접속 2,000개에서 20,000/20,000 Echo를 처리했고, 접속 동시성을 64개로 제한한 점진 접속에서는 12,000개 연결을 유지하며 120,000/120,000 Echo를 처리했습니다. 순간 접속 2,500개부터는 backlog 128과 pending AcceptEx 16개가 접속 폭주를 모두 흡수하지 못해 일부 연결이 거부됐습니다. 모든 테스트에서 pending I/O drain과 종료 코드 0을 확인했으며, Windows 동적 포트 범위 때문에 12,000개를 서버의 절대 한계로 해석하지 않았습니다. 대량 로그가 stdout pipe를 막지 않도록 측정 시 출력은 NUL로 보냈습니다.</span></li>
               <li><b>서버 구조 비교를 위한 크로스플랫폼 GUI 개발</b><span class="detail-sub">→ 서버 버전 선택·실행, 최대 200개 클라이언트 연결, 개별 메시지와 지연·반복 전송, Echo 응답 집계를 한 화면에서 제어하도록 구현했습니다. 호스트 OS에 따라 실행 가능한 버전과 Native·Docker 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드합니다. 이를 통해 v1의 연결 대기부터 스레드 풀·epoll·IOCP의 처리 차이를 같은 UI에서 직접 재현할 수 있습니다.</span></li>
             </ul>
           </div>
