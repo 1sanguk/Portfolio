@@ -62,7 +62,7 @@
         <div class="hero-card">
           <div class="hero-card-icon">🔧</div>
           <div class="hero-card-title">Ops · Infrastructure</div>
-          <div class="hero-card-desc">Admin & ops tool design · data dashboard build · DB migration</div>
+          <div class="hero-card-desc">Admin &amp; ops tool design · data dashboard build · DB migration</div>
         </div>
       </div>
     </div>
@@ -254,7 +254,8 @@
         <span class="highlight-chevron">▾</span>
       </div>
       <p class="proj-genre">Cozy Life Simulation SNS · 30K+ Users · Peak CCU: 500–1,000</p>
-      <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+      <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
+      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -281,11 +282,11 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>Identified that per-API locks in the login flow were serializing every user's requests — narrowed lock scope to per-user so different users' logins run in parallel, and replaced shared state with thread-safe structures such as ConcurrentDictionary to eliminate lock contention entirely. Expanded the DB connection pool and added missing indexes to clear the remaining bottlenecks.</li>
+            <li>Found that locks attached to each login API were serializing requests. Reduced contention around the request-wide locks, separated independent work for parallel execution, expanded the DB connection pool, and added missing indexes.</li>
             <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact — protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
             <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels — the 30-user capacity was validated through blind testing.</li>
             <li>To add real-time chat that the game lacked, coordinated specs with the planning team and built a new chat server from design through implementation</li>
-            <li>Used slow query logs to identify ranking queries as the primary DB bottleneck, then migrated to Redis real-time updates and paging + Redis caching to distribute concurrent read load</li>
+            <li>Replaced the design that queried MySQL on every ranking request with real-time Redis updates for contribution and fashion-match scores, plus paging and Redis caching to reduce repeated read load.</li>
             <li>Discussed requirements directly with the operations team to finalize the feature scope, then designed and built the ops tool on ASP.NET Core</li>
           </ul>
         </div>
@@ -297,7 +298,7 @@
               <div class="stat-pair"><span class="stat-name">Ranking query time</span><b>10–20 sec</b><span class="arrow">→</span><b class="good">1–2 sec</b></div>
             </div>
             <ul class="duty">
-              <li>Plaza/village single-channel overcrowding: resolved with least-loaded channel placement + auto scale-out, keeping the service stable without lag or disconnections</li>
+              <li>Reduced plaza and village lag caused by single-channel overcrowding through least-loaded channel placement and automatic channel expansion.</li>
             </ul>
           </div>
         </div>
@@ -336,8 +337,7 @@
           <span class="star-label">A</span>
           <ul class="duty">
             <li>Handled MySQL 5.7→8.0 compatibility and applied indexing/optimization to key queries including item lookups</li>
-            <li>Added automatic retry logic for delayed payment responses</li>
-            <li>Cross-checked previous transaction records before retrying to prevent duplicate grants and safely recover cases where payment succeeded but items were not delivered.</li>
+            <li>Added automatic retries for delayed payment responses. Before each retry, cross-checked prior payment and grant records to prevent duplicate item delivery and safely recover transactions where payment succeeded but the item was not granted.</li>
             <li>Discussed the required metrics directly with the operations team, then built a BigQuery · Looker Studio dashboard for real-time currency and token statistics so the team could access data independently</li>
           </ul>
         </div>
@@ -398,6 +398,58 @@
       </div></div>
     </div>
 
+    <div class="highlight-card">
+      <div class="highlight-head">
+        <span class="company">C++ Network Game Server Learning Project</span>
+        <span class="period">Personal Project · 2026.07 – Present</span>
+        <span class="highlight-chevron">▾</span>
+      </div>
+      <p class="proj-genre">A network server lab that builds server architectures step by step and compares their behavior through a GUI</p>
+      <div class="tags"><span>C++20</span></div>
+      <br/>
+
+      <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
+      <div class="star-grid">
+        <div class="star-row">
+          <span class="star-label">S</span>
+          <ul class="duty">
+            <li>Needed a hands-on understanding of connection handling, network I/O, and multithreading in a C++ game server.</li>
+          </ul>
+        </div>
+        <div class="star-row">
+          <span class="star-label">T</span>
+          <ul class="duty">
+            <li>Build server versions progressively from a single-client server to multi-client, thread-pool, Linux epoll, and Windows IOCP implementations, then test them under the same conditions.</li>
+            <li>Create a GUI lab that reproduces and compares the behavior of each server architecture.</li>
+          </ul>
+        </div>
+        <div class="star-row">
+          <span class="star-label">A</span>
+          <ul class="duty">
+            <li>Implemented v1 through v6 to study thread reuse at higher connection counts and the separation of network I/O from application work.</li>
+            <li>Built send queues and partial-send handling so message order and content remain intact when data is split across multiple writes.</li>
+            <li>Automated repeated connect/disconnect tests and graceful shutdown checks, including memory-error verification.</li>
+            <li>Developed a GUI for selecting and launching v1–v6, connecting multiple clients, sending individual, delayed, and repeated messages, and aggregating Echo responses. It chooses Native or Docker execution for the host OS and builds missing binaries with CMake.</li>
+          </ul>
+        </div>
+        <div class="star-row star-result">
+          <span class="star-label">R</span>
+          <div class="star-result-body">
+            <div class="stat-pairs">
+              <div class="stat-pair"><span class="stat-name">Linux Server</span><b class="good">28,000 concurrent connections · 560,000 messages</b></div>
+              <div class="stat-pair"><span class="stat-name">Windows Server</span><b class="good">2,000 burst connections · 12,000 sustained connections · 120,000 messages</b></div>
+            </div>
+            <ul class="duty">
+              <li>Verified correct delivery of a 4 MiB payload split across multiple writes.</li>
+              <li>Load tests exposed a bottleneck where work accumulated on network-processing threads, defining the next optimization target.</li>
+              <li>Built a cross-platform lab that detects supported modes on macOS, Linux, and Windows and reproduces each server architecture through one GUI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div></div>
+    </div>
+
     </div></div>
   </div>
 </section>
@@ -433,11 +485,11 @@
         <ul class="duty">
           <li>Login bottleneck fix (30s–3min → 10–30s) · Ranking Redis migration (10–20s → 1–2s) · New chat server · Channel distribution logic</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Stabilized large-scale user environment through data management and optimization</b><span class="detail-sub">→ While developing on the CocoMine Sanrio codebase, identified bottlenecks and applied indexing/query optimization, reducing item and ranking data processing from 5–15s to 2–6s. Reworked the login system — narrowing per-API locks to per-user scope so different users' logins run in parallel, backed by ConcurrentDictionary-based concurrent structures — cutting login time from 30s–3min to 10–30s.</span></li>
+              <li><b>Reduced query latency and login bottlenecks</b><span class="detail-sub">→ While building on the CocoMine Sanrio Characters codebase, identified lagging paths and applied indexing and query optimization, reducing item and ranking data read/update time from 5–15s to 2–6s. In the login flow, reduced contention from locks that blocked the full request and separated independent work for parallel execution. Expanded the DB connection pool and added indexes, cutting login time from 30s–3min to 10–30s.</span></li>
               <li><b>Developed chat/plaza/village/district servers for diverse user interactions</b><span class="detail-sub">→ Added village and district servers for new content variety; introduced interactive items, interaction motions, and an address system within the village.</span></li>
               <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">→ Migrated the frequently-queried ranking system to Redis, reducing query time from 10–20s to 1–2s.</span></li>
               <li><b>Team collaboration and technical direction review</b><span class="detail-sub">→ Worked as one of two server developers in a team of 2 server · 5 client · 1 UI, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions — such as channel distribution and scale-out logic — with the CTO before applying. After the other server developer left mid-project, continued solo; after launch, independently identified and resolved structural issues in the existing codebase.</span></li>
@@ -458,7 +510,7 @@
           <li>Built chat and plaza servers for real-time user interaction</li>
           <li>Redis-based ranking management and thread-based session isolation for stability and scalability</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
@@ -635,7 +687,7 @@
               <li><b>PWA-based system for mobile access</b><span class="detail-sub">→ Built as a PWA so users can access it like a native app on mobile without downloading from an app store.</span></li>
             </ul>
           </div>
-          <img src="images/pkvalve.png" alt="PK Valve & Engineering PWA" class="proj-image">
+          <img src="images/pkvalve.png" alt="PK Valve &amp; Engineering PWA" class="proj-image">
         </div></div>
       </div>
 
@@ -770,15 +822,60 @@
       <div class="job-head">
         <div class="job-head-main">
           <span class="company">ETC</span>
-          <span class="period">KakaoTech Bootcamp · Personal Projects</span>
-          <span class="proj-count">1 Project</span>
+          <span class="period">Personal Projects · KakaoTech Bootcamp</span>
+          <span class="proj-count">4 Projects</span>
         </div>
         <span class="job-chevron">▾</span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">RPG &amp; Game-Specialized Korean Mini-GPT Chatbot <span class="pdate">2026.05 –</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title">C++ Network Game Server Learning Project <span class="pdate">2026.07 – Present</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">A step-by-step server architecture lab that compares connection handling from v1 through v6 in one GUI</p>
+        <a href="https://github.com/1sanguk/CPP_Server" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>Progressed from a single-client server to multi-client, thread-pool, Linux epoll, and Windows IOCP implementations</li>
+          <li>Implemented partial sends, message ordering, safe connection teardown, and graceful server shutdown</li>
+          <li>Unified server launch and multi-client real-time, delayed, and repeated messaging in one GUI</li>
+          <li>Processed 28,000 concurrent connections and 560,000 messages on Linux; processed 2,000 burst connections and sustained 12,000 connections with 120,000 messages on Windows IOCP</li>
+        </ul>
+        <div class="tags"><span>C++20</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>Expanded connection handling step by step</b><span class="detail-sub">→ Started with a server that handles one client at a time, then implemented thread-per-connection, reusable thread pools, Linux epoll, and Windows IOCP. Each version addresses a limitation found in the previous one.</span></li>
+              <li><b>Handled data transfer and shutdown safely</b><span class="detail-sub">→ Added partial-send handling and per-client send queues to preserve message order when large payloads cannot be sent in one write. Also defined a safe shutdown sequence for active work and threads.</span></li>
+              <li><b>Verified results with load tests and automated checks</b><span class="detail-sub">→ The Linux server processed all 560,000 messages with 28,000 concurrent connections inside a Docker network. At 30,000 attempted connections, the client-side ephemeral port range was exhausted first; all messages from the 28,231 established clients were processed. The Windows IOCP Debug build completed 20,000/20,000 Echo responses at 2,000 burst connections and maintained 12,000 connections while completing 120,000/120,000 Echo responses when connection concurrency was limited to 64. From 2,500 burst connections, backlog 128 and 16 pending AcceptEx calls could not absorb the full spike, causing some refusals. Every test completed pending I/O draining and exited with code 0. Console output was redirected to NUL during measurement to prevent stdout from becoming the bottleneck.</span></li>
+              <li><b>Built a cross-platform GUI for comparing server designs</b><span class="detail-sub">→ The GUI launches any server version, connects up to 200 clients for interactive testing, sends individual, delayed, or repeated messages, and aggregates Echo responses. It detects which versions can run on the host OS, selects Native or Docker execution, and builds missing binaries with CMake.</span></li>
+            </ul>
+          </div>
+          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image">
+        </div></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">Kakao Terms RAG Performance Challenge <span class="pdate">2026.08.11 – 2026.08.13</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">A RAG system that answers questions about Kakao terms with supporting clauses, plus an answer-evaluation tool</p>
+        <a href="https://github.com/1sanguk/AI_Performance_Contest" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>Combined keyword and semantic retrieval to find relevant terms and clauses more accurately</li>
+          <li>Built an end-to-end RAG pipeline for Colab T4, from document preparation and indexing to answer generation</li>
+          <li>Scored 93.915 in the official practice evaluation, improved the baseline by 5.724 points, and advanced to the Top 5 among 17 teams</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>RAG</span><span>BM25</span><span>BGE-M3</span><span>RRF</span><span>Qwen2.5</span><span>FastAPI</span><span>Gemini</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>Improved evidence retrieval by combining keyword and semantic search</b><span class="detail-sub">→ Combined BM25, which is strong at exact terms and numbers, with BGE-M3 semantic retrieval through RRF. Removed duplicate results and supplied the answer model with the most relevant source text so numeric conditions and exceptions were less likely to be omitted.</span></li>
+              <li><b>Built an answer and evaluation pipeline for a limited GPU environment</b><span class="detail-sub">→ Quantized Qwen2.5-7B-Instruct to 4-bit and prepared the terms data, search indexes, and FastAPI service in one Colab notebook. A separate Gemini-based evaluator checked candidate answers and returned scores in a fixed JSON schema.</span></li>
+              <li><b>Raised the score to 93.915 through controlled experiments</b><span class="detail-sub">→ Changed one variable at a time, including stronger evidence emphasis, recovery of omitted source passages, and duplicate removal, while recording results and selection reasons. The official practice evaluation reached MRR 1.0000, Key Fact F1 0.8080, LLM Judge 99.350, and a total score of 93.915, a 5.724-point gain over the initial baseline and a Top 5 finish among 17 teams.</span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">RPG &amp; Game-Specialized Korean Mini-GPT Chatbot <span class="pdate">2026.05 – On Hold</span><span class="proj-chevron">▾</span></div>
         <p class="proj-genre">KakaoTech Bootcamp Deep Dive · GPT Architecture from Scratch + Qwen3 Local LLM + RAG / LangChain / LangGraph / Claude API</p>
         <a href="https://github.com/1sanguk/KTB-Deepdive/tree/main/LLM_Project/chatbot" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
@@ -796,6 +893,28 @@
             </ul>
           </div>
           <img src="images/chatbot.png" alt="RPG &amp; Game-Specialized Korean Mini-GPT Chatbot" class="proj-image">
+        </div></div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-title">Giftie · AI Hackathon <span class="pdate">2026.08.18 – 2026.08.21</span><span class="proj-chevron">▾</span></div>
+        <p class="proj-genre">An AI relationship-management service that records gifts and cash contributions and recommends when, what, and how to reciprocate</p>
+        <a href="https://github.com/KTB-AI-Hackerton-19/Giftie" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>As PM, defined the service scope and FE, BE, AI, and cloud responsibilities while coordinating schedules and API integration</li>
+          <li>Designed the initial AI service structure that normalizes manually entered and image-extracted gift information into one data model</li>
+          <li>Built an MVP in four days and advanced to the Top 8 among 20 teams</li>
+        </ul>
+        <div class="tags"><span>PM</span><span>Python</span><span>FastAPI</span><span>Spring Boot</span><span>Next.js</span><span>AWS</span><span>Bedrock</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>Designed the initial AI service and data flow</b><span class="detail-sub">→ Normalized gift information from manual input and images into one shared format, then separated the flow into records, calendar entries, notifications, and return-gift recommendations. A common input contract let teammates implement features independently.</span></li>
+              <li><b>Aligned FE, BE, and AI development as PM</b><span class="detail-sub">→ Divided responsibilities among frontend, backend, and AI services and documented the order in which data moves through them. Reviewed implementation status and API request and response formats, then resolved mismatched assumptions by restating and sharing the agreed rules.</span></li>
+              <li><b>Defined the deployment and cloud architecture</b><span class="detail-sub">→ Chose Vercel for the frontend, AWS EC2 for backend and AI services, and MySQL plus S3 for data. The frontend calls only the backend, which connects to the AI service, keeping service boundaries clear.</span></li>
+              <li><b>Completed a four-day MVP and reached the Top 8</b><span class="detail-sub">→ The team delivered a working demo with login, gift records, per-person history, calendar, notifications, and AI-powered reciprocation recommendations. Giftie advanced to the Top 8 among 20 teams.</span></li>
+            </ul>
+          </div>
         </div></div>
       </div>
       </div></div>
