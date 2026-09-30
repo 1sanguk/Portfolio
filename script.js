@@ -37,6 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-toggle]")) {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+
   const nav = document.querySelector("nav.topnav");
   const isMobile = () => window.matchMedia("(max-width: 640px)").matches;
   let lastScrollY = window.scrollY;

@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>박상욱 | 포트폴리오</title>
+<title>박상욱 | 게임 서버 / 백엔드 개발자 포트폴리오</title>
+<meta name="description" content="게임 서버와 백엔드 개발자 박상욱의 포트폴리오입니다. 라이브 모바일 게임 5종의 서버 개발과 운영, 성능 개선 사례를 정리했습니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260930">
 <script>
   (() => {
     const storageKey = 'portfolio_analytics_opt_out';
@@ -45,246 +46,310 @@
 </head>
 <body>
 
-<nav class="topnav">
+<nav class="topnav" aria-label="주요 메뉴">
   <div class="wrap">
-    <div class="brand">Park Sang Ouk's PORTFOLIO</div>
+    <a href="#top" class="brand"><b>박상욱</b><span>Steve Park</span></a>
     <ul class="mini-toc">
-      <li><a href="#edu">학력 · 교육이수</a></li>
-      <li><a href="#career">경력사항</a></li>
-      <li><a href="#lang-cert">어학/자격증</a></li>
-      <li><a href="#skills">활용능력</a></li>
+      <li><a href="#introduce">소개</a></li>
+      <li><a href="#edu">학력/자격</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#impact">성과</a></li>
       <li><a href="#highlights">대표 프로젝트</a></li>
+      <li><a href="#career">경력</a></li>
       <li><a href="#career-detail">프로젝트 목록</a></li>
     </ul>
-    <a href="index_eng.html" class="lang-switch">ENG</a>
+    <a href="index_eng.html" class="lang-switch" lang="en">ENG</a>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
-    <div class="hero-body">
-      <div class="tag">ABOUT ME</div>
-      <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">게임 서버 · 백엔드 개발자. 다권역 실서비스 운영, 성능 최적화, 운영 인프라 구축까지 — 문제를 끝까지 파고듭니다.</p>
-      <div class="meta">
-        <span><b>지원분야</b> 게임 서버 개발 · 서버/백엔드 개발</span>
-        <span><b>경력</b> 4년</span>
-        <span><b>나이</b> 32세 (94년생)</span>
-        <span><b>병역</b> 군필 (병장 만기제대)</span>
+    <div class="hero-text">
+      <div class="hero-kicker">
+        <b>게임 서버 / 백엔드 개발자</b>
+        <span class="sep" aria-hidden="true"></span>
+        <span>경력 4년, 라이브 게임 5종 운영</span>
       </div>
-      <div class="meta">
-        <span><b>연락처</b> 010-9929-0034</span>
-        <span><b>E-mail</b> 1sanguk@naver.com</span>
-        <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+      <h1>보이지 않는 곳에서<br>서비스의 안정성을<br>만듭니다.</h1>
+      <p class="hero-intro">한국, 일본, 대만, 영문권에서 운영되는 모바일 게임 서버를 맡아 로그인 병목과 랭킹 조회 지연, 결제 오류를 구조부터 다시 설계해 해결했습니다.</p>
+      <div class="hero-actions">
+        <a href="#highlights" class="btn-primary">대표 프로젝트 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <a href="https://github.com/1sanguk" target="_blank" rel="noopener" class="text-link">github.com/1sanguk</a>
       </div>
-      <div class="hero-cards">
-        <div class="hero-card">
-          <div class="hero-card-icon">🎮</div>
-          <div class="hero-card-title">게임 서버 개발</div>
-          <div class="hero-card-desc">다권역 실서비스 운영 · 성능 개선 · 실시간 채팅 서버 신규 구축</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-icon">⚡</div>
-          <div class="hero-card-title">성능 최적화</div>
-          <div class="hero-card-desc">DB 인덱싱 · Redis 캐싱 · 랭킹 조회 10~20초 → 1~2초 단축</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-icon">🔧</div>
-          <div class="hero-card-title">운영 · 인프라</div>
-          <div class="hero-card-desc">어드민·운영툴 직접 설계 · 데이터 대시보드 구축 · DB 마이그레이션</div>
-        </div>
-      </div>
+      <dl class="hero-facts">
+        <div><dt>지원 분야</dt><dd>게임 서버 개발, 서버/백엔드 개발</dd></div>
+        <div><dt>경력</dt><dd>4년</dd></div>
+        <div><dt>운영 게임</dt><dd>모바일 게임 5종</dd></div>
+        <div><dt>운영 권역</dt><dd>한국, 일본, 대만, 영문권</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-phones">
+      <figure class="phone">
+        <div class="phone-frame"><img src="images/코코마인산리오캐릭터즈.png" alt="코코마인 산리오 캐릭터즈 대표 이미지"></div>
+        <figcaption>코코마인 산리오</figcaption>
+      </figure>
+      <figure class="phone is-main">
+        <div class="phone-frame"><img src="images/코코마인.png" alt="코코마인 대표 이미지"></div>
+        <figcaption>코코마인</figcaption>
+      </figure>
+      <figure class="phone">
+        <div class="phone-frame"><img src="images/놀러와마이홈.png" alt="놀러와, 마이홈 대표 이미지"></div>
+        <figcaption>놀러와, 마이홈</figcaption>
+      </figure>
     </div>
   </div>
 </header>
 
-<section class="block reveal" id="introduce">
-  <div class="wrap">
-    <h2>Introduce</h2>
-    <div class="introduce-body">
-      <p>게임 서버·백엔드 개발자로 4년간 근무하며, 유지보수와 신규 개발을 넘어 성능 최적화·운영 인프라 구축·실시간 서버 설계까지 폭넓은 실무를 경험했습니다. 한국·일본·대만·영문권 4개 권역에서 운영되는 실서비스를 직접 담당하면서 로그인 병목 해소, Redis 기반 랭킹 전환, 채팅 서버 신규 구축, 결제 안정화, DB 마이그레이션 등 서비스 안정성과 성능에 직결되는 문제들을 발견하고 끝까지 해결해 왔습니다.</p>
+<section class="section reveal" id="introduce">
+  <div class="wrap intro-grid">
+    <div>
+      <div class="section-label">소개</div>
+      <h2 class="section-title">표면의 증상보다<br>구조를 고칩니다.</h2>
+    </div>
+    <div class="intro-body">
+      <p>게임 서버와 백엔드 개발자로 4년간 근무하며, 유지보수와 신규 개발을 넘어 성능 최적화, 운영 인프라 구축, 실시간 서버 설계까지 폭넓은 실무를 경험했습니다. 한국, 일본, 대만, 영문권 4개 권역에서 운영되는 실서비스를 직접 담당하면서 로그인 병목 해소, Redis 기반 랭킹 전환, 채팅 서버 신규 구축, 결제 안정화, DB 마이그레이션 등 서비스 안정성과 성능에 직결되는 문제들을 발견하고 끝까지 해결해 왔습니다.</p>
       <p>여러 장애 대응과 구조 개선을 반복하며 얻은 확신은, 표면적인 증상만 처리하는 임시방편보다 원인을 파악하고 구조를 바꾸는 것이 결국 더 안전하고 오래간다는 것입니다. 백엔드는 철저히 무대 뒤에 있지만, 서버가 조용할수록 유저는 끊김 없이 몰입하고 운영팀은 문제 대신 기획에 집중할 수 있습니다. 존재가 드러나지 않을수록 잘 되고 있다는 뜻이라 생각하며, 그 보이지 않는 자리에서 사람들의 경험을 채우는 일에서 보람을 찾습니다.</p>
     </div>
   </div>
 </section>
 
-<section class="block reveal toc">
+<section class="section reveal" id="edu">
   <div class="wrap">
-    <h2>목차</h2>
-    <ol class="toc-list">
-      <li><a href="#edu">학력 · 교육이수</a></li>
-      <li><a href="#career">경력사항</a></li>
-      <li><a href="#lang-cert">어학 / 자격증</a></li>
-      <li><a href="#skills">활용능력</a></li>
-      <li><a href="#highlights">대표 프로젝트</a></li>
-      <li><a href="#career-detail">프로젝트 목록</a></li>
-    </ol>
+    <div class="section-head">
+      <div>
+        <div class="section-label">학력 / 교육 / 자격</div>
+        <h2 class="section-title">배운 곳과 증명한 것</h2>
+      </div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-col">
+        <h3>학력</h3>
+        <div class="edu-item"><span class="period">2017.03 ~ 2022.08</span><b>부산대학교 (장전)</b><span class="sub">정보컴퓨터공학과, 부산, 졸업</span></div>
+        <div class="edu-item"><span class="period">2013.09 ~ 2014.06</span><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science, 홍콩, 중퇴</span></div>
+        <div class="edu-item"><span class="period">2009.09 ~ 2013.06</span><b>International School of Qingdao</b><span class="sub">중고등학교, 중국 청도, 졸업</span></div>
+      </div>
+      <div class="edu-col">
+        <h3>교육 이수</h3>
+        <div class="edu-item"><span class="period">2026.05.12 ~ 2026.11.12</span><b>카카오테크 부트캠프, 생성형 인공지능(AI) 과정</b><span class="sub">한국전파진흥협회, 진행 중</span></div>
+        <div class="edu-item"><span class="period">2023.11.29 ~ 2024.01.17</span><b>(게임콘텐츠제작) 게임 응용 프로그래밍 제작자 과정</b><span class="sub">서울게임아카데미 부산학원, 중도 포기(취업)</span></div>
+      </div>
+      <div class="edu-col" id="lang-cert">
+        <h3>어학 / 자격증</h3>
+        <div class="edu-item"><span class="period">2026.03.25</span><b>OPIc IH</b><span class="sub">ACTFL</span></div>
+        <div class="edu-item"><span class="period">2024.06</span><b>정보처리기사</b><span class="sub">한국산업인력공단, 24201210507Z</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="block reveal" id="edu">
+<section class="section reveal" id="skills">
   <div class="wrap">
-    <h2 class="toggle">학력 · 교육이수<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="two-col">
-      <div class="col">
-        <div class="col-title">학력사항</div>
-        <div class="row-list">
-          <div class="row">
-            <div class="period">2017.03 ~ 2022.08</div>
-            <div class="content"><b>부산대학교 (장전)</b><span class="sub">정보컴퓨터공학과 · 부산 · 졸업</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2013.09 ~ 2014.06</div>
-            <div class="content"><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science · 홍콩 · 중퇴</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2009.09 ~ 2013.06</div>
-            <div class="content"><b>International School of Qingdao</b><span class="sub">중·고등학교 · 중국 청도 · 졸업</span></div>
-          </div>
+    <div class="section-head">
+      <div>
+        <div class="section-label">활용 능력</div>
+        <h2 class="section-title">다뤄 온 기술</h2>
+      </div>
+      <p class="section-desc">사용 기간은 실무, 개인 프로젝트, 교육 및 학습 경험을 포함합니다. 막대는 숙련도를 상, 중상, 중, 중하, 하의 5단계로 나타냅니다.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>백엔드 언어</h3>
+        <div class="skill-row"><span class="skill-name">Java</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5년</span></span></div>
+        <div class="skill-row"><span class="skill-name">JavaScript</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">C#</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">PHP</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Python</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Node.js</span><span class="skill-meta"><span class="meter" data-level="2" role="img" aria-label="숙련도 중하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Go</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1.5년</span></span></div>
+        <div class="skill-row"><span class="skill-name">C</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">C++</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>데이터베이스</h3>
+        <div class="skill-row"><span class="skill-name">MySQL</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Google BigQuery</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Redis</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1.5년</span></span></div>
+        <div class="skill-row"><span class="skill-name">MSSQL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Oracle</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">PostgreSQL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>서버 / 인프라</h3>
+        <div class="skill-row"><span class="skill-name">AWS</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Apache</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Express</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">IIS</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">SSL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Tomcat</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>프레임워크 / 협업툴</h3>
+        <div class="skill-row"><span class="skill-name">GitHub</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Spring Framework</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">eGovFramework</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="숙련도 중상"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">SVN</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3년</span></span></div>
+        <div class="skill-row"><span class="skill-name">ASP.NET Core</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Spring Boot</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">Nexacro</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">React Native</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>ETC</h3>
+        <div class="skill-row"><span class="skill-name">Looker Studio</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="숙련도 중"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2년</span></span></div>
+        <div class="skill-row"><span class="skill-name">OKTA SSO</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+        <div class="skill-row"><span class="skill-name">PWA</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="숙련도 하"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1년</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section impact reveal" id="impact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">성과</div>
+        <h2 class="section-title">'빨라졌다'가 아니라<br>숫자로 증명했습니다</h2>
+      </div>
+      <p class="section-desc">실제 이용자가 겪던 지연과 운영 리스크를 우선순위로 삼아, 증상이 아니라 구조를 고쳤습니다.</p>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <span class="metric-label">로그인 처리 시간</span>
+        <span class="metric-before"><span class="sr-only">기존 </span>30초~3분</span>
+        <span class="metric-after"><span class="sr-only">개선 후 </span>10~30초</span>
+        <span class="metric-note">코코마인, 락 경합 축소와 병렬 처리</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">랭킹 조회 시간</span>
+        <span class="metric-before"><span class="sr-only">기존 </span>10~20초</span>
+        <span class="metric-after"><span class="sr-only">개선 후 </span>1~2초</span>
+        <span class="metric-note">코코마인, Redis 캐싱과 페이징</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">결제 오류 발생</span>
+        <span class="metric-before"><span class="sr-only">기존 </span>하루 4~5건</span>
+        <span class="metric-after"><span class="sr-only">개선 후 </span>1~2주에 1건</span>
+        <span class="metric-note">놀러와, 마이홈, 재시도 정합성 설계</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="games">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">SKYWALK 2024.01 ~ 2026.02</div>
+        <h2 class="section-title">무대 위의 게임,<br>무대 뒤의 서버</h2>
+      </div>
+      <p class="section-desc">화면에 보이는 것은 게임이고, 제가 맡은 것은 그 아래에서 멈추지 않고 돌아가는 서버입니다. 다섯 개 게임의 서버 개발과 라이브 운영을 함께 맡았습니다.</p>
+    </div>
+    <div class="games-grid">
+      <article class="game">
+        <img class="game-shot" src="images/코코마인.png" alt="코코마인 게임 화면" loading="lazy">
+        <h3 class="game-name">코코마인</h3>
+        <p class="game-genre">코지 라이프 시뮬레이션 SNS</p>
+        <div class="game-work">
+          <span class="game-work-label">무대 뒤에서 한 일</span>
+          <ul class="game-points"><li>로그인 락 경합 개선 (30초~3분에서 10~30초)</li><li>Redis 랭킹 전환 (10~20초에서 1~2초)</li><li>채널 풀 분산과 자동 증설</li><li>채팅 서버 신규 구축</li></ul>
         </div>
-      </div>
-      <div class="col">
-        <div class="col-title">교육이수</div>
-        <div class="row-list">
-          <div class="row">
-            <div class="period">2026.05.12 ~ 2026.11.12</div>
-            <div class="content"><b>카카오테크 부트캠프 - 생성형 인공지능(AI) 과정</b><span class="sub">한국전파진흥협회 · 진행중</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2023.11.29 ~ 2024.01.17</div>
-            <div class="content"><b>(게임콘텐츠제작) 게임 응용 프로그래밍 제작자 과정</b><span class="sub">서울게임아카데미 부산학원 · 중도포기(취업)</span></div>
-          </div>
+        <p class="game-stack">Go / C# / MySQL / Redis</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/코코마인산리오캐릭터즈.png" alt="코코마인 산리오 캐릭터즈 게임 화면" loading="lazy">
+        <h3 class="game-name">코코마인 산리오 캐릭터즈</h3>
+        <p class="game-genre">메타버스형 커뮤니티</p>
+        <div class="game-work">
+          <span class="game-work-label">무대 뒤에서 한 일</span>
+          <ul class="game-points"><li>채팅, 광장 서버 신규 개발</li><li>ASP.NET Core 어드민 설계와 개발</li><li>스레드 단위 세션 분리</li><li>BigQuery 재화, 아이템 통계</li></ul>
         </div>
-      </div>
+        <p class="game-stack">Go / C# / BigQuery</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/놀러와마이홈.png" alt="놀러와, 마이홈 게임 화면" loading="lazy">
+        <h3 class="game-name">놀러와, 마이홈</h3>
+        <p class="game-genre">4개 권역 라이프스타일 SNG</p>
+        <div class="game-work">
+          <span class="game-work-label">무대 뒤에서 한 일</span>
+          <ul class="game-points"><li>결제 재시도 정합성 (하루 4~5건에서 1~2주 1건)</li><li>MySQL 5.7에서 8.0 마이그레이션</li><li>BigQuery, Looker Studio 대시보드</li><li>4개 권역 서버 유지보수</li></ul>
+        </div>
+        <p class="game-stack">Java / MySQL / AWS</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/걸글로브.png" alt="걸글로브 게임 화면" loading="lazy">
+        <h3 class="game-name">걸글로브</h3>
+        <p class="game-genre">패션 드레스업 스타일링 게임</p>
+        <div class="game-work">
+          <span class="game-work-label">무대 뒤에서 한 일</span>
+          <ul class="game-points"><li>아이템 지급 10~20초에서 2~5초로 단축</li><li>어드민 통계, 콘텐츠 관리 기능</li><li>AWS에서 자체 서버로 데이터 이전</li></ul>
+        </div>
+        <p class="game-stack">Python / MySQL</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/유미의세포들.png" alt="유미의 세포들 더 퍼즐 게임 화면" loading="lazy">
+        <h3 class="game-name">유미의 세포들</h3>
+        <p class="game-genre">매치-3 퍼즐</p>
+        <div class="game-work">
+          <span class="game-work-label">무대 뒤에서 한 일</span>
+          <ul class="game-points"><li>재화 흐름 통계 시스템 추가</li><li>시스템 개편에 맞춘 DB 컬럼 통합</li><li>AWS에서 자체 서버로 데이터 이전</li></ul>
+        </div>
+        <p class="game-stack">PHP / MySQL</p>
+      </article>
     </div>
-    </div></div>
   </div>
 </section>
 
-<section class="block reveal" id="career">
+<section class="section reveal" id="case">
   <div class="wrap">
-    <h2 class="toggle">경력사항 (총 4년)<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="career-timeline">
-      <div class="career-timeline-bar">
-        <div class="tl-seg uxis" style="width:16.67%" title="㈜유시스 · 현장실습생 (2021.03~2021.12)"></div>
-        <div class="tl-seg uxis" style="width:20%" title="㈜유시스 · 매니저 (2022.01~2022.12)"></div>
-        <div class="tl-seg gap" style="width:5%" title="공백기 (2023.01~2023.03)"></div>
-        <div class="tl-seg uxis" style="width:8.33%" title="㈜유시스 · 매니저 (2023.04~2023.08)"></div>
-        <div class="tl-seg gap" style="width:6.67%" title="공백기 (2023.09~2023.12)"></div>
-        <div class="tl-seg skywalk" style="width:43.33%" title="㈜스카이워크 · 사원 (2024.01~2026.02)"></div>
+    <div class="case">
+      <div>
+        <div class="section-label">대표 사례 / 코코마인</div>
+        <h2 class="case-title">동시 접속이 늘수록<br>드러나던 병목을<br>구조로 풀었습니다.</h2>
+        <dl class="case-steps">
+          <div class="case-step"><dt>문제</dt><dd>로그인 API마다 걸린 락이 모든 유저의 요청을 한 줄로 세워, 접속이 몰리면 대기가 길어졌습니다.</dd></div>
+          <div class="case-step"><dt>해결</dt><dd>요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬로 처리했습니다. DB 커넥션 풀과 누락된 인덱스도 보완했습니다.</dd></div>
+          <div class="case-step is-result"><dt>결과</dt><dd>로그인은 30초~3분에서 10~30초로, 랭킹 조회는 Redis 전환으로 10~20초에서 1~2초로 줄었습니다.</dd></div>
+        </dl>
       </div>
-      <div class="career-timeline-years">
-        <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
-      </div>
-      <div class="career-timeline-legend">
-        <span class="legend-item"><span class="dot uxis"></span>유시스 (2021.03 ~ 2023.08)</span>
-        <span class="legend-item"><span class="dot skywalk"></span>스카이워크 (2024.01 ~ 2026.02)</span>
-      </div>
-    </div>
-
-    <div class="row-list">
-      <div class="row">
-        <div class="period">2024.01 ~ 2026.02</div>
-        <div class="content"><b>㈜스카이워크 · 서버 개발 · 사원</b><span class="sub">게임 서버 콘텐츠 개발 / 유지보수</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2023.04 ~ 2023.08</div>
-        <div class="content"><b>㈜유시스 · 개발 · 매니저</b><span class="sub">SW개발, 서버개발 (프리랜서)</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2022.01 ~ 2022.12</div>
-        <div class="content"><b>㈜유시스 · 개발 · 매니저</b><span class="sub">SW개발, 서버개발 (프리랜서)</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2021.03 ~ 2021.12</div>
-        <div class="content"><b>㈜유시스 · 개발 · 현장실습생</b><span class="sub">SW개발, 서버개발</span></div>
+      <div>
+        <ol class="flow" aria-label="코코마인 요청 처리 구조">
+          <li class="is-changed"><b>LOGIN</b><span>락 경합 축소</span></li>
+          <li class="is-changed"><b>SESSION</b><span>동시 요청 분리</span></li>
+          <li class="is-changed"><b>CHANNEL POOL</b><span>최소 부하 배치, 자동 증설</span></li>
+          <li class="is-changed"><b>REDIS</b><span>랭킹 캐시로 전환</span></li>
+          <li class="is-changed"><b>MYSQL</b><span>영속 데이터, 인덱스 보강</span></li>
+        </ol>
+        <p class="flow-legend"><i aria-hidden="true"></i>로그인부터 DB까지 전 구간을 직접 설계하고 개선했습니다.</p>
       </div>
     </div>
-    </div></div>
   </div>
 </section>
 
-<section class="block reveal" id="lang-cert">
+<section class="section reveal" id="highlights">
   <div class="wrap">
-    <h2 class="toggle">어학 / 자격증<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="row-list">
-      <div class="row">
-        <div class="period">2026.03.25</div>
-        <div class="content"><b>OPIc IH</b><span class="sub">ACTFL</span></div>
+    <div class="section-head">
+      <div>
+        <div class="section-label">대표 프로젝트</div>
+        <h2 class="section-title">문제를 끝까지<br>따라간 네 가지 프로젝트</h2>
+        <p class="section-hint">카드를 누르면 상황, 과제, 행동, 결과가 펼쳐집니다.</p>
       </div>
-      <div class="row">
-        <div class="period">2024.06</div>
-        <div class="content"><b>정보처리기사</b><span class="sub">한국산업인력공단 · 24201210507Z</span></div>
+      <div class="star-legend">
+        <span><b>S</b>상황</span>
+        <span><b>T</b>과제</span>
+        <span><b>A</b>행동</span>
+        <span><b>R</b>결과</span>
       </div>
-    </div>
-    </div></div>
-  </div>
-</section>
-
-<section class="block reveal" id="skills">
-  <div class="wrap">
-    <h2 class="toggle">활용능력<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="skill-group">
-      <div class="label">백엔드 언어</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="5년">Java</span><span class="skill-tag" data-level="중상" data-years="3년">JavaScript</span><span class="skill-tag" data-level="중" data-years="2년">C#</span><span class="skill-tag" data-level="중" data-years="2년">PHP</span><span class="skill-tag" data-level="중" data-years="2년">Python</span><span class="skill-tag" data-level="중하" data-years="1년">Node.js</span><span class="skill-tag" data-level="하" data-years="1년">C</span><span class="skill-tag" data-level="하" data-years="1년">C++</span><span class="skill-tag" data-level="하" data-years="1.5년">Go</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">데이터베이스</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="5년">MySQL</span><span class="skill-tag" data-level="중" data-years="2년">Google BigQuery</span><span class="skill-tag" data-level="중" data-years="1.5년">Redis</span><span class="skill-tag" data-level="하" data-years="3년">MSSQL</span><span class="skill-tag" data-level="하" data-years="3년">Oracle</span><span class="skill-tag" data-level="하" data-years="3년">PostgreSQL</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">서버 / 인프라</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중" data-years="2년">AWS</span><span class="skill-tag" data-level="하" data-years="1년">Apache</span><span class="skill-tag" data-level="하" data-years="1년">Express</span><span class="skill-tag" data-level="하" data-years="1년">IIS</span><span class="skill-tag" data-level="하" data-years="1년">SSL</span><span class="skill-tag" data-level="하" data-years="1년">Tomcat</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">프레임워크 / 협업툴</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="3년">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5년">GitHub</span><span class="skill-tag" data-level="중상" data-years="3년">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1년">Spring Boot</span><span class="skill-tag" data-level="중" data-years="2년">ASP.NET Core</span><span class="skill-tag" data-level="중" data-years="3년">SVN</span><span class="skill-tag" data-level="하" data-years="1년">Nexacro</span><span class="skill-tag" data-level="하" data-years="1년">React Native</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">ETC</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중" data-years="2년">Looker Studio</span><span class="skill-tag" data-level="하" data-years="1년">OKTA SSO</span><span class="skill-tag" data-level="하" data-years="1년">PWA</span>
-      </div>
-    </div>
-    <p class="skill-note">※ 사용 기간은 실무, 개인 프로젝트, 교육 및 학습 경험을 포함합니다.</p>
-    </div></div>
-  </div>
-</section>
-
-<section class="block reveal" id="highlights">
-  <div class="wrap">
-    <h2 class="toggle">대표 프로젝트<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="star-legend">
-      <span><b>S</b>ituation 상황</span>
-      <span><b>T</b>ask 과제</span>
-      <span><b>A</b>ction 행동</span>
-      <span><b>R</b>esult 결과</span>
     </div>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">코코마인</span>
-        <span class="period">SKYWALK · 2024.12 ~ 2026.02</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">코코마인</h3>
+        <span class="period">SKYWALK, 2024.12 ~ 2026.02</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">코지 라이프 시뮬레이션 SNS · 가입자 3만+ · 피크 동접 500~1,000명</p>
+      <p class="proj-genre">코지 라이프 시뮬레이션 SNS, 가입자 3만+, 피크 동접 500~1,000명</p>
       <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -292,7 +357,7 @@
           <span class="star-label">S</span>
           <ul class="duty">
             <li>로그인 API마다 락이 걸려 있어 접속이 몰리면 모든 세션이 순서대로 대기</li>
-            <li>광장·빌리지는 단일 채널에 유저가 집중돼 렉·끊김이 잦음</li>
+            <li>광장과 빌리지는 단일 채널에 유저가 집중돼 렉과 끊김이 잦음</li>
             <li>랭킹 조회를 매번 MySQL에서 직접 처리해 동시 요청 시 부하가 큼</li>
             <li>유저 간 실시간 채팅 기능 자체가 없음</li>
             <li>운영팀은 게임 데이터 필요 시 매번 개발팀에 직접 요청해야 하는 구조</li>
@@ -302,7 +367,7 @@
           <span class="star-label">T</span>
           <ul class="duty">
             <li>로그인 안정화</li>
-            <li>광장·빌리지 채널 분산 로직 개선</li>
+            <li>광장/빌리지 채널 분산 로직 개선</li>
             <li>채팅 서버 신규 구축</li>
             <li>랭킹 조회 성능 개선</li>
             <li>운영툴 설계</li>
@@ -311,46 +376,45 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>로그인 과정에서 API마다 걸린 락 때문에 요청이 직렬 처리되는 병목을 확인 — 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬 처리. DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소</li>
-            <li>광장·빌리지에 채널 풀(기본 5개)을 두고 인원 기반 최소 부하 채널로 신규 유저를 배치하는 분산 로직을 설계, 채널별 유저 상태를 격리 관리해 같은 채널 유저끼리만 상호작용하도록 구성 — 동시 접속 시 채널별 인원 카운터가 꼬이는 경쟁 상태(race condition)를 Go의 mutex(sync.Mutex)로 보호해 정합성 확보</li>
-            <li>전체 채널이 정원 30명 중 25명에 근접하면 채널 5개를 자동으로 일괄 증설하는 스케일아웃 로직을 구현하되, 증설 직후 유저가 새 채널로 한꺼번에 몰리는 부하 폭주(thundering herd)를 막기 위해 신규 유저를 점진적·분산 배치 — 정원 수치는 블라인드 테스트로 검증해 30명으로 확정</li>
+            <li>로그인 과정에서 API마다 걸린 락 때문에 요청이 직렬 처리되는 병목을 확인했습니다. 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬 처리했고, DB 커넥션 풀 확충과 누락된 인덱스 추가로 남은 병목도 해소했습니다</li>
+            <li>광장과 빌리지에 채널 풀(기본 5개)을 두고 인원 기반 최소 부하 채널로 신규 유저를 배치하는 분산 로직을 설계했습니다. 채널별 유저 상태를 격리 관리해 같은 채널 유저끼리만 상호작용하도록 구성했고, 동시 접속 시 채널별 인원 카운터가 꼬이는 경쟁 상태(race condition)는 Go의 mutex(sync.Mutex)로 보호해 정합성을 확보했습니다</li>
+            <li>전체 채널이 정원 30명 중 25명에 근접하면 채널 5개를 자동으로 일괄 증설하는 스케일아웃 로직을 구현했습니다. 증설 직후 유저가 새 채널로 한꺼번에 몰리는 부하 폭주(thundering herd)를 막기 위해 신규 유저를 점진적으로 분산 배치했고, 정원 수치는 블라인드 테스트로 검증해 30명으로 확정했습니다</li>
             <li>채팅 기능이 없던 문제를 해소하기 위해 기획팀과 스펙 협의를 거쳐 채팅 서버를 설계부터 구현까지 신규 개발했습니다</li>
-            <li>랭킹을 조회할 때마다 MySQL에서 데이터를 가져오던 구조를 기부 기여도·패션매치 점수의 Redis 실시간 반영과 페이징 + Redis 캐싱 방식으로 바꿔 반복 조회 부하를 줄였습니다</li>
-            <li>운영팀 담당자와 필요 기능을 협의해 요구사항을 확정하고, ASP.NET Core 기반 운영툴을 설계·개발했습니다</li>
+            <li>랭킹을 조회할 때마다 MySQL에서 데이터를 가져오던 구조를 기부 기여도와 패션매치 점수의 Redis 실시간 반영, 페이징과 Redis 캐싱 방식으로 바꿔 반복 조회 부하를 줄였습니다</li>
+            <li>운영팀 담당자와 필요 기능을 협의해 요구사항을 확정하고, ASP.NET Core 기반 운영툴을 설계하고 개발했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">로그인 처리 시간</span><b>30초~3분</b><span class="arrow">→</span><b class="good">10~30초</b></div>
-              <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><b>10~20초</b><span class="arrow">→</span><b class="good">1~2초</b></div>
+              <div class="stat-pair"><span class="stat-name">로그인 처리 시간</span><span class="stat-value"><s>30초~3분</s><strong>10~30초</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">랭킹 조회 시간</span><span class="stat-value"><s>10~20초</s><strong>1~2초</strong></span></div>
             </div>
             <ul class="duty">
-              <li>광장·빌리지 1채널 과밀: 최소 부하 채널 배치 + 자동 채널 증설로 렉·끊김 완화</li>
+              <li>광장과 빌리지 1채널 과밀 문제를 최소 부하 채널 배치와 자동 채널 증설로 완화했습니다</li>
             </ul>
           </div>
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">놀러와, 마이홈</span>
-        <span class="period">SKYWALK · 2024.01 ~ 2026.02</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">놀러와, 마이홈</h3>
+        <span class="period">SKYWALK, 2024.01 ~ 2026.02</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">SNG · 라이프스타일 시뮬레이션 · 한국·일본·대만·영문권 4개 권역 운영 · 가입자 20만+ · 동접 200~2,000명</p>
+      <p class="proj-genre">라이프스타일 시뮬레이션 SNG, 한국/일본/대만/영문권 4개 권역 운영, 가입자 20만+, 동접 200~2,000명</p>
       <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
         <div class="star-row">
           <span class="star-label">S</span>
           <ul class="duty">
-            <li>MySQL 5.7이 2023년 10월 EOL을 맞아 보안 패치 지원 종료 → 8.0 마이그레이션이 불가피</li>
+            <li>MySQL 5.7이 2023년 10월 EOL을 맞아 보안 패치 지원이 종료되어 8.0 마이그레이션이 불가피</li>
             <li>네트워크 지연 시 결제가 하루 4~5건씩 실패하거나, 결제는 완료됐는데 아이템이 미지급되는 현상이 반복</li>
             <li>운영팀이 게임 데이터 필요 시 매번 개발팀에 요청해야 해 의사결정이 느려지는 구조</li>
           </ul>
@@ -366,44 +430,43 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>EOL에 따른 8.0 마이그레이션에서 인증 방식·GROUP BY 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정했고, 주요 쿼리에 인덱싱·최적화를 함께 적용해 성능도 개선했습니다</li>
-            <li>결제 실패 문제는 네트워크 지연 시 자동 재시도(retry) 로직을 추가하는 것으로 해소했습니다. 재시도 전 이전 결제·지급 내역을 대조해 중복 지급을 방지했고, 결제는 완료됐으나 아이템이 지급되지 않은 건은 안전하게 복구하는 처리도 함께 구현했습니다</li>
-            <li>운영팀과 필요한 지표를 정한 뒤 BigQuery와 Looker Studio로 재화·토큰 통계 대시보드를 구축해, 개발팀에 요청하지 않고도 데이터를 확인하게 했습니다</li>
+            <li>EOL에 따른 8.0 마이그레이션에서 인증 방식과 GROUP BY 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정했고, 주요 쿼리에 인덱싱과 최적화를 함께 적용해 성능도 개선했습니다</li>
+            <li>결제 실패 문제는 네트워크 지연 시 자동 재시도(retry) 로직을 추가하는 것으로 해소했습니다. 재시도 전 이전 결제와 지급 내역을 대조해 중복 지급을 방지했고, 결제는 완료됐으나 아이템이 지급되지 않은 건은 안전하게 복구하는 처리도 함께 구현했습니다</li>
+            <li>운영팀과 필요한 지표를 정한 뒤 BigQuery와 Looker Studio로 재화와 토큰 통계 대시보드를 구축해, 개발팀에 요청하지 않고도 데이터를 확인하게 했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">아이템 조회 시간</span><b class="good">3~10초 단축</b></div>
-              <div class="stat-pair"><span class="stat-name">결제 실패 빈도</span><b>하루 4~5건</b><span class="arrow">→</span><b class="good">1~2주에 1건</b></div>
+              <div class="stat-pair"><span class="stat-name">아이템 조회 시간</span><span class="stat-value"><strong>3~10초 단축</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">결제 실패 빈도</span><span class="stat-value"><s>하루 4~5건</s><strong>1~2주에 1건</strong></span></div>
             </div>
             <ul class="duty">
               <li>대시보드 도입 후 운영팀의 단건 데이터 요청이 "이런 통계도 보고 싶다"는 기획성 요청으로 전환</li>
-              <li>오류가 빈발하는 구간을 직접 파악할 수 있게 됨</li>
+              <li>오류가 빈발하는 구간을 운영팀이 직접 파악할 수 있게 됨</li>
             </ul>
           </div>
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">충청북도교육청 인사관리 시스템</span>
-        <span class="period">UXIS · 2021.12 ~ 2022.07</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">충청북도교육청 인사관리 시스템</h3>
+        <span class="period">UXIS, 2021.12 ~ 2022.07</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">교육공무직원 인사 행정 시스템 · 대상 인원 약 6,400~10,000명</p>
+      <p class="proj-genre">교육공무직원 인사 행정 시스템, 대상 인원 약 6,400~10,000명</p>
       <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>eGovFramework</span><span>Spring</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
         <div class="star-row">
           <span class="star-label">S</span>
           <ul class="duty">
-            <li>6,400~10,000명 규모의 교육공무직원 전보(인사이동)를 담당 공무원이 제출 서류를 직접 받아 수기·엑셀로 점수 계산 후 판별</li>
+            <li>6,400~10,000명 규모의 교육공무직원 전보(인사이동)를 담당 공무원이 제출 서류를 직접 받아 수기와 엑셀로 점수 계산 후 판별</li>
           </ul>
         </div>
         <div class="star-row">
@@ -415,36 +478,35 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>수기·엑셀로 취합하던 서류 데이터를 항목별로 점수화·자동 집계하고, top-down 정렬로 우선순위를 판별하는 전보 알고리즘을 설계했습니다</li>
-            <li>엑셀로는 잡아내기 까다로웠던 동점자·중복 점수 케이스를 프로그램이 자동으로 구분하는 판별 로직을 별도로 구현했습니다</li>
+            <li>수기와 엑셀로 취합하던 서류 데이터를 항목별로 점수화해 자동 집계하고, top-down 정렬로 우선순위를 판별하는 전보 알고리즘을 설계했습니다</li>
+            <li>엑셀로는 잡아내기 까다로웠던 동점자와 중복 점수 케이스를 프로그램이 자동으로 구분하는 판별 로직을 별도로 구현했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
           <ul class="duty">
-            <li>6,400~10,000명 규모의 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘 처리로 전환</li>
+            <li>6,400~10,000명 규모의 인사이동 판별을 수기와 엑셀에서 점수 기반 자동 알고리즘 처리로 전환</li>
           </ul>
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">C++ 네트워크 게임 서버 학습 프로젝트</span>
-        <span class="period">개인 프로젝트 · 2026.07 ~ 진행 중</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">C++ 네트워크 게임 서버 학습 프로젝트</h3>
+        <span class="period">개인 프로젝트, 2026.07 ~ 진행 중</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
       <p class="proj-genre">서버 구조를 단계별로 구현하고 GUI에서 동작 차이까지 비교하는 네트워크 서버 실험 프로젝트</p>
       <div class="tags"><span>C++20</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
         <div class="star-row">
           <span class="star-label">S</span>
           <ul class="duty">
-            <li>C++ 기반 게임 서버의 접속·통신·멀티스레드 처리 방식을 직접 구현하며 서버 구조의 기본기에 대한 이해 필요</li>
+            <li>C++ 기반 게임 서버의 접속, 통신, 멀티스레드 처리 방식을 직접 구현하며 서버 구조의 기본기에 대한 이해 필요</li>
           </ul>
         </div>
         <div class="star-row">
@@ -459,106 +521,154 @@
           <ul class="duty">
             <li>v1~v6를 직접 구현하며 접속 수가 늘어날 때 스레드를 효율적으로 사용하고, 네트워크 처리와 작업 처리를 분리하는 구조를 학습했습니다</li>
             <li>데이터가 여러 번 나뉘어 전송되는 상황에서도 순서와 내용이 유지되도록 송신 큐와 이어 보내기 로직을 구현했습니다</li>
-            <li>반복 접속·해제와 서버 종료 상황을 자동 테스트하고 메모리 오류가 없는지 검사했습니다</li>
-            <li>v1~v6 선택 및 실행, 다중 클라이언트 연결, 개별·지연·반복 전송, Echo 응답 집계를 한 화면에서 수행하는 GUI를 개발했습니다. 현재 OS에 맞춰 Native 또는 Docker 실행 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드하도록 구성했습니다</li>
+            <li>반복 접속과 해제, 서버 종료 상황을 자동 테스트하고 메모리 오류가 없는지 검사했습니다</li>
+            <li>v1~v6 선택과 실행, 다중 클라이언트 연결, 개별, 지연, 반복 전송, Echo 응답 집계를 한 화면에서 수행하는 GUI를 개발했습니다. 현재 OS에 맞춰 Native 또는 Docker 실행 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드하도록 구성했습니다</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Linux 서버</span><b class="good">동시 접속 28,000개 · 메시지 560,000건 처리</b></div>
-              <div class="stat-pair"><span class="stat-name">Windows 서버</span><b class="good">순간 접속 2,000개 · 점진 유지 12,000개 · 메시지 120,000건 처리</b></div>
+              <div class="stat-pair"><span class="stat-name">Linux 서버</span><span class="stat-value"><strong>동시 접속 28,000개, 메시지 560,000건 처리</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">Windows 서버</span><span class="stat-value"><strong>순간 접속 2,000개, 점진 유지 12,000개, 메시지 120,000건 처리</strong></span></div>
             </div>
             <ul class="duty">
               <li>4 MiB 데이터를 여러 조각으로 나누어 전송해도 전체 내용이 정확히 전달되는 것을 확인</li>
               <li>부하 테스트로 네트워크 처리 스레드에 작업이 집중되는 병목을 발견하고 다음 개선 지점을 도출</li>
-              <li>macOS·Linux·Windows의 실행 가능 범위를 판별하고, GUI에서 각 서버 구조의 차이를 직접 재현하는 크로스플랫폼 실험 환경 구축</li>
+              <li>macOS, Linux, Windows의 실행 가능 범위를 판별하고, GUI에서 각 서버 구조의 차이를 직접 재현하는 크로스플랫폼 실험 환경 구축</li>
             </ul>
           </div>
         </div>
       </div>
       </div></div>
-    </div>
-
-    </div></div>
+    </article>
   </div>
 </section>
 
-<section class="block reveal" id="career-detail">
+<section class="section reveal" id="career">
   <div class="wrap">
-    <h2 class="toggle">프로젝트 목록<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="career-toc">
-      <ol>
-        <li><a href="#job-skywalk">SKYWALK</a></li>
-        <li><a href="#job-uxis">UXIS</a></li>
-        <li><a href="#job-etc">ETC</a></li>
-      </ol>
+    <div class="section-head">
+      <div>
+        <div class="section-label">경력 (총 4년)</div>
+        <h2 class="section-title">업무 시스템에서<br>라이브 게임 서버까지</h2>
+      </div>
+      <p class="section-desc">SI 웹 백엔드로 시작해 게임 서버로 옮겨 오며, 요구사항 분석부터 설계, 구현, 테스트, 운영 이슈 대응까지 전 과정을 경험했습니다.</p>
     </div>
 
+    <div class="career-timeline">
+      <div class="career-timeline-bar">
+        <div class="tl-seg uxis" style="width:16.67%" title="㈜유시스 현장실습생 (2021.03~2021.12)"></div>
+        <div class="tl-seg uxis" style="width:20%" title="㈜유시스 매니저 (2022.01~2022.12)"></div>
+        <div class="tl-seg gap" style="width:5%" title="공백기 (2023.01~2023.03)"></div>
+        <div class="tl-seg uxis" style="width:8.33%" title="㈜유시스 매니저 (2023.04~2023.08)"></div>
+        <div class="tl-seg gap" style="width:6.67%" title="공백기 (2023.09~2023.12)"></div>
+        <div class="tl-seg skywalk" style="width:43.33%" title="㈜스카이워크 사원 (2024.01~2026.02)"></div>
+      </div>
+      <div class="career-timeline-years">
+        <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+      </div>
+      <div class="career-timeline-legend">
+        <span class="legend-item"><span class="dot uxis"></span>유시스 (2021.03 ~ 2023.08)</span>
+        <span class="legend-item"><span class="dot skywalk"></span>스카이워크 (2024.01 ~ 2026.02)</span>
+      </div>
+    </div>
+
+    <div class="career-rows">
+      <div class="career-row">
+        <div class="period">2024.01 ~ 2026.02</div>
+        <div><b>㈜스카이워크</b><span class="sub">서버 개발 사원, 게임 서버 콘텐츠 개발과 유지보수</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2023.04 ~ 2023.08</div>
+        <div><b>㈜유시스</b><span class="sub">개발 매니저(프리랜서), SW개발과 서버개발</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2022.01 ~ 2022.12</div>
+        <div><b>㈜유시스</b><span class="sub">개발 매니저(프리랜서), SW개발과 서버개발</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2021.03 ~ 2021.12</div>
+        <div><b>㈜유시스</b><span class="sub">개발 현장실습생, SW개발과 서버개발</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="career-detail">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">프로젝트 목록</div>
+        <h2 class="section-title">참여한 프로젝트 전체</h2>
+      </div>
+      <p class="section-desc">회사와 기간별로 정리했습니다. 회사 이름을 누르면 목록이 펼쳐지고, 프로젝트를 누르면 상세 내용이 열립니다.</p>
+    </div>
+
+
     <div class="career-job collapsed" id="job-skywalk">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">SKYWALK</span>
+          <h3 class="company">SKYWALK</h3>
           <span class="period">2024.01 ~ 2026.02 (2년 2개월)</span>
           <span class="proj-count">프로젝트 5개</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>부서: 서버개발</span><span>직책: 사원</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">코코마인 <span class="pdate">2024.12 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">장르: 소셜 네트워킹 서비스(SNS) · 코지 라이프 시뮬레이션</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>코코마인 <span class="pdate">2024.12 ~ 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">장르: 소셜 네트워킹 서비스(SNS), 코지 라이프 시뮬레이션</p>
         <ul class="duty">
-          <li>로그인 병목 해소 (30초~3분 → 10~30초) · 랭킹 Redis 전환 (10~20초 → 1~2초) · 채팅 서버 신규 구축 · 채널 분산 로직 설계</li>
+          <li>로그인 병목 해소 (30초~3분에서 10~30초), 랭킹 Redis 전환 (10~20초에서 1~2초), 채팅 서버 신규 구축, 채널 분산 로직 설계</li>
         </ul>
         <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>조회 지연과 로그인 병목 개선</b><span class="detail-sub">→ 코코마인 산리오 캐릭터즈 코드베이스를 토대로 개발하던 중 렉이 발생하는 구간을 찾아 인덱싱·쿼리 최적화를 적용했습니다. 그 결과 아이템·랭킹 등 대규모 데이터 조회/업데이트 처리 시간이 5~15초에서 2~6초로 줄었습니다. 로그인 과정에서는 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬로 처리했습니다. DB 커넥션 풀과 인덱스도 보완해 로그인 시간을 30초~3분에서 10~30초로 단축했습니다.</span></li>
-              <li><b>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</b><span class="detail-sub">→ 빌리지·지적도 서버를 새로 추가해 콘텐츠를 다양화했고, 빌리지 안에서 사용할 수 있는 인터랙티브 아이템과 상호작용 모션, 주소 시스템을 새롭게 추가했습니다.</span></li>
-              <li><b>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
-              <li><b>팀 협업 및 기술 방향 검토</b><span class="detail-sub">→ 서버 2명·클라 5명·UI 1명 구성의 팀에서 서버 콘텐츠 개발을 담당했습니다. 개발회의에서 구현 일정과 테스트 계획을 팀 단위로 조율했고, 채널 분산·스케일아웃 등 주요 기술 방향은 CTO와 검토 후 적용했습니다. 개발 중반 서버 팀원 이탈로 단독 체제가 된 이후, 런칭 후 기존 구조의 문제점을 직접 발견하고 분석해 수정했습니다.</span></li>
-              <li><b>라이브 전 자체 봇으로 부하테스트, 병목 사전 검증</b><span class="detail-sub">→ 접속·로그인·간단한 플레이까지 자동화한 자체 부하테스트 봇을 제작해 라이브 전 로그인·아이템·광장·채팅 구간의 병목을 사전에 확인했습니다. 이를 바탕으로 구조를 개선하고 락·레이스 컨디션·데드락 가능성이 있는 구간을 재점검해 수정했습니다.</span></li>
-              <li><b>새벽 장애 대응 — 이벤트 미오픈·로그인 지연</b><span class="detail-sub">→ 새벽에 기획팀 이벤트가 오픈되지 않는 장애가 발생해 확인하니 해당 데이터가 커밋에 누락된 상태였습니다. 해당 파일만 재커밋 받아 무점검 배포로 이벤트를 복구했습니다. 또 특정 유저의 아이템이 과다해 락이 발생하며 전체 로그인이 지연되는 장애를 인덱싱과 limit으로 임시 해소한 뒤 락 구조를 근본적으로 개선했습니다.</span></li>
-              <li><b>실데이터 불일치 대응 및 재발 방지 — 업적 기능</b><span class="detail-sub">→ 업적 기능 추가 후 테스트 환경에서는 문제가 없었으나, 라이브 적용 후 이미 아이템을 판매·사용한 유저의 실데이터와 맞지 않는 문제가 발생했습니다. 사용현황과 로그를 분석해 업적 갱신을 일괄 처리했고, 이후 업적 신규 추가 시 케이스를 더 촘촘히 체크하는 로직을 서버에 추가해 재발을 방지했습니다.</span></li>
+              <li><b>조회 지연과 로그인 병목 개선</b><span class="detail-sub">코코마인 산리오 캐릭터즈 코드베이스를 토대로 개발하던 중 렉이 발생하는 구간을 찾아 인덱싱과 쿼리 최적화를 적용했습니다. 그 결과 아이템과 랭킹 등 대규모 데이터 조회/업데이트 처리 시간이 5~15초에서 2~6초로 줄었습니다. 로그인 과정에서는 요청 전체를 막던 락 경합을 줄이고 서로 영향을 주지 않는 작업을 분리해 병렬로 처리했습니다. DB 커넥션 풀과 인덱스도 보완해 로그인 시간을 30초~3분에서 10~30초로 단축했습니다.</span></li>
+              <li><b>채팅/광장/빌리지/지적도 서버 개발로 다양한 유저 상호작용 지원</b><span class="detail-sub">빌리지와 지적도 서버를 새로 추가해 콘텐츠를 다양화했고, 빌리지 안에서 사용할 수 있는 인터랙티브 아이템과 상호작용 모션, 주소 시스템을 새롭게 추가했습니다.</span></li>
+              <li><b>Redis 기반 랭킹 관리 및 게임 서버 콘텐츠 개발</b><span class="detail-sub">자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다.</span></li>
+              <li><b>팀 협업 및 기술 방향 검토</b><span class="detail-sub">서버 2명, 클라이언트 5명, UI 1명 구성의 팀에서 서버 콘텐츠 개발을 담당했습니다. 개발회의에서 구현 일정과 테스트 계획을 팀 단위로 조율했고, 채널 분산과 스케일아웃 등 주요 기술 방향은 CTO와 검토 후 적용했습니다. 개발 중반 서버 팀원 이탈로 단독 체제가 된 이후, 런칭 후 기존 구조의 문제점을 직접 발견하고 분석해 수정했습니다.</span></li>
+              <li><b>라이브 전 자체 봇으로 부하테스트, 병목 사전 검증</b><span class="detail-sub">접속, 로그인, 간단한 플레이까지 자동화한 자체 부하테스트 봇을 제작해 라이브 전 로그인, 아이템, 광장, 채팅 구간의 병목을 사전에 확인했습니다. 이를 바탕으로 구조를 개선하고 락, 레이스 컨디션, 데드락 가능성이 있는 구간을 재점검해 수정했습니다.</span></li>
+              <li><b>새벽 장애 대응: 이벤트 미오픈과 로그인 지연</b><span class="detail-sub">새벽에 기획팀 이벤트가 오픈되지 않는 장애가 발생해 확인하니 해당 데이터가 커밋에 누락된 상태였습니다. 해당 파일만 재커밋 받아 무점검 배포로 이벤트를 복구했습니다. 또 특정 유저의 아이템이 과다해 락이 발생하며 전체 로그인이 지연되는 장애를 인덱싱과 limit으로 임시 해소한 뒤 락 구조를 근본적으로 개선했습니다.</span></li>
+              <li><b>실데이터 불일치 대응 및 재발 방지: 업적 기능</b><span class="detail-sub">업적 기능 추가 후 테스트 환경에서는 문제가 없었으나, 라이브 적용 후 이미 아이템을 판매하거나 사용한 유저의 실데이터와 맞지 않는 문제가 발생했습니다. 사용현황과 로그를 분석해 업적 갱신을 일괄 처리했고, 이후 업적 신규 추가 시 케이스를 더 촘촘히 체크하는 로직을 서버에 추가해 재발을 방지했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/코코마인.png" alt="코코마인" class="proj-image">
+          <img src="images/코코마인.png" alt="코코마인" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">코코마인 산리오 캐릭터즈 <span class="pdate">2024.07 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">장르: 소셜 네트워킹 서비스(SNS) · 메타버스형 커뮤니티</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>코코마인 산리오 캐릭터즈 <span class="pdate">2024.07 ~ 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">장르: 소셜 네트워킹 서비스(SNS), 메타버스형 커뮤니티</p>
         <ul class="duty">
           <li>어드민 전체 기능 개발 주도, 데이터 관리 및 최적화로 서버 성능 개선</li>
-          <li>채팅 서버·광장 서버 개발로 유저 간 실시간 상호작용 지원</li>
-          <li>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</li>
+          <li>채팅 서버와 광장 서버 개발로 유저 간 실시간 상호작용 지원</li>
+          <li>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성과 확장성 확보</li>
         </ul>
         <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>어드민 설계·개발과 서버 성능 개선</b><span class="detail-sub">→ 운영팀이 게임 콘텐츠를 직접 관리하도록 ASP.NET Core 어드민 홈페이지를 설계·개발했습니다. BigQuery를 연동한 통계 사이트에서는 게임 재화·아이템 로그를 바로 확인하게 했고, 서버에서는 인덱싱을 적용하고 불필요하거나 중복된 로직을 제거했습니다.</span></li>
-              <li><b>채팅·광장 서버 신규 개발</b><span class="detail-sub">→ 혼자 파밍하고 집을 꾸미던 기존 공간에 채팅·광장 서버를 추가했습니다. 유저들이 대화를 나누고 서로의 아바타를 볼 수 있는 실시간 상호작용 공간을 구현했습니다.</span></li>
-              <li><b>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성·확장성 확보</b><span class="detail-sub">→ 자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다. 또 유저 세션 처리를 스레드 단위로 분리해, 특정 유저의 요청이 지연되더라도 다른 유저의 세션이 함께 대기하지 않도록 개선해 동접이 늘어도 안정적으로 처리할 수 있는 구조를 만들었습니다.</span></li>
+              <li><b>어드민 설계, 개발과 서버 성능 개선</b><span class="detail-sub">운영팀이 게임 콘텐츠를 직접 관리하도록 ASP.NET Core 어드민 홈페이지를 설계하고 개발했습니다. BigQuery를 연동한 통계 사이트에서는 게임 재화와 아이템 로그를 바로 확인하게 했고, 서버에서는 인덱싱을 적용하고 불필요하거나 중복된 로직을 제거했습니다.</span></li>
+              <li><b>채팅과 광장 서버 신규 개발</b><span class="detail-sub">혼자 파밍하고 집을 꾸미던 기존 공간에 채팅과 광장 서버를 추가했습니다. 유저들이 대화를 나누고 서로의 아바타를 볼 수 있는 실시간 상호작용 공간을 구현했습니다.</span></li>
+              <li><b>Redis 기반 랭킹 관리, 스레드 이용 세션 분리로 안정성과 확장성 확보</b><span class="detail-sub">자주 조회되는 랭킹 시스템을 Redis 기반으로 개편해 조회 시간을 10~20초에서 1~2초로 단축했습니다. 또 유저 세션 처리를 스레드 단위로 분리해, 특정 유저의 요청이 지연되더라도 다른 유저의 세션이 함께 대기하지 않도록 개선해 동접이 늘어도 안정적으로 처리할 수 있는 구조를 만들었습니다.</span></li>
             </ul>
           </div>
-          <img src="images/코코마인산리오캐릭터즈.png" alt="코코마인 산리오캐릭터즈" class="proj-image">
+          <img src="images/코코마인산리오캐릭터즈.png" alt="코코마인 산리오 캐릭터즈" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">걸글로브 <span class="pdate">2024.04 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>걸글로브 <span class="pdate">2024.04 ~ 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">장르: 스타일링 게임 (패션 드레스업)</p>
         <ul class="duty">
-          <li>서버 오류 추적·수정 및 어드민 통계·콘텐츠 관리 기능 개발</li>
+          <li>서버 오류 추적과 수정, 어드민 통계와 콘텐츠 관리 기능 개발</li>
           <li>데이터 관리 및 최적화로 대규모 유저 데이터 안정적 처리</li>
           <li>DB 이전 작업 수행으로 시스템 업그레이드 지원</li>
         </ul>
@@ -566,17 +676,18 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>서버 오류 수정과 어드민 기능 확장</b><span class="detail-sub">→ 간헐적으로 발생하는 에러를 추적해 기존 코드와 신규 콘텐츠가 중복되거나 충돌하는 부분을 수정했습니다. 어드민에는 통계와 신규 콘텐츠 관리 기능을 추가해 운영팀이 필요한 작업을 직접 처리하게 했습니다.</span></li>
-              <li><b>데이터 관리 및 최적화로 대규모 유저 데이터 안정적 처리</b><span class="detail-sub">→ 최적화되지 않은 쿼리와 인덱스가 적용되어 있지 않아 시간이 오래 걸리던 부분을 개선해, 스테이지 클리어 후 아이템 지급 등 시스템 업데이트 처리 시간을 10~20초에서 2~5초로 단축했습니다.</span></li>
-              <li><b>DB 이전 작업 수행으로 시스템 업그레이드 지원</b><span class="detail-sub">→ 비용 문제로 AWS에서 로컬 서버로 옮기는 과정에서 대규모 데이터 백업과 마이그레이션을 직접 수행했습니다.</span></li>
+              <li><b>서버 오류 수정과 어드민 기능 확장</b><span class="detail-sub">간헐적으로 발생하는 에러를 추적해 기존 코드와 신규 콘텐츠가 중복되거나 충돌하는 부분을 수정했습니다. 어드민에는 통계와 신규 콘텐츠 관리 기능을 추가해 운영팀이 필요한 작업을 직접 처리하게 했습니다.</span></li>
+              <li><b>데이터 관리 및 최적화로 대규모 유저 데이터 안정적 처리</b><span class="detail-sub">최적화되지 않은 쿼리와 인덱스가 적용되어 있지 않아 시간이 오래 걸리던 부분을 개선해, 스테이지 클리어 후 아이템 지급 등 시스템 업데이트 처리 시간을 10~20초에서 2~5초로 단축했습니다.</span></li>
+              <li><b>DB 이전 작업 수행으로 시스템 업그레이드 지원</b><span class="detail-sub">비용 문제로 AWS에서 로컬 서버로 옮기는 과정에서 대규모 데이터 백업과 마이그레이션을 직접 수행했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/걸글로브.png" alt="걸글로브" class="proj-image proj-image-crop">
+          <img src="images/걸글로브.png" alt="걸글로브" class="proj-image proj-image-crop" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">유미의 세포들 <span class="pdate">2024.04 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>유미의 세포들 <span class="pdate">2024.04 ~ 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">장르: 매치-3 퍼즐 게임</p>
         <ul class="duty">
           <li>어드민 시스템 추가 기능 개발로 운영팀의 효율적인 게임 관리 지원</li>
@@ -587,73 +698,76 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>어드민 시스템 추가 기능 개발로 운영팀의 효율적인 게임 관리 지원</b><span class="detail-sub">→ 재화가 어디로 흘러가고 어떻게 사용되는지 파악할 수 있는 통계 시스템을 추가해 운영팀의 게임 관리를 지원했습니다.</span></li>
-              <li><b>데이터 관리 및 최적화로 게임 데이터 안정적 처리</b><span class="detail-sub">→ 게임 시스템 개편에 맞춰 DB의 다수 컬럼을 통합·정리했고, 플레이에 차질이 없도록 충분히 테스트한 뒤 문제 없이 배포했습니다.</span></li>
-              <li><b>DB 이전 작업 수행으로 시스템 업그레이드 지원</b><span class="detail-sub">→ 비용 문제로 AWS에서 로컬 서버로 옮기는 과정에서 대규모 데이터 백업과 마이그레이션을 직접 수행했습니다.</span></li>
+              <li><b>어드민 시스템 추가 기능 개발로 운영팀의 효율적인 게임 관리 지원</b><span class="detail-sub">재화가 어디로 흘러가고 어떻게 사용되는지 파악할 수 있는 통계 시스템을 추가해 운영팀의 게임 관리를 지원했습니다.</span></li>
+              <li><b>데이터 관리 및 최적화로 게임 데이터 안정적 처리</b><span class="detail-sub">게임 시스템 개편에 맞춰 DB의 다수 컬럼을 통합해 정리했고, 플레이에 차질이 없도록 충분히 테스트한 뒤 문제 없이 배포했습니다.</span></li>
+              <li><b>DB 이전 작업 수행으로 시스템 업그레이드 지원</b><span class="detail-sub">비용 문제로 AWS에서 로컬 서버로 옮기는 과정에서 대규모 데이터 백업과 마이그레이션을 직접 수행했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/유미의세포들.png" alt="유미의 세포들 더 퍼즐" class="proj-image">
+          <img src="images/유미의세포들.png" alt="유미의 세포들 더 퍼즐" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">놀러와, 마이홈 <span class="pdate">2024.01 ~ 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">장르: SNG(소셜 네트워크 게임) · 라이프스타일 시뮬레이션</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>놀러와, 마이홈 <span class="pdate">2024.01 ~ 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">장르: SNG(소셜 네트워크 게임), 라이프스타일 시뮬레이션</p>
         <ul class="duty">
-          <li>결제 실패 빈도 개선 (하루 4~5건 → 1~2주 1건) · MySQL 5.7→8.0 마이그레이션 대응 · Looker Studio 대시보드 구축</li>
-          <li>한국·일본·대만·영문권 4개 권역 서버 유지보수</li>
+          <li>결제 실패 빈도 개선 (하루 4~5건에서 1~2주 1건), MySQL 5.7에서 8.0 마이그레이션 대응, Looker Studio 대시보드 구축</li>
+          <li>한국, 일본, 대만, 영문권 4개 권역 서버 유지보수</li>
         </ul>
         <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>한국·일본·대만·영문권 4개 권역 서버 운영</b><span class="detail-sub">→ 권역마다 다른 콘텐츠에서 발생하는 오류를 찾아 수정했습니다. 다른 개발자도 운영 이력을 빠르게 파악하도록 콘텐츠·버그 목록을 문서화하고 계속 갱신했습니다.</span></li>
-              <li><b>데이터 관리 및 최적화로 서버 성능 개선, 신규 콘텐츠 개발</b><span class="detail-sub">→ 신규 콘텐츠 개발 시 인덱싱과 쿼리 최적화를 적용해 아이템 기능이 정확하게 동작하고 데이터 중복이 발생하지 않도록 개발했습니다.</span></li>
-              <li><b>MySQL 5.7에서 8.0으로 마이그레이션</b><span class="detail-sub">→ MySQL 5.7의 지원 종료에 맞춰 8.0으로 업그레이드했습니다. 인증 방식·GROUP BY 처리 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정하고, 테스트를 거쳐 배포했습니다.</span></li>
-              <li><b>게임 재화·로그 대시보드 구축</b><span class="detail-sub">→ BigQuery와 Looker Studio를 연동해 운영팀이 게임 재화와 로그를 대시보드에서 바로 확인하도록 했습니다.</span></li>
-              <li><b>새벽 장애 대응 — 일본 서버 디스크 풀 다운</b><span class="detail-sub">→ 새벽에 일본 서버가 다운돼 df 명령으로 확인하니 디스크가 가득 찬 상태였습니다. crontab으로 설정해둔 로그 정리 배치가 오작동해 로그가 과다하게 쌓인 것이 원인이었습니다. 즉시 오래된 로그 파일을 정리해 서버를 복구하고, 배치를 재점검·수정해 재발을 방지했습니다.</span></li>
+              <li><b>한국, 일본, 대만, 영문권 4개 권역 서버 운영</b><span class="detail-sub">권역마다 다른 콘텐츠에서 발생하는 오류를 찾아 수정했습니다. 다른 개발자도 운영 이력을 빠르게 파악하도록 콘텐츠와 버그 목록을 문서화하고 계속 갱신했습니다.</span></li>
+              <li><b>데이터 관리 및 최적화로 서버 성능 개선, 신규 콘텐츠 개발</b><span class="detail-sub">신규 콘텐츠 개발 시 인덱싱과 쿼리 최적화를 적용해 아이템 기능이 정확하게 동작하고 데이터 중복이 발생하지 않도록 개발했습니다.</span></li>
+              <li><b>MySQL 5.7에서 8.0으로 마이그레이션</b><span class="detail-sub">MySQL 5.7의 지원 종료에 맞춰 8.0으로 업그레이드했습니다. 인증 방식과 GROUP BY 처리 등 호환성이 깨지는 부분을 찾아 소스 코드를 수정하고, 테스트를 거쳐 배포했습니다.</span></li>
+              <li><b>게임 재화와 로그 대시보드 구축</b><span class="detail-sub">BigQuery와 Looker Studio를 연동해 운영팀이 게임 재화와 로그를 대시보드에서 바로 확인하도록 했습니다.</span></li>
+              <li><b>새벽 장애 대응: 일본 서버 디스크 풀 다운</b><span class="detail-sub">새벽에 일본 서버가 다운돼 df 명령으로 확인하니 디스크가 가득 찬 상태였습니다. crontab으로 설정해둔 로그 정리 배치가 오작동해 로그가 과다하게 쌓인 것이 원인이었습니다. 즉시 오래된 로그 파일을 정리해 서버를 복구하고, 배치를 재점검하고 수정해 재발을 방지했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/놀러와마이홈.png" alt="놀러와, 마이홈" class="proj-image">
+          <img src="images/놀러와마이홈.png" alt="놀러와, 마이홈" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed" id="job-uxis">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2023.04 ~ 2023.08 (4개월)</span>
           <span class="proj-count">프로젝트 2개</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>부서: 시스템 개발 SI</span><span>직책: 매니저 (프리랜서)</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">부산교육청 인성교육 체인지 <span class="pdate">2023.05 ~ 2023.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>부산교육청 인성교육 체인지 <span class="pdate">2023.05 ~ 2023.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>관리자/사용자 페이지 구현</li>
-          <li>교육청·통합시스템·예약시스템 API 연동으로 데이터 흐름 연결</li>
+          <li>교육청, 통합시스템, 예약시스템 API 연동으로 데이터 흐름 연결</li>
           <li>DB 설계 및 푸시 기반 알림 시스템 개발</li>
         </ul>
         <div class="tags"><span>Java</span><span>JavaScript</span><span>MySQL</span><span>Apache</span><span>Tomcat</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>관리자/사용자 페이지 구현</b><span class="detail-sub">→ 기획 문서에 따라 관리자용/사용자용 페이지를 구분하여 페이지·DB를 설계하고 개발했습니다.</span></li>
-              <li><b>교육청·통합시스템·예약시스템 API 연동으로 데이터 흐름 연결</b><span class="detail-sub">→ 기존에 있던 교육청의 통합예약시스템 API를 호출해 학부모가 쉽게 접근할 수 있도록 홈페이지와 연결했습니다.</span></li>
-              <li><b>DB 설계 및 푸시 기반 알림 시스템 개발</b><span class="detail-sub">→ 관리자/사용자 페이지 설계에 쓰인 DB를 기반으로, 새로운 공지나 알림을 휴대폰으로 푸시받을 수 있는 알림 시스템을 개발했습니다.</span></li>
+              <li><b>관리자/사용자 페이지 구현</b><span class="detail-sub">기획 문서에 따라 관리자용/사용자용 페이지를 구분하여 페이지와 DB를 설계하고 개발했습니다.</span></li>
+              <li><b>교육청, 통합시스템, 예약시스템 API 연동으로 데이터 흐름 연결</b><span class="detail-sub">기존에 있던 교육청의 통합예약시스템 API를 호출해 학부모가 쉽게 접근할 수 있도록 홈페이지와 연결했습니다.</span></li>
+              <li><b>DB 설계 및 푸시 기반 알림 시스템 개발</b><span class="detail-sub">관리자/사용자 페이지 설계에 쓰인 DB를 기반으로, 새로운 공지나 알림을 휴대폰으로 푸시받을 수 있는 알림 시스템을 개발했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/부산인성교육.png" alt="부산광역시 교육청 인성 교육 체인지" class="proj-image">
+          <img src="images/부산인성교육.png" alt="부산광역시 교육청 인성 교육 체인지" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">강원도 교육청 학교 진단 시스템 <span class="pdate">2023.04 ~ 2023.05</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>강원도 교육청 학교 진단 시스템 <span class="pdate">2023.04 ~ 2023.05</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>만족도 시스템 기능 개발, 학교 자체 설문 기능 구현</li>
           <li>운영 중 발생한 오류 추적 및 수정</li>
@@ -662,276 +776,288 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>만족도 시스템 기능 개발, 학교 자체 설문 기능 구현</b><span class="detail-sub">→ 학부모와 교사들이 학교에 대한 만족도 설문 콘텐츠를 만들고, 결과를 수집해 통계를 내고 PDF로 문서화할 수 있는 페이지를 추가해 관리자들이 편리하게 운영할 수 있도록 했습니다.</span></li>
-              <li><b>운영 오류 추적 및 수정</b><span class="detail-sub">→ 기존 시스템에서 동작하지 않거나 에러가 발생하던 기능을 찾아 수정했습니다.</span></li>
+              <li><b>만족도 시스템 기능 개발, 학교 자체 설문 기능 구현</b><span class="detail-sub">학부모와 교사들이 학교에 대한 만족도 설문 콘텐츠를 만들고, 결과를 수집해 통계를 내고 PDF로 문서화할 수 있는 페이지를 추가해 관리자들이 편리하게 운영할 수 있도록 했습니다.</span></li>
+              <li><b>운영 오류 추적 및 수정</b><span class="detail-sub">기존 시스템에서 동작하지 않거나 에러가 발생하던 기능을 찾아 수정했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/강원도.png" alt="강원도 교육청 학교 조직 진단도구 온라인 시스템" class="proj-image">
+          <img src="images/강원도.png" alt="강원도 교육청 학교 조직 진단도구 온라인 시스템" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2022.01 ~ 2022.12 (1년)</span>
           <span class="proj-count">프로젝트 4개</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>부서: 시스템 개발 SI</span><span>직책: 매니저 (프리랜서)</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">삼성 바이오로직스 파트너 포탈 <span class="pdate">2022.10 ~ 2022.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>삼성 바이오로직스 파트너 포탈 <span class="pdate">2022.10 ~ 2022.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>단독 개발, DB 설계 및 전체 페이지 개발</li>
-          <li>OKTA SSO·KNOX MAIL API 적용으로 보안성·편의성 강화</li>
+          <li>OKTA SSO와 KNOX MAIL API 적용으로 보안성과 편의성 강화</li>
         </ul>
-        <div class="tags"><span>Java</span><span>JavaScript</span><span>Oracle</span><span>EgovFramework & Spring</span></div>
+        <div class="tags"><span>Java</span><span>JavaScript</span><span>Oracle</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>단독 개발, DB 설계 및 전체 페이지 개발</b><span class="detail-sub">→ 디자인·프론트엔드를 제외한 백엔드를 단독으로 개발했고, 사용자·관리자 페이지에 필요한 DB를 직접 설계했습니다.</span></li>
-              <li><b>OKTA SSO·KNOX MAIL API 적용으로 보안성·편의성 강화</b><span class="detail-sub">→ 삼성바이오로직스에서 요구하는 SSO와 KNOX MAIL을 적용했고, 내부에서만 접근 가능한 페이지와 외부에서도 접근 가능한 페이지를 구분해 설계한 뒤 네트워크 담당자와 조율해 L4의 내부/외부 라우팅 규칙을 수정했습니다.</span></li>
+              <li><b>단독 개발, DB 설계 및 전체 페이지 개발</b><span class="detail-sub">디자인과 프론트엔드를 제외한 백엔드를 단독으로 개발했고, 사용자와 관리자 페이지에 필요한 DB를 직접 설계했습니다.</span></li>
+              <li><b>OKTA SSO와 KNOX MAIL API 적용으로 보안성과 편의성 강화</b><span class="detail-sub">삼성바이오로직스에서 요구하는 SSO와 KNOX MAIL을 적용했고, 내부에서만 접근 가능한 페이지와 외부에서도 접근 가능한 페이지를 구분해 설계한 뒤 네트워크 담당자와 조율해 L4의 내부/외부 라우팅 규칙을 수정했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/삼바파트너포탈.png" alt="SAMSUNG Biologics Partner Portal" class="proj-image">
+          <img src="images/삼바파트너포탈.png" alt="SAMSUNG Biologics Partner Portal" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">PK Valve & Engineering PWA <span class="pdate">2022.07 ~ 2022.10</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>PK Valve &amp; Engineering PWA <span class="pdate">2022.07 ~ 2022.10</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>개발 PM으로 전체 개발 총괄</li>
           <li>자원 관리 시스템 및 QR 코드 인식 기능 구현</li>
           <li>PWA 기반 시스템으로 모바일 환경 자원 관리 지원</li>
         </ul>
-        <div class="tags"><span>Java</span><span>JavaScript</span><span>MSSQL</span><span>EgovFramework & Spring</span><span>IIS & Tomcat</span></div>
+        <div class="tags"><span>Java</span><span>JavaScript</span><span>MSSQL</span><span>EgovFramework &amp; Spring</span><span>IIS &amp; Tomcat</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>개발 PM으로 전체 개발 총괄</b><span class="detail-sub">→ 디자인·프론트엔드를 제외한 기획부터 백엔드 개발까지 총괄했습니다. 디자인은 PK밸브 담당 과장님의 의견을 바탕으로 구성했고, 일정과 기능 구현·검토는 PK밸브 직원들과 논의하며 정했습니다.</span></li>
-              <li><b>자원 관리 시스템 및 QR 코드 인식 기능 구현</b><span class="detail-sub">→ 모바일에서 QR 코드를 인식하면 해당 장비 정보를 바로 조회하도록 구현했습니다.</span></li>
-              <li><b>모바일 자원 관리 PWA 개발</b><span class="detail-sub">→ 앱 스토어를 거치지 않고 모바일에서 앱처럼 사용하거나 홈 화면에 설치할 수 있는 PWA로 개발했습니다.</span></li>
+              <li><b>개발 PM으로 전체 개발 총괄</b><span class="detail-sub">디자인과 프론트엔드를 제외한 기획부터 백엔드 개발까지 총괄했습니다. 디자인은 PK밸브 담당 과장님의 의견을 바탕으로 구성했고, 일정과 기능 구현, 검토는 PK밸브 직원들과 논의하며 정했습니다.</span></li>
+              <li><b>자원 관리 시스템 및 QR 코드 인식 기능 구현</b><span class="detail-sub">모바일에서 QR 코드를 인식하면 해당 장비 정보를 바로 조회하도록 구현했습니다.</span></li>
+              <li><b>모바일 자원 관리 PWA 개발</b><span class="detail-sub">앱 스토어를 거치지 않고 모바일에서 앱처럼 사용하거나 홈 화면에 설치할 수 있는 PWA로 개발했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/pkvalve.png" alt="PKValve & Engineering PWA" class="proj-image">
+          <img src="images/pkvalve.png" alt="PKValve & Engineering PWA" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">충청북도교육청 인사관리 시스템 <span class="pdate">2021.12 ~ 2022.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>충청북도교육청 인사관리 시스템 <span class="pdate">2021.12 ~ 2022.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
-          <li>6,400~10,000명 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘으로 전환 · 동점자 처리 로직 구현</li>
+          <li>6,400~10,000명 인사이동 판별을 수기와 엑셀에서 점수 기반 자동 알고리즘으로 전환, 동점자 처리 로직 구현</li>
           <li>인사기록 관리, 근무성적평정, 설문조사 및 통계 기능 개발</li>
         </ul>
-        <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>EgovFramework & Spring</span></div>
+        <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>6,400~10,000명 인사이동 판별을 수기·엑셀에서 점수 기반 자동 알고리즘으로 전환</b><span class="detail-sub">→ 기존에는 개개인이 수기로 점수화하고 취합하는 절차가 매우 많았는데, 프로그램이 자동으로 처리하도록 만들어 인사 이동 판단을 빠르게 할 수 있게 됐습니다. 점수를 부여할 때마다 과정을 일일이 확인할 필요가 없어졌습니다.</span></li>
-              <li><b>인사기록 관리, 근무성적평정, 설문조사 및 통계 기능 개발</b><span class="detail-sub">→ 통계 기능을 바탕으로 어떤 부서에서 이동이 많은지, 어떤 부서를 가장 선호하는지 파악할 수 있게 됐습니다. 또 기존에 문서로 보관해 찾아봐야 했던 인사기록을 하나로 통합해 한 번에 조회할 수 있도록 만들었습니다.</span></li>
+              <li><b>6,400~10,000명 인사이동 판별을 수기와 엑셀에서 점수 기반 자동 알고리즘으로 전환</b><span class="detail-sub">기존에는 개개인이 수기로 점수화하고 취합하는 절차가 매우 많았는데, 프로그램이 자동으로 처리하도록 만들어 인사 이동 판단을 빠르게 할 수 있게 됐습니다. 점수를 부여할 때마다 과정을 일일이 확인할 필요가 없어졌습니다.</span></li>
+              <li><b>인사기록 관리, 근무성적평정, 설문조사 및 통계 기능 개발</b><span class="detail-sub">통계 기능을 바탕으로 어떤 부서에서 이동이 많은지, 어떤 부서를 가장 선호하는지 파악할 수 있게 됐습니다. 또 기존에 문서로 보관해 찾아봐야 했던 인사기록을 하나로 통합해 한 번에 조회할 수 있도록 만들었습니다.</span></li>
             </ul>
           </div>
-          <img src="images/충청북도.png" alt="충청북도교육청 교육공무직원 인사관리시스템" class="proj-image">
+          <img src="images/충청북도.png" alt="충청북도교육청 교육공무직원 인사관리시스템" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">유디저브 <span class="pdate">2022.05</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>유디저브 <span class="pdate">2022.05</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>즐겨찾기 기능, 사용자 페이지 개발</li>
           <li>공지사항, 1:1 문의사항 기능 개발</li>
         </ul>
-        <div class="tags"><span>Java</span><span>JavaScript</span><span>MySQL</span><span>EgovFramework & Spring</span></div>
+        <div class="tags"><span>Java</span><span>JavaScript</span><span>MySQL</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>즐겨찾기 기능, 사용자 페이지 개발</b><span class="detail-sub">→ 커뮤니티 페이지의 즐겨찾기 기능과 사용자용 페이지의 일부 콘텐츠를 개발했습니다.</span></li>
-              <li><b>공지사항, 1:1 문의사항 기능 개발</b><span class="detail-sub">→ 짧은 일정 안에 공지 페이지와 1:1 문의 기능을 구현했습니다.</span></li>
+              <li><b>즐겨찾기 기능, 사용자 페이지 개발</b><span class="detail-sub">커뮤니티 페이지의 즐겨찾기 기능과 사용자용 페이지의 일부 콘텐츠를 개발했습니다.</span></li>
+              <li><b>공지사항, 1:1 문의사항 기능 개발</b><span class="detail-sub">짧은 일정 안에 공지 페이지와 1:1 문의 기능을 구현했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/유디저브.png" alt="UDESERVE (유디저브)" class="proj-image">
+          <img src="images/유디저브.png" alt="UDESERVE (유디저브)" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2021.03 ~ 2021.12 (10개월)</span>
           <span class="proj-count">프로젝트 4개</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>부서: 시스템 개발 SI</span><span>직책: 현장실습생</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">배러온 <span class="pdate">2021.08 ~ 2021.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>배러온 <span class="pdate">2021.08 ~ 2021.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>단독 개발로 비대면 화상 시스템 솔루션 개발 및 DB 설계</li>
           <li>턴 서버 구축</li>
           <li>화상 회의 중 참여자 집중도 분석 알고리즘 개발</li>
         </ul>
-        <div class="tags"><span>Node.js & EJS</span><span>MSSQL</span><span>Express</span><span>WebRTC & Mediapipe</span></div>
+        <div class="tags"><span>Node.js &amp; EJS</span><span>MSSQL</span><span>Express</span><span>WebRTC &amp; Mediapipe</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>단독 개발로 비대면 화상 시스템 솔루션 개발 및 DB 설계</b><span class="detail-sub">→ ZOOM처럼 비대면으로 소통할 수 있는 시스템을 Node.js로 개발해, 교사·학생이 교실처럼 채팅·비디오·오디오를 사용할 수 있도록 구성했습니다. 채팅 내역과 접속 기록을 확인하기 위한 DB도 직접 설계했습니다.</span></li>
-              <li><b>턴 서버 구축</b><span class="detail-sub">→ WebRTC와 ICE 프레임워크로 연결을 시도하고, 실패하면 TURN 서버를 통해 우회 연결을 시도해 연결 실패를 방지했습니다. 여러 번 시도해도 실패하면 네트워크 지연으로 판단해 입장 실패 처리를 해두었습니다.</span></li>
-              <li><b>화상 회의 중 참여자 집중도 분석 알고리즘 개발</b><span class="detail-sub">→ 교실에서 사용할 프로그램이었기 때문에 Mediapipe로 눈동자 위치를 추적해, 화면 밖으로 벗어나거나 원래 보던 곳에서 벗어난 정도를 일정 구간의 median 값으로 측정했고, 그 상태가 일정 시간 이상 지속되면 집중도 점수를 낮추는 방식으로 구현했습니다.</span></li>
+              <li><b>단독 개발로 비대면 화상 시스템 솔루션 개발 및 DB 설계</b><span class="detail-sub">ZOOM처럼 비대면으로 소통할 수 있는 시스템을 Node.js로 개발해, 교사와 학생이 교실처럼 채팅, 비디오, 오디오를 사용할 수 있도록 구성했습니다. 채팅 내역과 접속 기록을 확인하기 위한 DB도 직접 설계했습니다.</span></li>
+              <li><b>턴 서버 구축</b><span class="detail-sub">WebRTC와 ICE 프레임워크로 연결을 시도하고, 실패하면 TURN 서버를 통해 우회 연결을 시도해 연결 실패를 방지했습니다. 여러 번 시도해도 실패하면 네트워크 지연으로 판단해 입장 실패 처리를 해두었습니다.</span></li>
+              <li><b>화상 회의 중 참여자 집중도 분석 알고리즘 개발</b><span class="detail-sub">교실에서 사용할 프로그램이었기 때문에 Mediapipe로 눈동자 위치를 추적해, 화면 밖으로 벗어나거나 원래 보던 곳에서 벗어난 정도를 일정 구간의 median 값으로 측정했고, 그 상태가 일정 시간 이상 지속되면 집중도 점수를 낮추는 방식으로 구현했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/Better On.png" alt="Better On (배러온)" class="proj-image">
+          <img src="images/Better On.png" alt="Better On (배러온)" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">부울경 온라인 일자리 박람회 <span class="pdate">2021.08 ~ 2021.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>부울경 온라인 일자리 박람회 <span class="pdate">2021.08 ~ 2021.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
-          <li>취업생/면접관/상담관 대상 화상 상담·인터뷰 시스템 운영</li>
+          <li>취업생/면접관/상담관 대상 화상 상담과 인터뷰 시스템 운영</li>
           <li>기존 화상 시스템 솔루션을 박람회 환경에 맞게 최적화</li>
         </ul>
-        <div class="tags"><span>Node.js & EJS</span><span>Java</span><span>JavaScript</span><span>Express</span><span>WebRTC & Mediapipe</span></div>
+        <div class="tags"><span>Node.js &amp; EJS</span><span>Java</span><span>JavaScript</span><span>Express</span><span>WebRTC &amp; Mediapipe</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>취업생/면접관/상담관 대상 화상 상담·인터뷰 시스템 운영</b><span class="detail-sub">→ 배러온에서 교실 환경에 맞춰져 있던 구조를 면접관/면접자, 취준생/상담관이 편하게 사용할 수 있도록 변경했고, 서로 문서를 공유할 수 있는 파일 첨부 기능을 추가했습니다.</span></li>
-              <li><b>기존 화상 시스템 솔루션을 박람회 환경에 맞게 최적화</b><span class="detail-sub">→ 박람회 특성상 채팅 기록과 취준생/상담관, 면접관/면접자 정보를 모두 기록해 추후 기관 요청 시 제공할 수 있도록 준비했습니다. 또 취준생과 면접자의 긴장을 풀어주기 위해 입장 전 자신의 모습을 확인할 수 있는 거울 시스템과 Mediapipe 기반 posing 기능을 추가해, 배러온의 모션 인식 기술이 실제로 어떻게 활용되는지 시연했습니다.</span></li>
+              <li><b>취업생/면접관/상담관 대상 화상 상담과 인터뷰 시스템 운영</b><span class="detail-sub">배러온에서 교실 환경에 맞춰져 있던 구조를 면접관/면접자, 취준생/상담관이 편하게 사용할 수 있도록 변경했고, 서로 문서를 공유할 수 있는 파일 첨부 기능을 추가했습니다.</span></li>
+              <li><b>기존 화상 시스템 솔루션을 박람회 환경에 맞게 최적화</b><span class="detail-sub">박람회 특성상 채팅 기록과 취준생/상담관, 면접관/면접자 정보를 모두 기록해 추후 기관 요청 시 제공할 수 있도록 준비했습니다. 또 취준생과 면접자의 긴장을 풀어주기 위해 입장 전 자신의 모습을 확인할 수 있는 거울 시스템과 Mediapipe 기반 posing 기능을 추가해, 배러온의 모션 인식 기술이 실제로 어떻게 활용되는지 시연했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/부울경.png" alt="2022 부.울.경 일자리 박람회" class="proj-image">
+          <img src="images/부울경.png" alt="2022 부울경 일자리 박람회" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">오늘의 라면 <span class="pdate">2021.05 ~ 2021.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>오늘의 라면 <span class="pdate">2021.05 ~ 2021.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>사용자 메인 페이지 개발, 구독 및 선물 기능 구현</li>
           <li>FAQ 기능 개발로 고객 문의 대응 효율화</li>
         </ul>
-        <div class="tags"><span>Java</span><span>JavaScript</span><span>MySQL</span><span>EgovFramework & Spring</span></div>
+        <div class="tags"><span>Java</span><span>JavaScript</span><span>MySQL</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>사용자 메인 페이지 개발, 구독 및 선물 기능 구현</b><span class="detail-sub">→ 사용자 페이지에서 홈 기능, 구독 기능, 가입자 간 선물 기능을 구현했습니다.</span></li>
-              <li><b>FAQ 기능 개발로 고객 문의 대응 효율화</b><span class="detail-sub">→ FAQ 기능과 문의 기능을 개발해 고객들이 민원이나 소통 창구로 활용할 수 있는 페이지를 만들었습니다.</span></li>
+              <li><b>사용자 메인 페이지 개발, 구독 및 선물 기능 구현</b><span class="detail-sub">사용자 페이지에서 홈 기능, 구독 기능, 가입자 간 선물 기능을 구현했습니다.</span></li>
+              <li><b>FAQ 기능 개발로 고객 문의 대응 효율화</b><span class="detail-sub">FAQ 기능과 문의 기능을 개발해 고객들이 민원이나 소통 창구로 활용할 수 있는 페이지를 만들었습니다.</span></li>
             </ul>
           </div>
-          <img src="images/오늘의라면.png" alt="오늘의 라면" class="proj-image">
+          <img src="images/오늘의라면.png" alt="오늘의 라면" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">드리지 <span class="pdate">2021.03 ~ 2021.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>드리지 <span class="pdate">2021.03 ~ 2021.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
-          <li>전체 관리자 페이지 개발로 가게·주문 관리 기능 구현</li>
-          <li>사용자용 앱 개발로 직관적인 주문·배달 경험 제공</li>
+          <li>전체 관리자 페이지 개발로 가게와 주문 관리 기능 구현</li>
+          <li>사용자용 앱 개발로 직관적인 주문과 배달 경험 제공</li>
         </ul>
-        <div class="tags"><span>Java</span><span>JavaScript</span><span>PostgreSQL</span><span>React Native</span><span>EgovFramework & Spring</span></div>
+        <div class="tags"><span>Java</span><span>JavaScript</span><span>PostgreSQL</span><span>React Native</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>전체 관리자 페이지 개발로 가게·주문 관리 기능 구현</b><span class="detail-sub">→ 처음 맡은 업무로, 배달 시스템에서 관리자가 어떤 기능을 써야 하는지 기획 문서를 토대로 페이지 개발을 시작했습니다. 배민처럼 관리자가 가게의 메뉴·정보를 관리하고 주문 현황을 파악할 수 있는 기능을 구현했습니다.</span></li>
-              <li><b>사용자용 앱 개발로 직관적인 주문·배달 경험 제공</b><span class="detail-sub">→ React Native로 화면을 바로 확인하며 빠르게 개발을 진행했고, 사용자가 주문 내역과 배달 현황을 확인할 수 있는 기능을 개발했습니다.</span></li>
+              <li><b>전체 관리자 페이지 개발로 가게와 주문 관리 기능 구현</b><span class="detail-sub">처음 맡은 업무로, 배달 시스템에서 관리자가 어떤 기능을 써야 하는지 기획 문서를 토대로 페이지 개발을 시작했습니다. 배민처럼 관리자가 가게의 메뉴와 정보를 관리하고 주문 현황을 파악할 수 있는 기능을 구현했습니다.</span></li>
+              <li><b>사용자용 앱 개발로 직관적인 주문과 배달 경험 제공</b><span class="detail-sub">React Native로 화면을 바로 확인하며 빠르게 개발을 진행했고, 사용자가 주문 내역과 배달 현황을 확인할 수 있는 기능을 개발했습니다.</span></li>
             </ul>
           </div>
-          <img src="images/드리지.png" alt="DRIZ(드리지)" class="proj-image">
+          <img src="images/드리지.png" alt="DRIZ(드리지)" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed" id="job-etc">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">ETC</span>
-          <span class="period">개인 프로젝트 · 카카오테크 부트캠프</span>
+          <h3 class="company">ETC</h3>
+          <span class="period">개인 프로젝트, 카카오테크 부트캠프</span>
           <span class="proj-count">프로젝트 4개</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">C++ 네트워크 게임 서버 학습 프로젝트 <span class="pdate">2026.07 ~ 진행 중</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">접속 처리 방식을 v1~v6으로 발전시키고 GUI에서 구조별 차이를 재현·비교하는 프로젝트</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>C++ 네트워크 게임 서버 학습 프로젝트 <span class="pdate">2026.07 ~ 진행 중</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">접속 처리 방식을 v1~v6으로 발전시키고 GUI에서 구조별 차이를 재현하고 비교하는 프로젝트</p>
         <a href="https://github.com/1sanguk/CPP_Server" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
           <li>단일 접속 서버에서 시작해 다중 접속, 스레드 풀, Linux epoll, Windows IOCP 서버까지 단계별 구현</li>
           <li>데이터 분할 전송, 전송 순서 보장, 안전한 접속 종료와 서버 종료 처리 구현</li>
-          <li>GUI에서 서버 버전 실행과 다중 클라이언트의 실시간·지연·반복 전송을 통합 제어</li>
-          <li>Docker 내부 네트워크의 Linux 서버에서 동시 접속 28,000개·메시지 560,000건, Windows IOCP 서버에서 순간 접속 2,000개와 점진 유지 12,000개·메시지 120,000건 처리 성공</li>
+          <li>GUI에서 서버 버전 실행과 다중 클라이언트의 실시간, 지연, 반복 전송을 통합 제어</li>
+          <li>Docker 내부 네트워크의 Linux 서버에서 동시 접속 28,000개, 메시지 560,000건, Windows IOCP 서버에서 순간 접속 2,000개와 점진 유지 12,000개, 메시지 120,000건 처리 성공</li>
         </ul>
         <div class="tags"><span>C++20</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>접속 처리 방식을 단계적으로 확장</b><span class="detail-sub">→ 한 번에 한 명만 처리하는 서버에서 시작해 접속마다 스레드를 만드는 방식, 정해진 수의 스레드를 재사용하는 방식, Linux epoll과 Windows IOCP 방식까지 구현했습니다. 이전 버전에서 확인한 한계를 다음 버전에서 개선하며 각 구조의 차이를 익혔습니다.</span></li>
-              <li><b>데이터 전송과 서버 종료를 안정적으로 처리</b><span class="detail-sub">→ 큰 데이터가 한 번에 전송되지 않는 상황을 고려해 남은 데이터를 이어 보내고, 같은 사용자의 메시지 순서가 바뀌지 않도록 송신 큐를 구성했습니다. 접속이 남아 있는 상태에서도 서버가 안전하게 종료되도록 작업과 스레드의 종료 순서도 구현했습니다.</span></li>
-              <li><b>부하 테스트와 자동 검사로 결과 검증</b><span class="detail-sub">→ Docker 내부 네트워크의 Linux 서버는 동시 접속 28,000개에서 메시지 560,000건을 모두 처리했습니다. 30,000개 시도에서는 클라이언트의 임시 포트 범위가 먼저 소진됐고, 연결된 28,231개 클라이언트가 보낸 메시지는 전부 정상 처리했습니다. Windows IOCP 서버의 Debug 빌드는 순간 접속 2,000개에서 20,000/20,000 Echo를 처리했고, 접속 동시성을 64개로 제한한 점진 접속에서는 12,000개 연결을 유지하며 120,000/120,000 Echo를 처리했습니다. 순간 접속 2,500개부터는 backlog 128과 pending AcceptEx 16개가 접속 폭주를 모두 흡수하지 못해 일부 연결이 거부됐습니다. 모든 테스트에서 pending I/O drain과 종료 코드 0을 확인했으며, Windows 동적 포트 범위 때문에 12,000개를 서버의 절대 한계로 해석하지 않았습니다. 대량 로그가 stdout pipe를 막지 않도록 측정 시 출력은 NUL로 보냈습니다.</span></li>
-              <li><b>서버 구조 비교를 위한 크로스플랫폼 GUI 개발</b><span class="detail-sub">→ 서버 버전 선택·실행, 최대 200개 클라이언트 연결, 개별 메시지와 지연·반복 전송, Echo 응답 집계를 한 화면에서 제어하도록 구현했습니다. 호스트 OS에 따라 실행 가능한 버전과 Native·Docker 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드합니다. 이를 통해 v1의 연결 대기부터 스레드 풀·epoll·IOCP의 처리 차이를 같은 UI에서 직접 재현할 수 있습니다.</span></li>
+              <li><b>접속 처리 방식을 단계적으로 확장</b><span class="detail-sub">한 번에 한 명만 처리하는 서버에서 시작해 접속마다 스레드를 만드는 방식, 정해진 수의 스레드를 재사용하는 방식, Linux epoll과 Windows IOCP 방식까지 구현했습니다. 이전 버전에서 확인한 한계를 다음 버전에서 개선하며 각 구조의 차이를 익혔습니다.</span></li>
+              <li><b>데이터 전송과 서버 종료를 안정적으로 처리</b><span class="detail-sub">큰 데이터가 한 번에 전송되지 않는 상황을 고려해 남은 데이터를 이어 보내고, 같은 사용자의 메시지 순서가 바뀌지 않도록 송신 큐를 구성했습니다. 접속이 남아 있는 상태에서도 서버가 안전하게 종료되도록 작업과 스레드의 종료 순서도 구현했습니다.</span></li>
+              <li><b>부하 테스트와 자동 검사로 결과 검증</b><span class="detail-sub">Docker 내부 네트워크의 Linux 서버는 동시 접속 28,000개에서 메시지 560,000건을 모두 처리했습니다. 30,000개 시도에서는 클라이언트의 임시 포트 범위가 먼저 소진됐고, 연결된 28,231개 클라이언트가 보낸 메시지는 전부 정상 처리했습니다. Windows IOCP 서버의 Debug 빌드는 순간 접속 2,000개에서 20,000/20,000 Echo를 처리했고, 접속 동시성을 64개로 제한한 점진 접속에서는 12,000개 연결을 유지하며 120,000/120,000 Echo를 처리했습니다. 순간 접속 2,500개부터는 backlog 128과 pending AcceptEx 16개가 접속 폭주를 모두 흡수하지 못해 일부 연결이 거부됐습니다. 모든 테스트에서 pending I/O drain과 종료 코드 0을 확인했으며, Windows 동적 포트 범위 때문에 12,000개를 서버의 절대 한계로 해석하지 않았습니다. 대량 로그가 stdout pipe를 막지 않도록 측정 시 출력은 NUL로 보냈습니다.</span></li>
+              <li><b>서버 구조 비교를 위한 크로스플랫폼 GUI 개발</b><span class="detail-sub">서버 버전 선택과 실행, 최대 200개 클라이언트 연결, 개별 메시지와 지연, 반복 전송, Echo 응답 집계를 한 화면에서 제어하도록 구현했습니다. 호스트 OS에 따라 실행 가능한 버전과 Native, Docker 방식을 판별하고, 실행 파일이 없으면 CMake로 자동 빌드합니다. 이를 통해 v1의 연결 대기부터 스레드 풀, epoll, IOCP의 처리 차이를 같은 UI에서 직접 재현할 수 있습니다.</span></li>
             </ul>
           </div>
-          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image">
+          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">카카오 약관 RAG 성능 개선 대회 <span class="pdate">2026.08.11 ~ 2026.08.13</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>카카오 약관 RAG 성능 개선 대회 <span class="pdate">2026.08.11 ~ 2026.08.13</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">카카오 약관 질문에 답변과 근거 조항을 제공하는 RAG 시스템과 답변 평가 도구 개발</p>
         <a href="https://github.com/1sanguk/AI_Performance_Contest" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
           <li>키워드 검색과 의미 검색을 결합해 질문에 맞는 약관 조항을 더 정확하게 탐색</li>
-          <li>Colab T4 환경에서 약관 준비부터 검색·답변 생성까지 한 번에 실행되는 RAG 시스템 구축</li>
+          <li>Colab T4 환경에서 약관 준비부터 검색, 답변 생성까지 한 번에 실행되는 RAG 시스템 구축</li>
           <li>공식 연습평가 93.915점 달성, 초기 기준선 대비 5.724점 개선 및 17팀 중 TOP 5 진출</li>
         </ul>
         <div class="tags"><span>Python</span><span>RAG</span><span>BM25</span><span>BGE-M3</span><span>RRF</span><span>Qwen2.5</span><span>FastAPI</span><span>Gemini</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>키워드 검색과 의미 검색을 결합해 근거 정확도 개선</b><span class="detail-sub">→ 정확한 용어와 수치를 찾는 BM25와 문장의 의미를 비교하는 BGE-M3 검색 결과를 RRF로 결합했습니다. 중복된 검색 결과를 정리하고 질문과 관련된 핵심 원문을 답변 모델에 제공해 수치·조건·예외가 빠지지 않도록 구성했습니다.</span></li>
-              <li><b>제한된 GPU 환경에서 실행되는 답변·평가 파이프라인 구현</b><span class="detail-sub">→ Qwen2.5-7B-Instruct를 4-bit로 경량화하고 약관 데이터, 검색 인덱스와 FastAPI를 한 번에 준비하는 Colab 노트북을 구성했습니다. 별도의 평가 도구는 Gemini를 활용해 후보 답변을 검증하고 정해진 JSON 형식으로 점수를 생성하도록 개발했습니다.</span></li>
-              <li><b>실험 기록을 기반으로 93.915점까지 성능 개선</b><span class="detail-sub">→ 검색 근거 강조, 누락된 핵심 원문 보완, 중복 제거를 한 번에 하나씩 변경하며 결과와 선택 이유를 기록했습니다. 공식 연습평가에서 MRR 1.0000, 키팩트 F1 0.8080, LLM 판정 99.350, 총점 93.915를 달성해 초기 기준선보다 5.724점 향상했고 17팀 중 TOP 5에 진출했습니다.</span></li>
+              <li><b>키워드 검색과 의미 검색을 결합해 근거 정확도 개선</b><span class="detail-sub">정확한 용어와 수치를 찾는 BM25와 문장의 의미를 비교하는 BGE-M3 검색 결과를 RRF로 결합했습니다. 중복된 검색 결과를 정리하고 질문과 관련된 핵심 원문을 답변 모델에 제공해 수치, 조건, 예외가 빠지지 않도록 구성했습니다.</span></li>
+              <li><b>제한된 GPU 환경에서 실행되는 답변과 평가 파이프라인 구현</b><span class="detail-sub">Qwen2.5-7B-Instruct를 4-bit로 경량화하고 약관 데이터, 검색 인덱스와 FastAPI를 한 번에 준비하는 Colab 노트북을 구성했습니다. 별도의 평가 도구는 Gemini를 활용해 후보 답변을 검증하고 정해진 JSON 형식으로 점수를 생성하도록 개발했습니다.</span></li>
+              <li><b>실험 기록을 기반으로 93.915점까지 성능 개선</b><span class="detail-sub">검색 근거 강조, 누락된 핵심 원문 보완, 중복 제거를 한 번에 하나씩 변경하며 결과와 선택 이유를 기록했습니다. 공식 연습평가에서 MRR 1.0000, 키팩트 F1 0.8080, LLM 판정 99.350, 총점 93.915를 달성해 초기 기준선보다 5.724점 향상했고 17팀 중 TOP 5에 진출했습니다.</span></li>
             </ul>
           </div>
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">RPG·게임 특화 한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~ 잠정 보류</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">카카오테크 부트캠프 딥다이브 · GPT 아키텍처 직접 구현 + Qwen3 로컬 LLM + RAG / LangChain / LangGraph / Claude API</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>RPG/게임 특화 한국어 Mini-GPT 챗봇 <span class="pdate">2026.05 ~ 잠정 보류</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">카카오테크 부트캠프 딥다이브, GPT 아키텍처 직접 구현과 Qwen3 로컬 LLM, RAG/LangChain/LangGraph/Claude API 활용</p>
         <a href="https://github.com/1sanguk/KTB-Deepdive/tree/main/LLM_Project/chatbot" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
-          <li>GPT 아키텍처(~97M params) · 자모 BPE 토크나이저 직접 구현, 다단계 학습(이어쓰기→QA→스팬→DPO) 완료</li>
-          <li>BM25+FAISS 하이브리드 RAG + LangGraph 4그래프 구성 / Qwen3-1.7B 로컬 LLM BF16·GGUF Q4_K_M 두 모드 서빙</li>
-          <li>Claude Haiku 질문 자동 분류 라우팅 + 4분할 실시간 비교 UI, FastAPI + SSE 스트리밍</li>
+          <li>GPT 아키텍처(~97M params)와 자모 BPE 토크나이저 직접 구현, 다단계 학습(이어쓰기, QA, 스팬, DPO) 완료</li>
+          <li>BM25+FAISS 하이브리드 RAG와 LangGraph 4그래프 구성, Qwen3-1.7B 로컬 LLM을 BF16/GGUF Q4_K_M 두 모드로 서빙</li>
+          <li>Claude Haiku 질문 자동 분류 라우팅과 4분할 실시간 비교 UI, FastAPI + SSE 스트리밍</li>
         </ul>
         <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>Qwen3</span><span>GGUF</span><span>llama-cpp</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>GPT 아키텍처(~97M params) · 자모 BPE 토크나이저 직접 구현 + 다단계 학습</b><span class="detail-sub">→ 한글을 NFD로 분해해 자모 단위 BPE를 적용하는 토크나이저를 직접 구현했습니다. CausalSelfAttention + MLP(GELU) + Pre-norm 구조의 GPT 디코더를 처음부터 설계하고, kowikitext + AI Hub 데이터로 이어쓰기 → QA 파인튜닝 → 스팬 추출 → DPO 선호 학습 순으로 단계적 학습 파이프라인을 구축했습니다.</span></li>
-              <li><b>BM25+FAISS 하이브리드 RAG + LangGraph 4그래프 / Qwen3-1.7B 로컬 LLM 두 모드 서빙</b><span class="detail-sub">→ BM25+FAISS 하이브리드 검색기로 라우팅 정확도를 73.3%→82.7%로 높였습니다. LangGraph StateGraph로 검색→평가→재시도→생성 흐름을 4가지 그래프(SOP_GPT / Claude / Qwen BF16 / Qwen Q4)로 조립했고, Qwen3-1.7B를 Transformers+MPS(BF16)와 llama-cpp(GGUF Q4_K_M) 두 모드로 서빙해 KorQuAD 100문항 기준 Q4_K_M이 3.3배 빠름을 확인했습니다.</span></li>
-              <li><b>Claude Haiku 자동 분류 라우팅 + 4분할 비교 UI + FastAPI SSE 스트리밍</b><span class="detail-sub">→ Claude Haiku가 질문을 잡담 / 사실형 / 일반으로 자동 분류해 적합한 체인으로 라우팅합니다. 4분할 화면(SOP_GPT · Claude · Qwen BF16 · Qwen Q4)에서 동일 질문에 대한 4개 모델 응답을 SSE 스트리밍으로 동시 비교하며, PBKDF2-HMAC-SHA256 로그인과 MemorySaver·JSON 이중 메모리로 세션 간 대화 맥락을 유지합니다.</span></li>
+              <li><b>GPT 아키텍처(~97M params)와 자모 BPE 토크나이저 직접 구현, 다단계 학습</b><span class="detail-sub">한글을 NFD로 분해해 자모 단위 BPE를 적용하는 토크나이저를 직접 구현했습니다. CausalSelfAttention + MLP(GELU) + Pre-norm 구조의 GPT 디코더를 처음부터 설계하고, kowikitext와 AI Hub 데이터로 이어쓰기, QA 파인튜닝, 스팬 추출, DPO 선호 학습 순으로 단계적 학습 파이프라인을 구축했습니다.</span></li>
+              <li><b>BM25+FAISS 하이브리드 RAG와 LangGraph 4그래프, Qwen3-1.7B 로컬 LLM 두 모드 서빙</b><span class="detail-sub">BM25+FAISS 하이브리드 검색기로 라우팅 정확도를 73.3%에서 82.7%로 높였습니다. LangGraph StateGraph로 검색, 평가, 재시도, 생성 흐름을 4가지 그래프(SOP_GPT, Claude, Qwen BF16, Qwen Q4)로 조립했고, Qwen3-1.7B를 Transformers+MPS(BF16)와 llama-cpp(GGUF Q4_K_M) 두 모드로 서빙해 KorQuAD 100문항 기준 Q4_K_M이 3.3배 빠름을 확인했습니다.</span></li>
+              <li><b>Claude Haiku 자동 분류 라우팅과 4분할 비교 UI, FastAPI SSE 스트리밍</b><span class="detail-sub">Claude Haiku가 질문을 잡담, 사실형, 일반으로 자동 분류해 적합한 체인으로 라우팅합니다. 4분할 화면(SOP_GPT, Claude, Qwen BF16, Qwen Q4)에서 동일 질문에 대한 4개 모델 응답을 SSE 스트리밍으로 동시 비교하며, PBKDF2-HMAC-SHA256 로그인과 MemorySaver, JSON 이중 메모리로 세션 간 대화 맥락을 유지합니다.</span></li>
             </ul>
           </div>
-          <img src="images/chatbot.png" alt="RPG·게임 특화 한국어 Mini-GPT 챗봇" class="proj-image">
+          <img src="images/chatbot.png" alt="RPG/게임 특화 한국어 Mini-GPT 챗봇" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Giftie · AI 해커톤 <span class="pdate">2026.08.18 ~ 2026.08.21</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">받은 선물과 부조금을 기록하고 답례 시점·상품·메시지를 추천하는 AI 관계 관리 서비스</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Giftie (AI 해커톤) <span class="pdate">2026.08.18 ~ 2026.08.21</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">받은 선물과 부조금을 기록하고 답례 시점, 상품, 메시지를 추천하는 AI 관계 관리 서비스</p>
         <a href="https://github.com/KTB-AI-Hackerton-19/Giftie" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
-          <li>PM으로 서비스 범위와 FE·BE·AI·클라우드 역할을 정하고 팀 간 일정·API 연동 조율</li>
+          <li>PM으로 서비스 범위와 FE, BE, AI, 클라우드 역할을 정하고 팀 간 일정과 API 연동 조율</li>
           <li>직접 입력과 이미지 입력을 공통 선물 데이터로 변환하는 AI 서비스의 초기 구조 설계</li>
           <li>4일 동안 MVP를 개발해 20개 팀 중 TOP 8 진출</li>
         </ul>
@@ -939,27 +1065,34 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>AI 서비스의 초기 구조와 데이터 흐름 설계</b><span class="detail-sub">→ 직접 입력한 선물 정보와 이미지에서 추출한 정보를 공통 데이터로 변환하고, 기록·캘린더·알림·답례 추천 작업으로 나누는 기본 구조를 설계했습니다. 각 작업이 같은 입력 형식을 쓰도록 기준을 잡아 팀원이 기능을 나눠 개발할 수 있게 했습니다.</span></li>
-              <li><b>PM으로 FE·BE·AI 개발 기준 조율</b><span class="detail-sub">→ 프론트엔드, 백엔드와 AI 서비스가 맡을 기능을 나누고 데이터가 이동하는 순서를 정리했습니다. 팀별 구현 상황과 API 요청·응답 형식을 확인했고, 서로 다르게 이해한 부분은 기준을 다시 정리해 담당자 사이에 공유했습니다.</span></li>
-              <li><b>배포 구조와 클라우드 구성 방향 정리</b><span class="detail-sub">→ 프론트엔드는 Vercel, 백엔드와 AI 서비스는 AWS EC2, 데이터는 MySQL과 S3를 사용하는 구조로 정리했습니다. 프론트엔드는 백엔드만 호출하고 백엔드가 AI 서비스를 연결하도록 경계를 정해 서비스 간 역할이 섞이지 않게 했습니다.</span></li>
-              <li><b>4일간 MVP 개발 및 TOP 8 진출</b><span class="detail-sub">→ 팀은 짧은 일정 안에 로그인, 선물 기록, 사람별 이력, 캘린더, 알림과 AI 답례 추천 흐름을 시연 가능한 형태로 완성했습니다. 해커톤에 참가한 20개 팀 가운데 TOP 8에 진출했습니다.</span></li>
+              <li><b>AI 서비스의 초기 구조와 데이터 흐름 설계</b><span class="detail-sub">직접 입력한 선물 정보와 이미지에서 추출한 정보를 공통 데이터로 변환하고, 기록, 캘린더, 알림, 답례 추천 작업으로 나누는 기본 구조를 설계했습니다. 각 작업이 같은 입력 형식을 쓰도록 기준을 잡아 팀원이 기능을 나눠 개발할 수 있게 했습니다.</span></li>
+              <li><b>PM으로 FE, BE, AI 개발 기준 조율</b><span class="detail-sub">프론트엔드, 백엔드와 AI 서비스가 맡을 기능을 나누고 데이터가 이동하는 순서를 정리했습니다. 팀별 구현 상황과 API 요청과 응답 형식을 확인했고, 서로 다르게 이해한 부분은 기준을 다시 정리해 담당자 사이에 공유했습니다.</span></li>
+              <li><b>배포 구조와 클라우드 구성 방향 정리</b><span class="detail-sub">프론트엔드는 Vercel, 백엔드와 AI 서비스는 AWS EC2, 데이터는 MySQL과 S3를 사용하는 구조로 정리했습니다. 프론트엔드는 백엔드만 호출하고 백엔드가 AI 서비스를 연결하도록 경계를 정해 서비스 간 역할이 섞이지 않게 했습니다.</span></li>
+              <li><b>4일간 MVP 개발 및 TOP 8 진출</b><span class="detail-sub">팀은 짧은 일정 안에 로그인, 선물 기록, 사람별 이력, 캘린더, 알림과 AI 답례 추천 흐름을 시연 가능한 형태로 완성했습니다. 해커톤에 참가한 20개 팀 가운데 TOP 8에 진출했습니다.</span></li>
             </ul>
           </div>
         </div></div>
       </div>
       </div></div>
     </div>
-
-    </div></div>
   </div>
 </section>
 
-<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
-
-<footer>
-  © 2026 Park Sang Ouk (Steve Park) · <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a>
+<footer class="contact">
+  <div class="wrap contact-main">
+    <p class="contact-title">문제를 발견하면<br>끝까지 구조를 확인합니다.</p>
+    <div class="contact-list">
+      <a href="https://github.com/1sanguk" target="_blank" rel="noopener" class="contact-mail">github.com/1sanguk</a>
+      <p class="contact-cred">부산대학교 정보컴퓨터공학과 졸업<br>정보처리기사, OPIc IH</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">© 2026 Park Sang Ouk (Steve Park)</p>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<button class="top-btn" id="topBtn" type="button" aria-label="맨 위로" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+
+<script src="script.js?v=20260930"></script>
 </body>
 </html>

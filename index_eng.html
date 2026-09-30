@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steve Park | Portfolio</title>
+<title>Steve Park | Game Server / Backend Developer Portfolio</title>
+<meta name="description" content="Portfolio of Steve Park (Park Sang Ouk), a game server and backend developer who built and ran live servers for five mobile games.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20260930">
 <script>
   (() => {
     const storageKey = 'portfolio_analytics_opt_out';
@@ -21,7 +22,7 @@
       }
       analyticsDisabled = analyticsMode !== 'on' && localStorage.getItem(storageKey) === '1';
     } catch (_) {
-      // Keep the current page opted out if browser storage is unavailable.
+      // Apply the off setting for this page even when storage access is restricted.
     }
 
     if (analyticsMode) {
@@ -45,246 +46,310 @@
 </head>
 <body class="lang-en">
 
-<nav class="topnav">
+<nav class="topnav" aria-label="Main">
   <div class="wrap">
-    <div class="brand">Park Sang Ouk's PORTFOLIO</div>
+    <a href="#top" class="brand"><b>Steve Park</b><span lang="ko">박상욱</span></a>
     <ul class="mini-toc">
+      <li><a href="#introduce">About</a></li>
       <li><a href="#edu">Education</a></li>
-      <li><a href="#career">Career</a></li>
-      <li><a href="#lang-cert">Certifications</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#impact">Results</a></li>
       <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#career">Career</a></li>
       <li><a href="#career-detail">Projects</a></li>
     </ul>
-    <a href="index.html" class="lang-switch">한국어</a>
+    <a href="index.html" class="lang-switch" lang="ko">한국어</a>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
-    <div class="hero-body">
-      <div class="tag">ABOUT ME</div>
-      <h1><span class="grad">박상욱</span><span class="en">Steve Park</span></h1>
-      <p class="hero-intro">Game Server · Backend Developer. From multi-region live service ops to performance tuning and ops infrastructure — I dig deep until the problem is solved.</p>
-      <div class="meta">
-        <span><b>Role</b> Game Server · Backend Developer</span>
-        <span><b>Experience</b> 4 Years</span>
-        <span><b>Age</b> 32 (Born 1994)</span>
-        <span><b>Military</b> Military Service Completed</span>
+    <div class="hero-text">
+      <div class="hero-kicker">
+        <b>Game Server / Backend Developer</b>
+        <span class="sep" aria-hidden="true"></span>
+        <span>4 years, 5 live mobile games</span>
       </div>
-      <div class="meta">
-        <span><b>Phone</b> 010-9929-0034</span>
-        <span><b>E-mail</b> 1sanguk@naver.com</span>
-        <span><b>GitHub</b> <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a></span>
+      <h1>Building stability<br>where no one<br>sees it.</h1>
+      <p class="hero-intro">I ran mobile game servers live across Korea, Japan, Taiwan, and English-speaking regions, and fixed login bottlenecks, slow ranking queries, and payment errors by redesigning their structure.</p>
+      <div class="hero-actions">
+        <a href="#highlights" class="btn-primary">See highlight projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <a href="https://github.com/1sanguk" target="_blank" rel="noopener" class="text-link">github.com/1sanguk</a>
       </div>
-      <div class="hero-cards">
-        <div class="hero-card">
-          <div class="hero-card-icon">🎮</div>
-          <div class="hero-card-title">Game Server Dev</div>
-          <div class="hero-card-desc">Multi-region live ops · performance tuning · real-time chat server from scratch</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-icon">⚡</div>
-          <div class="hero-card-title">Performance</div>
-          <div class="hero-card-desc">DB indexing · Redis caching · ranking queries cut from 10–20s to 1–2s</div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-icon">🔧</div>
-          <div class="hero-card-title">Ops · Infrastructure</div>
-          <div class="hero-card-desc">Admin &amp; ops tool design · data dashboard build · DB migration</div>
-        </div>
-      </div>
+      <dl class="hero-facts">
+        <div><dt>Role</dt><dd>Game server, server/backend development</dd></div>
+        <div><dt>Experience</dt><dd>4 years</dd></div>
+        <div><dt>Live games</dt><dd>5 mobile games</dd></div>
+        <div><dt>Regions</dt><dd>KR, JP, TW, English</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-phones">
+      <figure class="phone">
+        <div class="phone-frame"><img src="images/코코마인산리오캐릭터즈.png" alt="CocoMine Sanrio Characters key art"></div>
+        <figcaption>CocoMine Sanrio</figcaption>
+      </figure>
+      <figure class="phone is-main">
+        <div class="phone-frame"><img src="images/코코마인.png" alt="CocoMine key art"></div>
+        <figcaption>CocoMine</figcaption>
+      </figure>
+      <figure class="phone">
+        <div class="phone-frame"><img src="images/놀러와마이홈.png" alt="Welcome to My Home key art"></div>
+        <figcaption>Welcome to My Home</figcaption>
+      </figure>
     </div>
   </div>
 </header>
 
-<section class="block reveal" id="introduce">
-  <div class="wrap">
-    <h2>Introduce</h2>
-    <div class="introduce-body">
-      <p>Over 4 years as a game server and backend developer, I've built hands-on experience that spans far beyond maintenance and new features — covering performance optimization, operational infrastructure, and real-time server design. Directly responsible for live services running simultaneously across Korea, Japan, Taiwan, and English-speaking regions, I've tracked down and resolved issues that cut straight to the heart of stability and performance: eliminating login bottlenecks, migrating ranking systems to Redis, building a chat server from the ground up, stabilizing payments, and executing DB migrations.</p>
-      <p>Years of incident response and structural refactoring have reinforced one conviction: patching surface symptoms is a temporary fix, but understanding the root cause and redesigning the structure is what actually lasts. Backend work happens entirely out of sight — but the quieter the server, the more freely users stay immersed, and the more the operations team can focus on building rather than firefighting. I find meaning in that invisible work: where silence is the only sign that anything was done at all.</p>
+<section class="section reveal" id="introduce">
+  <div class="wrap intro-grid">
+    <div>
+      <div class="section-label">About</div>
+      <h2 class="section-title">I fix the structure,<br>not the symptom.</h2>
+    </div>
+    <div class="intro-body">
+      <p>Over 4 years as a game server and backend developer, I've built hands-on experience that spans far beyond maintenance and new features, covering performance optimization, operational infrastructure, and real-time server design. Directly responsible for live services running across Korea, Japan, Taiwan, and English-speaking regions, I've tracked down and resolved issues that cut straight to the heart of stability and performance: eliminating login bottlenecks, migrating ranking systems to Redis, building a chat server from the ground up, stabilizing payments, and executing DB migrations.</p>
+      <p>Years of incident response and structural refactoring have reinforced one conviction: patching surface symptoms is a temporary fix, but understanding the root cause and redesigning the structure is what actually lasts. Backend work happens entirely out of sight, but the quieter the server, the more freely users stay immersed, and the more the operations team can focus on building rather than firefighting. I find meaning in that invisible work, where silence is the only sign that anything was done at all.</p>
     </div>
   </div>
 </section>
 
-<section class="block reveal toc">
+<section class="section reveal" id="edu">
   <div class="wrap">
-    <h2>Table of Contents</h2>
-    <ol class="toc-list">
-      <li><a href="#edu">Education &amp; Training</a></li>
-      <li><a href="#career">Career</a></li>
-      <li><a href="#lang-cert">Language / Certifications</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#highlights">Highlight Projects</a></li>
-      <li><a href="#career-detail">Project List</a></li>
-    </ol>
+    <div class="section-head">
+      <div>
+        <div class="section-label">Education / training / certifications</div>
+        <h2 class="section-title">Where I learned,<br>and what I proved</h2>
+      </div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-col">
+        <h3>Education</h3>
+        <div class="edu-item"><span class="period">2017.03 – 2022.08</span><b>Pusan National University</b><span class="sub">Computer Science &amp; Engineering, Busan, graduated</span></div>
+        <div class="edu-item"><span class="period">2013.09 – 2014.06</span><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science, Hong Kong, attended (degree not completed)</span></div>
+        <div class="edu-item"><span class="period">2009.09 – 2013.06</span><b>International School of Qingdao</b><span class="sub">Secondary school, Qingdao, China, graduated</span></div>
+      </div>
+      <div class="edu-col">
+        <h3>Training</h3>
+        <div class="edu-item"><span class="period">2026.05.12 – 2026.11.12</span><b>KakaoTech Bootcamp, Generative AI Course</b><span class="sub">Korea Radio Promotion Association, in progress</span></div>
+        <div class="edu-item"><span class="period">2023.11.29 – 2024.01.17</span><b>Game Application Programming Course</b><span class="sub">Seoul Game Academy Busan, left the program upon employment</span></div>
+      </div>
+      <div class="edu-col" id="lang-cert">
+        <h3>Language / certifications</h3>
+        <div class="edu-item"><span class="period">2026.03.25</span><b>OPIc IH (English)</b><span class="sub">ACTFL</span></div>
+        <div class="edu-item"><span class="period">2024.06</span><b>Engineer Information Processing Certificate</b><span class="sub">Human Resources Development Service of Korea, 24201210507Z</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="block reveal" id="edu">
+<section class="section reveal" id="skills">
   <div class="wrap">
-    <h2 class="toggle">Education &amp; Training<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="two-col">
-      <div class="col">
-        <div class="col-title">Education</div>
-        <div class="row-list">
-          <div class="row">
-            <div class="period">2017.03 – 2022.08</div>
-            <div class="content"><b>Pusan National University</b><span class="sub">Computer Science &amp; Engineering · Busan · Graduated</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2013.09 – 2014.06</div>
-            <div class="content"><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science · Hong Kong · Attended, Degree Not Completed</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2009.09 – 2013.06</div>
-            <div class="content"><b>International School of Qingdao</b><span class="sub">Secondary School · Qingdao, China · Graduated</span></div>
-          </div>
+    <div class="section-head">
+      <div>
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">Tools I've worked with</h2>
+      </div>
+      <p class="section-desc">Duration includes professional work, projects, training, and self-study. Bars show proficiency on a five-step scale.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>Backend languages</h3>
+        <div class="skill-row"><span class="skill-name">Java</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">JavaScript</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">C#</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">PHP</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Python</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Node.js</span><span class="skill-meta"><span class="meter" data-level="2" role="img" aria-label="Elementary"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">Go</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1.5 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">C</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">C++</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Databases</h3>
+        <div class="skill-row"><span class="skill-name">MySQL</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Google BigQuery</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Redis</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1.5 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">MSSQL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Oracle</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">PostgreSQL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Server / infrastructure</h3>
+        <div class="skill-row"><span class="skill-name">AWS</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Apache</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">Express</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">IIS</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">SSL</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">Tomcat</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Frameworks / tools</h3>
+        <div class="skill-row"><span class="skill-name">GitHub</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">5 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Spring Framework</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">eGovFramework</span><span class="skill-meta"><span class="meter" data-level="4" role="img" aria-label="Proficient"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">SVN</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">3 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">ASP.NET Core</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">Spring Boot</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">Nexacro</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">React Native</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+      </div>
+      <div class="skill-col">
+        <h3>ETC</h3>
+        <div class="skill-row"><span class="skill-name">Looker Studio</span><span class="skill-meta"><span class="meter" data-level="3" role="img" aria-label="Intermediate"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">2 yrs</span></span></div>
+        <div class="skill-row"><span class="skill-name">OKTA SSO</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+        <div class="skill-row"><span class="skill-name">PWA</span><span class="skill-meta"><span class="meter" data-level="1" role="img" aria-label="Beginner"><i></i><i></i><i></i><i></i><i></i></span><span class="skill-years">1 yr</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section impact reveal" id="impact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Results</div>
+        <h2 class="section-title">Not "faster,"<br>but proven in numbers</h2>
+      </div>
+      <p class="section-desc">I prioritized the delays players actually felt and the risks the operations team carried, and fixed the structure rather than the symptom.</p>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <span class="metric-label">Login processing time</span>
+        <span class="metric-before"><span class="sr-only">Before: </span>30 s to 3 min</span>
+        <span class="metric-after"><span class="sr-only">After: </span>10–30 s</span>
+        <span class="metric-note">CocoMine, less lock contention and parallel work</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Ranking query time</span>
+        <span class="metric-before"><span class="sr-only">Before: </span>10–20 s</span>
+        <span class="metric-after"><span class="sr-only">After: </span>1–2 s</span>
+        <span class="metric-note">CocoMine, Redis caching and paging</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">Payment errors</span>
+        <span class="metric-before"><span class="sr-only">Before: </span>4–5 per day</span>
+        <span class="metric-after"><span class="sr-only">After: </span>1 per 1–2 wks</span>
+        <span class="metric-note">Welcome to My Home, retry-safe consistency</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="games">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">SKYWALK 2024.01 – 2026.02</div>
+        <h2 class="section-title">Games on stage,<br>servers backstage</h2>
+      </div>
+      <p class="section-desc">What players see is the game. What I owned is the server running underneath it, without stopping. I built and ran live operations for five games.</p>
+    </div>
+    <div class="games-grid">
+      <article class="game">
+        <img class="game-shot" src="images/코코마인.png" alt="CocoMine game screen" loading="lazy">
+        <h3 class="game-name">CocoMine</h3>
+        <p class="game-genre">Cozy life simulation SNS</p>
+        <div class="game-work">
+          <span class="game-work-label">Backstage work</span>
+          <ul class="game-points"><li>Login locks: 30 s–3 min → 10–30 s</li><li>Redis ranking: 10–20 s → 1–2 s</li><li>Auto-scaling channel pool</li><li>New chat server</li></ul>
         </div>
-      </div>
-      <div class="col">
-        <div class="col-title">Training</div>
-        <div class="row-list">
-          <div class="row">
-            <div class="period">2026.05.12 – 2026.11.12</div>
-            <div class="content"><b>KakaoTech Bootcamp – Generative AI Course</b><span class="sub">Korea Radio Promotion Association · In Progress</span></div>
-          </div>
-          <div class="row">
-            <div class="period">2023.11.29 – 2024.01.17</div>
-            <div class="content"><b>Game Application Programming Course</b><span class="sub">Seoul Game Academy Busan · Left the Program Upon Employment</span></div>
-          </div>
+        <p class="game-stack">Go / C# / MySQL / Redis</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/코코마인산리오캐릭터즈.png" alt="CocoMine Sanrio Characters game screen" loading="lazy">
+        <h3 class="game-name">CocoMine Sanrio Characters</h3>
+        <p class="game-genre">Metaverse community</p>
+        <div class="game-work">
+          <span class="game-work-label">Backstage work</span>
+          <ul class="game-points"><li>Chat and plaza servers</li><li>ASP.NET Core admin</li><li>Per-thread session isolation</li><li>BigQuery statistics</li></ul>
         </div>
-      </div>
+        <p class="game-stack">Go / C# / BigQuery</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/놀러와마이홈.png" alt="Welcome to My Home game screen" loading="lazy">
+        <h3 class="game-name">Welcome to My Home</h3>
+        <p class="game-genre">Lifestyle SNG in 4 regions</p>
+        <div class="game-work">
+          <span class="game-work-label">Backstage work</span>
+          <ul class="game-points"><li>Payment errors: 4–5/day → 1 per 1–2 wks</li><li>MySQL 5.7 to 8.0 migration</li><li>Looker Studio dashboard</li><li>4-region maintenance</li></ul>
+        </div>
+        <p class="game-stack">Java / MySQL / AWS</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/걸글로브.png" alt="GirlGlobe game screen" loading="lazy">
+        <h3 class="game-name">GirlGlobe</h3>
+        <p class="game-genre">Fashion dress-up styling game</p>
+        <div class="game-work">
+          <span class="game-work-label">Backstage work</span>
+          <ul class="game-points"><li>Item delivery: 10–20 s → 2–5 s</li><li>Admin stats and content tools</li><li>AWS to on-premise migration</li></ul>
+        </div>
+        <p class="game-stack">Python / MySQL</p>
+      </article>
+      <article class="game">
+        <img class="game-shot" src="images/유미의세포들.png" alt="Yumi's Cells The Puzzle game screen" loading="lazy">
+        <h3 class="game-name">Yumi's Cells</h3>
+        <p class="game-genre">Match-3 puzzle</p>
+        <div class="game-work">
+          <span class="game-work-label">Backstage work</span>
+          <ul class="game-points"><li>Currency flow statistics</li><li>DB column consolidation</li><li>AWS to on-premise migration</li></ul>
+        </div>
+        <p class="game-stack">PHP / MySQL</p>
+      </article>
     </div>
-    </div></div>
   </div>
 </section>
 
-<section class="block reveal" id="career">
+<section class="section reveal" id="case">
   <div class="wrap">
-    <h2 class="toggle">Career (4 Years Total)<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="career-timeline">
-      <div class="career-timeline-bar">
-        <div class="tl-seg uxis" style="width:16.67%" title="UXIS · Software Developer Intern (2021.03–2021.12)"></div>
-        <div class="tl-seg uxis" style="width:20%" title="UXIS · Contract Software Developer (2022.01–2022.12)"></div>
-        <div class="tl-seg gap" style="width:5%" title="Gap (2023.01–2023.03)"></div>
-        <div class="tl-seg uxis" style="width:8.33%" title="UXIS · Contract Software Developer (2023.04–2023.08)"></div>
-        <div class="tl-seg gap" style="width:6.67%" title="Gap (2023.09–2023.12)"></div>
-        <div class="tl-seg skywalk" style="width:43.33%" title="SKYWALK · Server Developer (2024.01–2026.02)"></div>
+    <div class="case">
+      <div>
+        <div class="section-label">Case study / CocoMine</div>
+        <h2 class="case-title">Bottlenecks that grew<br>with concurrency,<br>solved in the structure.</h2>
+        <dl class="case-steps">
+          <div class="case-step"><dt>Problem</dt><dd>Locks on every login API forced all users' requests into a single line, so waits grew whenever traffic spiked.</dd></div>
+          <div class="case-step"><dt>Fix</dt><dd>Reduced contention around the request-wide locks and split independent work to run in parallel. Also expanded the DB connection pool and added missing indexes.</dd></div>
+          <div class="case-step is-result"><dt>Result</dt><dd>Login dropped from 30 s to 3 min down to 10–30 s, and ranking queries from 10–20 s to 1–2 s after moving to Redis.</dd></div>
+        </dl>
       </div>
-      <div class="career-timeline-years">
-        <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
-      </div>
-      <div class="career-timeline-legend">
-        <span class="legend-item"><span class="dot uxis"></span>UXIS (2021.03 – 2023.08)</span>
-        <span class="legend-item"><span class="dot skywalk"></span>SKYWALK (2024.01 – 2026.02)</span>
-      </div>
-    </div>
-
-    <div class="row-list">
-      <div class="row">
-        <div class="period">2024.01 – 2026.02</div>
-        <div class="content"><b>SKYWALK · Server Developer</b><span class="sub">Game server content development / maintenance</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2023.04 – 2023.08</div>
-        <div class="content"><b>UXIS · Contract Software Developer</b><span class="sub">SW development, server development</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2022.01 – 2022.12</div>
-        <div class="content"><b>UXIS · Contract Software Developer</b><span class="sub">SW development, server development</span></div>
-      </div>
-      <div class="row">
-        <div class="period">2021.03 – 2021.12</div>
-        <div class="content"><b>UXIS · Software Developer Intern</b><span class="sub">SW development, server development</span></div>
+      <div>
+        <ol class="flow" aria-label="CocoMine request flow">
+          <li class="is-changed"><b>LOGIN</b><span>Less lock contention</span></li>
+          <li class="is-changed"><b>SESSION</b><span>Concurrent requests split</span></li>
+          <li class="is-changed"><b>CHANNEL POOL</b><span>Least-loaded, auto scale-out</span></li>
+          <li class="is-changed"><b>REDIS</b><span>Ranking cache</span></li>
+          <li class="is-changed"><b>MYSQL</b><span>Persistent data, indexes</span></li>
+        </ol>
+        <p class="flow-legend"><i aria-hidden="true"></i>I designed and reworked every stage, from login to the database.</p>
       </div>
     </div>
-    </div></div>
   </div>
 </section>
 
-<section class="block reveal" id="lang-cert">
+<section class="section reveal" id="highlights">
   <div class="wrap">
-    <h2 class="toggle">Language / Certifications<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="row-list">
-      <div class="row">
-        <div class="period">2026.03.25</div>
-        <div class="content"><b>OPIc IH (English)</b><span class="sub">ACTFL</span></div>
+    <div class="section-head">
+      <div>
+        <div class="section-label">Highlight projects</div>
+        <h2 class="section-title">Four projects where I<br>followed the problem through</h2>
+        <p class="section-hint">Select a card to open its situation, task, action, and result.</p>
       </div>
-      <div class="row">
-        <div class="period">2024.06</div>
-        <div class="content"><b>Engineer Information Processing Certificate</b><span class="sub">Human Resources Development Service of Korea · 24201210507Z</span></div>
+      <div class="star-legend">
+        <span><b>S</b>Situation</span>
+        <span><b>T</b>Task</span>
+        <span><b>A</b>Action</span>
+        <span><b>R</b>Result</span>
       </div>
-    </div>
-    </div></div>
-  </div>
-</section>
-
-<section class="block reveal" id="skills">
-  <div class="wrap">
-    <h2 class="toggle">Skills<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-    <div class="skill-group">
-      <div class="label">Backend Languages</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="5">Java</span><span class="skill-tag" data-level="중상" data-years="3">JavaScript</span><span class="skill-tag" data-level="중" data-years="2">C#</span><span class="skill-tag" data-level="중" data-years="2">PHP</span><span class="skill-tag" data-level="중" data-years="2">Python</span><span class="skill-tag" data-level="중하" data-years="1">Node.js</span><span class="skill-tag" data-level="하" data-years="1">C</span><span class="skill-tag" data-level="하" data-years="1">C++</span><span class="skill-tag" data-level="하" data-years="1.5">Go</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">Databases</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="5">MySQL</span><span class="skill-tag" data-level="중" data-years="2">Google BigQuery</span><span class="skill-tag" data-level="중" data-years="1.5">Redis</span><span class="skill-tag" data-level="하" data-years="3">MSSQL</span><span class="skill-tag" data-level="하" data-years="3">Oracle</span><span class="skill-tag" data-level="하" data-years="3">PostgreSQL</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">Server / Infrastructure</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중" data-years="2">AWS</span><span class="skill-tag" data-level="하" data-years="1">Apache</span><span class="skill-tag" data-level="하" data-years="1">Express</span><span class="skill-tag" data-level="하" data-years="1">IIS</span><span class="skill-tag" data-level="하" data-years="1">SSL</span><span class="skill-tag" data-level="하" data-years="1">Tomcat</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">Frameworks / Tools</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중상" data-years="3">eGovFramework</span><span class="skill-tag" data-level="중상" data-years="5">GitHub</span><span class="skill-tag" data-level="중상" data-years="3">Spring Framework</span><span class="skill-tag" data-level="중" data-years="1">Spring Boot</span><span class="skill-tag" data-level="중" data-years="2">ASP.NET Core</span><span class="skill-tag" data-level="중" data-years="3">SVN</span><span class="skill-tag" data-level="하" data-years="1">Nexacro</span><span class="skill-tag" data-level="하" data-years="1">React Native</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="label">ETC</div>
-      <div class="tags">
-        <span class="skill-tag" data-level="중" data-years="2">Looker Studio</span><span class="skill-tag" data-level="하" data-years="1">OKTA SSO</span><span class="skill-tag" data-level="하" data-years="1">PWA</span>
-      </div>
-    </div>
-    <p class="skill-note">Experience duration includes professional, project, training, and learning experience.</p>
-    </div></div>
-  </div>
-</section>
-
-<section class="block reveal" id="highlights">
-  <div class="wrap">
-    <h2 class="toggle">Highlight Projects<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="star-legend">
-      <span><b>S</b>ituation</span>
-      <span><b>T</b>ask</span>
-      <span><b>A</b>ction</span>
-      <span><b>R</b>esult</span>
     </div>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">CocoMine</span>
-        <span class="period">SKYWALK · 2024.12 – 2026.02</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">CocoMine</h3>
+        <span class="period">SKYWALK, 2024.12 – 2026.02</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">Cozy Life Simulation SNS · 30K+ Users · Peak CCU: 500–1,000</p>
+      <p class="proj-genre">Cozy life simulation SNS, 30K+ users, peak CCU 500–1,000</p>
       <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -312,19 +377,19 @@
           <span class="star-label">A</span>
           <ul class="duty">
             <li>Found that locks attached to each login API were serializing requests. Reduced contention around the request-wide locks, separated independent work for parallel execution, expanded the DB connection pool, and added missing indexes.</li>
-            <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact — protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
-            <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels — the 30-user capacity was validated through blind testing.</li>
-            <li>To add real-time chat that the game lacked, coordinated specs with the planning team and built a new chat server from design through implementation</li>
+            <li>Designed a channel distribution system for the plaza and village: a pool of channels (5 by default) where new users are assigned to the least-loaded channel, with per-channel user state isolated so only users in the same channel interact. Protected the per-channel user counters against race conditions under concurrent joins using Go's sync.Mutex.</li>
+            <li>Implemented auto scale-out logic that provisions 5 new channels when all channels approach capacity (25 of 30), with gradual, distributed user placement to prevent a thundering herd onto the new channels. The 30-user capacity was validated through blind testing.</li>
+            <li>To add real-time chat that the game lacked, coordinated specs with the planning team and built a new chat server from design through implementation.</li>
             <li>Replaced the design that queried MySQL on every ranking request with real-time Redis updates for contribution and fashion-match scores, plus paging and Redis caching to reduce repeated read load.</li>
-            <li>Discussed requirements directly with the operations team to finalize the feature scope, then designed and built the ops tool on ASP.NET Core</li>
+            <li>Discussed requirements directly with the operations team to finalize the feature scope, then designed and built the ops tool on ASP.NET Core.</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Login processing time</span><b>30 sec–3 min</b><span class="arrow">→</span><b class="good">10–30 sec</b></div>
-              <div class="stat-pair"><span class="stat-name">Ranking query time</span><b>10–20 sec</b><span class="arrow">→</span><b class="good">1–2 sec</b></div>
+              <div class="stat-pair"><span class="stat-name">Login processing time</span><span class="stat-value"><s>30 s to 3 min</s><strong>10–30 s</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">Ranking query time</span><span class="stat-value"><s>10–20 s</s><strong>1–2 s</strong></span></div>
             </div>
             <ul class="duty">
               <li>Reduced plaza and village lag caused by single-channel overcrowding through least-loaded channel placement and automatic channel expansion.</li>
@@ -333,15 +398,15 @@
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">Welcome to My Home</span>
-        <span class="period">SKYWALK · 2024.01 – 2026.02</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">Welcome to My Home</h3>
+        <span class="period">SKYWALK, 2024.01 – 2026.02</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">SNG · Lifestyle Simulation · KR/JP/TW/EN 4 Regions · 200K+ Users · CCU: 200–2,000</p>
+      <p class="proj-genre">Lifestyle simulation SNG, KR/JP/TW/EN 4 regions, 200K+ users, CCU 200–2,000</p>
       <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
@@ -349,7 +414,7 @@
         <div class="star-row">
           <span class="star-label">S</span>
           <ul class="duty">
-            <li>MySQL 5.7 reached end of life in October 2023, ending security patch support → 8.0 migration was unavoidable</li>
+            <li>MySQL 5.7 reached end of life in October 2023, ending security patch support, so an 8.0 migration was unavoidable</li>
             <li>Payments were failing 4–5 times per day due to network delays, or completing with items never delivered</li>
             <li>The operations team had to request game data from the dev team every time, slowing decision-making</li>
           </ul>
@@ -365,17 +430,17 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>Handled MySQL 5.7→8.0 compatibility and applied indexing/optimization to key queries including item lookups</li>
+            <li>Handled MySQL 5.7 to 8.0 compatibility and applied indexing and optimization to key queries including item lookups.</li>
             <li>Added automatic retries for delayed payment responses. Before each retry, cross-checked prior payment and grant records to prevent duplicate item delivery and safely recover transactions where payment succeeded but the item was not granted.</li>
-            <li>Discussed the required metrics directly with the operations team, then built a BigQuery · Looker Studio dashboard for real-time currency and token statistics so the team could access data independently</li>
+            <li>Discussed the required metrics directly with the operations team, then built a BigQuery and Looker Studio dashboard for currency and token statistics so the team could access data independently.</li>
           </ul>
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Item lookup time</span><b class="good">3–10 sec faster</b></div>
-              <div class="stat-pair"><span class="stat-name">Payment failure rate</span><b>4–5 / day</b><span class="arrow">→</span><b class="good">1 / 1–2 weeks</b></div>
+              <div class="stat-pair"><span class="stat-name">Item lookup time</span><span class="stat-value"><strong>3–10 s faster</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">Payment failure rate</span><span class="stat-value"><s>4–5 per day</s><strong>1 per 1–2 weeks</strong></span></div>
             </div>
             <ul class="duty">
               <li>Operations team requests shifted from one-off data pulls to feature-driven analytics requests</li>
@@ -385,15 +450,15 @@
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">Chungcheongbuk-do Education Office HR System</span>
-        <span class="period">UXIS · 2021.12 – 2022.07</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">Chungcheongbuk-do Education Office HR System</h3>
+        <span class="period">UXIS, 2021.12 – 2022.07</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
-      <p class="proj-genre">HR Administration System for Education Office Staff · ~6,400–10,000 Employees</p>
+      <p class="proj-genre">HR administration system for education office staff, about 6,400–10,000 employees</p>
       <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>eGovFramework</span><span>Spring</span></div>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
@@ -401,7 +466,7 @@
         <div class="star-row">
           <span class="star-label">S</span>
           <ul class="duty">
-            <li>Personnel transfers for ~6,400–10,000 education office employees were handled manually — clerks received submitted documents and calculated scores on paper or in Excel to make transfer decisions</li>
+            <li>Personnel transfers for about 6,400–10,000 education office employees were handled manually: clerks received submitted documents and calculated scores on paper or in Excel to make transfer decisions</li>
           </ul>
         </div>
         <div class="star-row">
@@ -413,8 +478,8 @@
         <div class="star-row">
           <span class="star-label">A</span>
           <ul class="duty">
-            <li>Designed a transfer algorithm that scores submitted documents by category and determines priority via top-down sorting</li>
-            <li>Separately implemented tie-breaking logic for edge cases involving equal or overlapping scores — the most challenging part of the feature</li>
+            <li>Designed a transfer algorithm that scores submitted documents by category and determines priority via top-down sorting.</li>
+            <li>Separately implemented tie-breaking logic for edge cases involving equal or overlapping scores, the most challenging part of the feature.</li>
           </ul>
         </div>
         <div class="star-row star-result">
@@ -425,17 +490,16 @@
         </div>
       </div>
       </div></div>
-    </div>
+    </article>
 
-    <div class="highlight-card">
-      <div class="highlight-head">
-        <span class="company">C++ Network Game Server Learning Project</span>
-        <span class="period">Personal Project · 2026.07 – Present</span>
-        <span class="highlight-chevron">▾</span>
+    <article class="highlight-card collapsed">
+      <div class="highlight-head" tabindex="0" data-toggle>
+        <h3 class="company">C++ Network Game Server Learning Project</h3>
+        <span class="period">Personal project, 2026.07 – present</span>
+        <span class="highlight-chevron chev" aria-hidden="true"></span>
       </div>
       <p class="proj-genre">A network server lab that builds server architectures step by step and compares their behavior through a GUI</p>
       <div class="tags"><span>C++20</span></div>
-      <br/>
 
       <div class="highlight-collapsible"><div class="highlight-collapsible-inner">
       <div class="star-grid">
@@ -463,10 +527,10 @@
         </div>
         <div class="star-row star-result">
           <span class="star-label">R</span>
-          <div class="star-result-body">
+          <div>
             <div class="stat-pairs">
-              <div class="stat-pair"><span class="stat-name">Linux Server</span><b class="good">28,000 concurrent connections · 560,000 messages</b></div>
-              <div class="stat-pair"><span class="stat-name">Windows Server</span><b class="good">2,000 burst connections · 12,000 sustained connections · 120,000 messages</b></div>
+              <div class="stat-pair"><span class="stat-name">Linux server</span><span class="stat-value"><strong>28,000 concurrent connections, 560,000 messages</strong></span></div>
+              <div class="stat-pair"><span class="stat-name">Windows server</span><span class="stat-value"><strong>2,000 burst and 12,000 sustained connections, 120,000 messages</strong></span></div>
             </div>
             <ul class="duty">
               <li>Verified correct delivery of a 4 MiB payload split across multiple writes.</li>
@@ -477,63 +541,110 @@
         </div>
       </div>
       </div></div>
-    </div>
-
-    </div></div>
+    </article>
   </div>
 </section>
 
-<section class="block reveal" id="career-detail">
+<section class="section reveal" id="career">
   <div class="wrap">
-    <h2 class="toggle">Project List<span class="chevron">▾</span></h2>
-    <div class="collapsible"><div class="collapsible-inner">
-
-    <div class="career-toc">
-      <ol>
-        <li><a href="#job-skywalk">SKYWALK</a></li>
-        <li><a href="#job-uxis">UXIS</a></li>
-        <li><a href="#job-etc">ETC</a></li>
-      </ol>
+    <div class="section-head">
+      <div>
+        <div class="section-label">Career (4 years total)</div>
+        <h2 class="section-title">From business systems<br>to live game servers</h2>
+      </div>
+      <p class="section-desc">Started in SI web backend work and moved to game servers, covering the full cycle from requirements and design to implementation, testing, and live incident response.</p>
     </div>
 
+    <div class="career-timeline">
+      <div class="career-timeline-bar">
+        <div class="tl-seg uxis" style="width:16.67%" title="UXIS, Software Developer Intern (2021.03–2021.12)"></div>
+        <div class="tl-seg uxis" style="width:20%" title="UXIS, Contract Software Developer (2022.01–2022.12)"></div>
+        <div class="tl-seg gap" style="width:5%" title="Gap (2023.01–2023.03)"></div>
+        <div class="tl-seg uxis" style="width:8.33%" title="UXIS, Contract Software Developer (2023.04–2023.08)"></div>
+        <div class="tl-seg gap" style="width:6.67%" title="Gap (2023.09–2023.12)"></div>
+        <div class="tl-seg skywalk" style="width:43.33%" title="SKYWALK, Server Developer (2024.01–2026.02)"></div>
+      </div>
+      <div class="career-timeline-years">
+        <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+      </div>
+      <div class="career-timeline-legend">
+        <span class="legend-item"><span class="dot uxis"></span>UXIS (2021.03 – 2023.08)</span>
+        <span class="legend-item"><span class="dot skywalk"></span>SKYWALK (2024.01 – 2026.02)</span>
+      </div>
+    </div>
+
+    <div class="career-rows">
+      <div class="career-row">
+        <div class="period">2024.01 – 2026.02</div>
+        <div><b>SKYWALK</b><span class="sub">Server Developer, game server content development and maintenance</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2023.04 – 2023.08</div>
+        <div><b>UXIS</b><span class="sub">Contract Software Developer, SW and server development</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2022.01 – 2022.12</div>
+        <div><b>UXIS</b><span class="sub">Contract Software Developer, SW and server development</span></div>
+      </div>
+      <div class="career-row">
+        <div class="period">2021.03 – 2021.12</div>
+        <div><b>UXIS</b><span class="sub">Software Developer Intern, SW and server development</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="career-detail">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Project list</div>
+        <h2 class="section-title">Every project I worked on</h2>
+      </div>
+      <p class="section-desc">Grouped by company and period. Select a company to expand its list, then select a project to open the details.</p>
+    </div>
+
+
     <div class="career-job collapsed" id="job-skywalk">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">SKYWALK</span>
+          <h3 class="company">SKYWALK</h3>
           <span class="period">2024.01 – 2026.02 (2 years 2 months)</span>
-          <span class="proj-count">5 Projects</span>
+          <span class="proj-count">5 projects</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>Dept: Server Development</span><span>Role: Server Developer</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">CocoMine <span class="pdate">2024.12 – 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Genre: Social Networking Service (SNS) · Cozy Life Simulation</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>CocoMine <span class="pdate">2024.12 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Genre: Social networking service (SNS), cozy life simulation</p>
         <ul class="duty">
-          <li>Login bottleneck fix (30s–3min → 10–30s) · Ranking Redis migration (10–20s → 1–2s) · New chat server · Channel distribution logic</li>
+          <li>Login bottleneck fix (30 s to 3 min down to 10–30 s), ranking Redis migration (10–20 s to 1–2 s), new chat server, channel distribution logic</li>
         </ul>
         <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Reduced query latency and login bottlenecks</b><span class="detail-sub">→ While building on the CocoMine Sanrio Characters codebase, identified lagging paths and applied indexing and query optimization, reducing item and ranking data read/update time from 5–15s to 2–6s. In the login flow, reduced contention from locks that blocked the full request and separated independent work for parallel execution. Expanded the DB connection pool and added indexes, cutting login time from 30s–3min to 10–30s.</span></li>
-              <li><b>Developed chat/plaza/village/district servers for diverse user interactions</b><span class="detail-sub">→ Added village and district servers for new content variety; introduced interactive items, interaction motions, and an address system within the village.</span></li>
-              <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">→ Migrated the frequently-queried ranking system to Redis, reducing query time from 10–20s to 1–2s.</span></li>
-              <li><b>Team collaboration and technical direction review</b><span class="detail-sub">→ Worked as one of two server developers in a team of 2 server · 5 client · 1 UI, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions — such as channel distribution and scale-out logic — with the CTO before applying. After the other server developer left mid-project, continued solo; after launch, independently identified and resolved structural issues in the existing codebase.</span></li>
-              <li><b>Pre-launch load testing via custom bot — bottleneck detection</b><span class="detail-sub">→ Built an automated load-testing bot covering connection, login, and basic gameplay to verify stability before launch. Identified high load on the login, item, and plaza/chat paths, then restructured those areas and reviewed the codebase for lock contention, race conditions, and potential deadlocks.</span></li>
-              <li><b>On-call incident response — missing event launch · login delays</b><span class="detail-sub">→ Responded to a late-night incident where a planning team event failed to go live; investigation revealed the data had been omitted from the commit. Received the re-committed file and hot-deployed without downtime to restore the event. Also resolved a separate incident where a specific user's excessive item count triggered a lock that delayed all other users' logins — applied indexing and a limit-based mitigation immediately, then redesigned the lock structure as a long-term fix.</span></li>
-              <li><b>Production data mismatch response and prevention — achievement system</b><span class="detail-sub">→ After adding achievement features and passing staging tests, a data mismatch surfaced in production for users who had already sold or consumed the relevant items, leaving their achievements unprocessable. Analyzed usage logs and transaction history to identify affected users and applied a bulk achievement update to restore correct state. Added more granular edge-case checks to the server-side achievement ingestion logic to prevent recurrence.</span></li>
+              <li><b>Reduced query latency and login bottlenecks</b><span class="detail-sub">While building on the CocoMine Sanrio Characters codebase, identified lagging paths and applied indexing and query optimization, reducing item and ranking data read/update time from 5–15 s to 2–6 s. In the login flow, reduced contention from locks that blocked the full request and separated independent work for parallel execution. Expanded the DB connection pool and added indexes, cutting login time from 30 s to 3 min down to 10–30 s.</span></li>
+              <li><b>Developed chat, plaza, village, and district servers for diverse user interactions</b><span class="detail-sub">Added village and district servers for new content variety, and introduced interactive items, interaction motions, and an address system within the village.</span></li>
+              <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">Migrated the frequently queried ranking system to Redis, reducing query time from 10–20 s to 1–2 s.</span></li>
+              <li><b>Team collaboration and technical direction review</b><span class="detail-sub">Worked as one of two server developers in a team of 2 server, 5 client, and 1 UI developers, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions such as channel distribution and scale-out logic with the CTO before applying them. After the other server developer left mid-project, continued solo; after launch, independently identified and resolved structural issues in the existing codebase.</span></li>
+              <li><b>Pre-launch load testing with a custom bot</b><span class="detail-sub">Built an automated load-testing bot covering connection, login, and basic gameplay to verify stability before launch. Identified high load on the login, item, and plaza/chat paths, then restructured those areas and reviewed the codebase for lock contention, race conditions, and potential deadlocks.</span></li>
+              <li><b>On-call incident response: missing event launch and login delays</b><span class="detail-sub">Responded to a late-night incident where a planning team event failed to go live; investigation revealed the data had been omitted from the commit. Received the re-committed file and hot-deployed without downtime to restore the event. Also resolved a separate incident where a specific user's excessive item count triggered a lock that delayed all other users' logins, applying indexing and a limit-based mitigation immediately, then redesigning the lock structure as a long-term fix.</span></li>
+              <li><b>Production data mismatch response and prevention: achievement system</b><span class="detail-sub">After adding achievement features and passing staging tests, a data mismatch surfaced in production for users who had already sold or consumed the relevant items. Analyzed usage logs and transaction history to identify affected users and applied a bulk achievement update to restore correct state. Added more granular edge-case checks to the server-side achievement logic to prevent recurrence.</span></li>
             </ul>
           </div>
-          <img src="images/코코마인.png" alt="CocoMine" class="proj-image">
+          <img src="images/코코마인.png" alt="CocoMine" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">CocoMine Sanrio Characters <span class="pdate">2024.07 – 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Genre: Social Networking Service (SNS) · Metaverse Community</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>CocoMine Sanrio Characters <span class="pdate">2024.07 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Genre: Social networking service (SNS), metaverse community</p>
         <ul class="duty">
           <li>Led full administrative system development; improved server performance through data management and optimization</li>
           <li>Built chat and plaza servers for real-time user interaction</li>
@@ -543,18 +654,19 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Led full administrative system development; improved server performance</b><span class="detail-sub">→ Designed and built the ASP.NET Core-based administrative page for the operations team, added a BigQuery-powered game currency and item statistics dashboard, and removed redundant or overlapping logic to improve performance.</span></li>
-              <li><b>Built chat and plaza servers for real-time user interaction</b><span class="detail-sub">→ Extended the solo farming and decorating space into a shared environment where users can chat and see each other's avatars.</span></li>
-              <li><b>Redis-based ranking management and thread-based session isolation</b><span class="detail-sub">→ Migrated the ranking system to Redis, reducing query time from 10–20s to 1–2s. Also isolated user session handling into separate threads so a delayed request from one user no longer blocks other users' sessions, keeping the server responsive as concurrency grows.</span></li>
+              <li><b>Led full administrative system development; improved server performance</b><span class="detail-sub">Designed and built the ASP.NET Core-based administrative page for the operations team, added a BigQuery-powered game currency and item statistics dashboard, and removed redundant or overlapping logic to improve performance.</span></li>
+              <li><b>Built chat and plaza servers for real-time user interaction</b><span class="detail-sub">Extended the solo farming and decorating space into a shared environment where users can chat and see each other's avatars.</span></li>
+              <li><b>Redis-based ranking management and thread-based session isolation</b><span class="detail-sub">Migrated the ranking system to Redis, reducing query time from 10–20 s to 1–2 s. Also isolated user session handling into separate threads so a delayed request from one user no longer blocks other users' sessions, keeping the server responsive as concurrency grows.</span></li>
             </ul>
           </div>
-          <img src="images/코코마인산리오캐릭터즈.png" alt="CocoMine Sanrio Characters" class="proj-image">
+          <img src="images/코코마인산리오캐릭터즈.png" alt="CocoMine Sanrio Characters" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">GirlGlobe <span class="pdate">2024.04 – 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Genre: Styling Game (Fashion Dress-Up)</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>GirlGlobe <span class="pdate">2024.04 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Genre: Styling game (fashion dress-up)</p>
         <ul class="duty">
           <li>Server maintenance and administrative system feature additions to improve operational efficiency</li>
           <li>Data management and optimization for stable large-scale user data processing</li>
@@ -564,18 +676,19 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Server maintenance and administrative system feature additions</b><span class="detail-sub">→ Tracked intermittent errors, resolved conflicts between legacy code and new content, and added a statistics system and new content management features to the administrative system to help the operations team manage the game more efficiently.</span></li>
-              <li><b>Data management and optimization</b><span class="detail-sub">→ Fixed poorly optimized queries and added missing indexes, reducing stage-clear item delivery processing time from 10–20s to 2–5s.</span></li>
-              <li><b>DB migration from AWS to on-premise server</b><span class="detail-sub">→ Performed large-scale data backup and migration as part of a cost-reduction move from AWS to on-premise.</span></li>
+              <li><b>Server maintenance and administrative system feature additions</b><span class="detail-sub">Tracked intermittent errors, resolved conflicts between legacy code and new content, and added a statistics system and new content management features to the administrative system to help the operations team manage the game more efficiently.</span></li>
+              <li><b>Data management and optimization</b><span class="detail-sub">Fixed poorly optimized queries and added missing indexes, reducing stage-clear item delivery processing time from 10–20 s to 2–5 s.</span></li>
+              <li><b>DB migration from AWS to on-premise server</b><span class="detail-sub">Performed large-scale data backup and migration as part of a cost-reduction move from AWS to on-premise.</span></li>
             </ul>
           </div>
-          <img src="images/걸글로브.png" alt="GirlGlobe" class="proj-image proj-image-crop">
+          <img src="images/걸글로브.png" alt="GirlGlobe" class="proj-image proj-image-crop" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Yumi's Cells <span class="pdate">2024.04 – 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Genre: Match-3 Puzzle Game</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Yumi's Cells <span class="pdate">2024.04 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Genre: Match-3 puzzle game</p>
         <ul class="duty">
           <li>Added administrative system features to support efficient game management by the operations team</li>
           <li>Data management and optimization for stable game data processing</li>
@@ -585,53 +698,55 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Added administrative system features for efficient game management</b><span class="detail-sub">→ Added a currency flow statistics system to help the operations team track how in-game currency is used and distributed.</span></li>
-              <li><b>Data management and optimization</b><span class="detail-sub">→ Consolidated and cleaned up multiple DB columns during a game system overhaul; deployed after thorough testing with no disruption to gameplay.</span></li>
-              <li><b>DB migration from AWS to on-premise server</b><span class="detail-sub">→ Performed large-scale data backup and migration as part of a cost-reduction move from AWS to on-premise.</span></li>
+              <li><b>Added administrative system features for efficient game management</b><span class="detail-sub">Added a currency flow statistics system to help the operations team track how in-game currency is used and distributed.</span></li>
+              <li><b>Data management and optimization</b><span class="detail-sub">Consolidated and cleaned up multiple DB columns during a game system overhaul; deployed after thorough testing with no disruption to gameplay.</span></li>
+              <li><b>DB migration from AWS to on-premise server</b><span class="detail-sub">Performed large-scale data backup and migration as part of a cost-reduction move from AWS to on-premise.</span></li>
             </ul>
           </div>
-          <img src="images/유미의세포들.png" alt="Yumi's Cells" class="proj-image">
+          <img src="images/유미의세포들.png" alt="Yumi's Cells" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Welcome to My Home <span class="pdate">2024.01 – 2026.02</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Genre: SNG · Lifestyle Simulation</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Welcome to My Home <span class="pdate">2024.01 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Genre: SNG, lifestyle simulation</p>
         <ul class="duty">
-          <li>Payment failure rate improvement (4–5/day → 1/1–2 weeks) · MySQL 5.7→8.0 migration · Looker Studio dashboard build</li>
+          <li>Payment failure rate improvement (4–5 per day to 1 per 1–2 weeks), MySQL 5.7 to 8.0 migration, Looker Studio dashboard build</li>
           <li>KR/JP/TW/EN 4-region server maintenance</li>
         </ul>
         <div class="tags"><span>Java</span><span>MySQL</span><span>BigQuery</span><span>AWS</span><span>Looker Studio</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Stable service operation across KR/JP/TW/EN 4-region servers</b><span class="detail-sub">→ Tracked down and fixed errors caused by differing content per region; created and continuously updated a content/bug documentation list so other developers could also manage it smoothly.</span></li>
-              <li><b>Server performance improvement and new content development through data management and optimization</b><span class="detail-sub">→ Applied indexing and query optimization during new content development to ensure features like item systems worked correctly without data duplication.</span></li>
-              <li><b>MySQL version migration — source code fixes to secure system compatibility and stability</b><span class="detail-sub">→ With MySQL 5.7 reaching end-of-life, an upgrade to 8.0 was required. Identified breaking changes (authentication method, GROUP BY handling, etc.), updated source code, ran thorough testing, and deployed with zero issues.</span></li>
-              <li><b>Looker Studio data visualization dashboard to improve operations team efficiency</b><span class="detail-sub">→ Connected BigQuery with Looker Studio so game currency and log data could be checked at a glance on the dashboard, directly supporting the operations team's decision-making.</span></li>
-              <li><b>On-call incident response — Japan server disk-full outage</b><span class="detail-sub">→ Responded to a late-night outage on the Japan server. Running df confirmed the disk was full due to accumulated log files — the crontab-based log cleanup batch had been malfunctioning. Cleared old log files to restore the server, then audited and re-automated the batch job to prevent recurrence.</span></li>
+              <li><b>Stable service operation across KR/JP/TW/EN 4-region servers</b><span class="detail-sub">Tracked down and fixed errors caused by differing content per region; created and continuously updated a content and bug documentation list so other developers could also manage it smoothly.</span></li>
+              <li><b>Server performance improvement and new content development through data management and optimization</b><span class="detail-sub">Applied indexing and query optimization during new content development to ensure features like item systems worked correctly without data duplication.</span></li>
+              <li><b>MySQL version migration with source code fixes for compatibility and stability</b><span class="detail-sub">With MySQL 5.7 reaching end-of-life, an upgrade to 8.0 was required. Identified breaking changes (authentication method, GROUP BY handling, and more), updated source code, ran thorough testing, and deployed with zero issues.</span></li>
+              <li><b>Looker Studio data visualization dashboard to improve operations team efficiency</b><span class="detail-sub">Connected BigQuery with Looker Studio so game currency and log data could be checked at a glance on the dashboard, directly supporting the operations team's decision-making.</span></li>
+              <li><b>On-call incident response: Japan server disk-full outage</b><span class="detail-sub">Responded to a late-night outage on the Japan server. Running df confirmed the disk was full due to accumulated log files, because the crontab-based log cleanup batch had been malfunctioning. Cleared old log files to restore the server, then audited and re-automated the batch job to prevent recurrence.</span></li>
             </ul>
           </div>
-          <img src="images/놀러와마이홈.png" alt="Welcome to My Home" class="proj-image">
+          <img src="images/놀러와마이홈.png" alt="Welcome to My Home" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed" id="job-uxis">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2023.04 – 2023.08 (4 months)</span>
-          <span class="proj-count">2 Projects</span>
+          <span class="proj-count">2 projects</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>Dept: SI Development</span><span>Role: Contract Software Developer</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">Busan Metropolitan Office of Education Character Education Platform <span class="pdate">2023.05 – 2023.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Busan Metropolitan Office of Education Character Education Platform <span class="pdate">2023.05 – 2023.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Implemented administrative pages for both administrators and end users</li>
           <li>Integrated APIs from the education office, integrated reservation system, and booking system</li>
@@ -641,17 +756,18 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Implemented administrative pages for administrators and end users</b><span class="detail-sub">→ Designed and developed separate administrative and user-facing pages with corresponding DB schema based on planning documents.</span></li>
-              <li><b>API integration for data flow</b><span class="detail-sub">→ Called the existing integrated reservation system API from the education office and connected it to the platform for easy parent access.</span></li>
-              <li><b>DB design and push notification system</b><span class="detail-sub">→ Designed the DB and built a push notification system to deliver new announcements and alerts directly to users' phones.</span></li>
+              <li><b>Implemented administrative pages for administrators and end users</b><span class="detail-sub">Designed and developed separate administrative and user-facing pages with corresponding DB schema based on planning documents.</span></li>
+              <li><b>API integration for data flow</b><span class="detail-sub">Called the existing integrated reservation system API from the education office and connected it to the platform for easy parent access.</span></li>
+              <li><b>DB design and push notification system</b><span class="detail-sub">Designed the DB and built a push notification system to deliver new announcements and alerts directly to users' phones.</span></li>
             </ul>
           </div>
-          <img src="images/부산인성교육.png" alt="Busan Metropolitan Office of Education Character Education Platform" class="proj-image">
+          <img src="images/부산인성교육.png" alt="Busan Metropolitan Office of Education Character Education Platform" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Gangwon-do Education Office School Diagnosis System <span class="pdate">2023.04 – 2023.05</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Gangwon-do Education Office School Diagnosis System <span class="pdate">2023.04 – 2023.05</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Developed satisfaction survey system and school self-assessment features</li>
           <li>Fixed runtime errors to improve system stability</li>
@@ -660,30 +776,31 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Satisfaction survey and self-assessment features</b><span class="detail-sub">→ Added pages for parents and teachers to create satisfaction surveys, collect results, generate statistics, and export to PDF for administrative use.</span></li>
-              <li><b>Error fixes for system stability</b><span class="detail-sub">→ Fixed broken or error-prone parts of the existing system, reducing user complaints.</span></li>
+              <li><b>Satisfaction survey and self-assessment features</b><span class="detail-sub">Added pages for parents and teachers to create satisfaction surveys, collect results, generate statistics, and export to PDF for administrative use.</span></li>
+              <li><b>Error fixes for system stability</b><span class="detail-sub">Fixed broken or error-prone parts of the existing system, reducing user complaints.</span></li>
             </ul>
           </div>
-          <img src="images/강원도.png" alt="Gangwon-do Education Office School Diagnosis System" class="proj-image">
+          <img src="images/강원도.png" alt="Gangwon-do Education Office School Diagnosis System" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2022.01 – 2022.12 (1 year)</span>
-          <span class="proj-count">4 Projects</span>
+          <span class="proj-count">4 projects</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>Dept: SI Development</span><span>Role: Contract Software Developer</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">Samsung Biologics Partner Portal <span class="pdate">2022.10 – 2022.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Samsung Biologics Partner Portal <span class="pdate">2022.10 – 2022.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Solo development: DB design and full administrative page development</li>
           <li>OKTA SSO &amp; KNOX MAIL API integration for security and usability</li>
@@ -692,16 +809,17 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Solo development: DB design and full administrative page development</b><span class="detail-sub">→ Independently developed the backend (excluding design and frontend), designed the DB for both administrative and user-facing pages.</span></li>
-              <li><b>OKTA SSO &amp; KNOX MAIL API integration</b><span class="detail-sub">→ Integrated Samsung Biologics' required SSO and KNOX MAIL, designed internal/external access separation, and coordinated L4 routing rules with the network team.</span></li>
+              <li><b>Solo development: DB design and full administrative page development</b><span class="detail-sub">Independently developed the backend (excluding design and frontend), and designed the DB for both administrative and user-facing pages.</span></li>
+              <li><b>OKTA SSO &amp; KNOX MAIL API integration</b><span class="detail-sub">Integrated Samsung Biologics' required SSO and KNOX MAIL, designed internal/external access separation, and coordinated L4 routing rules with the network team.</span></li>
             </ul>
           </div>
-          <img src="images/삼바파트너포탈.png" alt="Samsung Biologics Partner Portal" class="proj-image">
+          <img src="images/삼바파트너포탈.png" alt="Samsung Biologics Partner Portal" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">PK Valve &amp; Engineering PWA <span class="pdate">2022.07 – 2022.10</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>PK Valve &amp; Engineering PWA <span class="pdate">2022.07 – 2022.10</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Led full development as project PM</li>
           <li>Implemented resource management system and QR code recognition</li>
@@ -711,35 +829,37 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Led full development as project PM</b><span class="detail-sub">→ Oversaw everything from planning to backend development (excluding design and frontend). Coordinated features and timelines with PK Valve staff.</span></li>
-              <li><b>QR code recognition for resource management</b><span class="detail-sub">→ Built a mobile QR scan feature to instantly retrieve equipment information, making asset management more efficient.</span></li>
-              <li><b>PWA-based system for mobile access</b><span class="detail-sub">→ Built as a PWA so users can access it like a native app on mobile without downloading from an app store.</span></li>
+              <li><b>Led full development as project PM</b><span class="detail-sub">Oversaw everything from planning to backend development (excluding design and frontend). Coordinated features and timelines with PK Valve staff.</span></li>
+              <li><b>QR code recognition for resource management</b><span class="detail-sub">Built a mobile QR scan feature to instantly retrieve equipment information, making asset management more efficient.</span></li>
+              <li><b>PWA-based system for mobile access</b><span class="detail-sub">Built as a PWA so users can access it like a native app on mobile without downloading from an app store.</span></li>
             </ul>
           </div>
-          <img src="images/pkvalve.png" alt="PK Valve &amp; Engineering PWA" class="proj-image">
+          <img src="images/pkvalve.png" alt="PK Valve &amp; Engineering PWA" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Chungcheongbuk-do Education Office HR System <span class="pdate">2021.12 – 2022.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Chungcheongbuk-do Education Office HR System <span class="pdate">2021.12 – 2022.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
-          <li>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with score-based automated algorithm · tie-breaking logic</li>
+          <li>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with a score-based automated algorithm and tie-breaking logic</li>
           <li>Developed HR records, performance evaluation, survey, and statistics features</li>
         </ul>
         <div class="tags"><span>Java</span><span>Nexacro</span><span>MySQL</span><span>EgovFramework &amp; Spring</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with score-based automated algorithm</b><span class="detail-sub">→ Previously each person had to manually score and consolidate data through many steps. By automating the process, personnel transfer decisions became much faster. There was no longer a need to verify the process every time a score was assigned.</span></li>
-              <li><b>Developed HR records, performance evaluation, survey, and statistics features</b><span class="detail-sub">→ The statistics feature made it possible to see which departments have the most transfers and which are most preferred. HR records that were previously stored in physical documents were consolidated into a single system for instant lookup.</span></li>
+              <li><b>Replaced manual paper/Excel scoring for 6,400–10,000 staff transfers with a score-based automated algorithm</b><span class="detail-sub">Previously each person had to manually score and consolidate data through many steps. By automating the process, personnel transfer decisions became much faster, and there was no longer a need to verify the process every time a score was assigned.</span></li>
+              <li><b>Developed HR records, performance evaluation, survey, and statistics features</b><span class="detail-sub">The statistics feature made it possible to see which departments have the most transfers and which are most preferred. HR records that were previously stored in physical documents were consolidated into a single system for instant lookup.</span></li>
             </ul>
           </div>
-          <img src="images/충청북도.png" alt="Chungcheongbuk-do Education Office HR System" class="proj-image">
+          <img src="images/충청북도.png" alt="Chungcheongbuk-do Education Office HR System" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Udeserve <span class="pdate">2022.05</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Udeserve <span class="pdate">2022.05</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Developed favorites feature and user-facing pages</li>
           <li>Developed announcements and 1:1 inquiry features</li>
@@ -748,30 +868,31 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Favorites and user-facing page development</b><span class="detail-sub">→ Developed the community page favorites feature and portions of the user-facing content pages.</span></li>
-              <li><b>Announcements and 1:1 inquiry features</b><span class="detail-sub">→ Developed an announcements page and 1:1 inquiry system within a tight deadline, reducing the burden on the overall site development.</span></li>
+              <li><b>Favorites and user-facing page development</b><span class="detail-sub">Developed the community page favorites feature and portions of the user-facing content pages.</span></li>
+              <li><b>Announcements and 1:1 inquiry features</b><span class="detail-sub">Developed an announcements page and 1:1 inquiry system within a tight deadline, reducing the burden on the overall site development.</span></li>
             </ul>
           </div>
-          <img src="images/유디저브.png" alt="Udeserve" class="proj-image">
+          <img src="images/유디저브.png" alt="Udeserve" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">UXIS</span>
+          <h3 class="company">UXIS</h3>
           <span class="period">2021.03 – 2021.12 (10 months)</span>
-          <span class="proj-count">4 Projects</span>
+          <span class="proj-count">4 projects</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
       <div class="tags job-meta"><span>Dept: SI Development</span><span>Role: Software Developer Intern</span></div>
 
       <div class="proj-item">
-        <div class="proj-title">BetterOn <span class="pdate">2021.08 – 2021.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>BetterOn <span class="pdate">2021.08 – 2021.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Solo development: video conferencing system and DB design</li>
           <li>TURN server setup</li>
@@ -781,36 +902,38 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Solo development: video conferencing system and DB design</b><span class="detail-sub">→ Built a remote communication system in Node.js enabling teachers and students to use chat, video, and audio like a real classroom. Designed the DB for chat history and access logs.</span></li>
-              <li><b>TURN server setup</b><span class="detail-sub">→ Used WebRTC and ICE framework for direct connection attempts; on failure, routed through a TURN server. Repeated failures were treated as network latency and handled as connection failures.</span></li>
-              <li><b>Focus analysis algorithm via eye tracking</b><span class="detail-sub">→ Used Mediapipe to track eye positions, measuring deviation from baseline gaze as a median over intervals. Sustained deviation beyond a threshold reduced the focus score.</span></li>
+              <li><b>Solo development: video conferencing system and DB design</b><span class="detail-sub">Built a remote communication system in Node.js enabling teachers and students to use chat, video, and audio like a real classroom. Designed the DB for chat history and access logs.</span></li>
+              <li><b>TURN server setup</b><span class="detail-sub">Used WebRTC and the ICE framework for direct connection attempts; on failure, routed through a TURN server. Repeated failures were treated as network latency and handled as connection failures.</span></li>
+              <li><b>Focus analysis algorithm via eye tracking</b><span class="detail-sub">Used Mediapipe to track eye positions, measuring deviation from baseline gaze as a median over intervals. Sustained deviation beyond a threshold reduced the focus score.</span></li>
             </ul>
           </div>
-          <img src="images/Better On.png" alt="BetterOn" class="proj-image">
+          <img src="images/Better On.png" alt="BetterOn" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Busan·Ulsan·Gyeongnam Online Job Fair <span class="pdate">2021.08 – 2021.12</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Busan, Ulsan, Gyeongnam Online Job Fair <span class="pdate">2021.08 – 2021.12</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Operated video consultation and interview system for job seekers, interviewers, and counselors</li>
-          <li>Adapted existing video conferencing solution for job fair environment</li>
+          <li>Adapted existing video conferencing solution for the job fair environment</li>
         </ul>
         <div class="tags"><span>Node.js &amp; EJS</span><span>Java</span><span>JavaScript</span><span>Express</span><span>WebRTC &amp; Mediapipe</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Video system for job seekers, interviewers, and counselors</b><span class="detail-sub">→ Restructured BetterOn's classroom-oriented design for interviewer/interviewee and job seeker/counselor flows; added file attachment for document sharing.</span></li>
-              <li><b>Adapted for job fair environment</b><span class="detail-sub">→ Logged all chat history and participant records for institutional requests. Added a mirror preview before entering sessions and a Mediapipe-based posing feature to help participants feel at ease.</span></li>
+              <li><b>Video system for job seekers, interviewers, and counselors</b><span class="detail-sub">Restructured BetterOn's classroom-oriented design for interviewer/interviewee and job seeker/counselor flows; added file attachment for document sharing.</span></li>
+              <li><b>Adapted for the job fair environment</b><span class="detail-sub">Logged all chat history and participant records for institutional requests. Added a mirror preview before entering sessions and a Mediapipe-based posing feature to help participants feel at ease.</span></li>
             </ul>
           </div>
-          <img src="images/부울경.png" alt="Busan Ulsan Gyeongnam Online Job Fair" class="proj-image">
+          <img src="images/부울경.png" alt="Busan Ulsan Gyeongnam Online Job Fair" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Today's Ramyeon <span class="pdate">2021.05 – 2021.07</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">Ramen Recipe and Subscription Web Service</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Today's Ramyeon <span class="pdate">2021.05 – 2021.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Ramen recipe and subscription web service</p>
         <ul class="duty">
           <li>Developed user main page, subscription and gifting features</li>
           <li>Developed FAQ feature for customer support efficiency</li>
@@ -819,16 +942,17 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>User main page, subscription and gifting</b><span class="detail-sub">→ Implemented the home page, subscription feature, and a gifting system allowing subscribers to send gifts to each other.</span></li>
-              <li><b>FAQ feature for customer support</b><span class="detail-sub">→ Built an FAQ and inquiry page as a customer communication channel.</span></li>
+              <li><b>User main page, subscription and gifting</b><span class="detail-sub">Implemented the home page, subscription feature, and a gifting system allowing subscribers to send gifts to each other.</span></li>
+              <li><b>FAQ feature for customer support</b><span class="detail-sub">Built an FAQ and inquiry page as a customer communication channel.</span></li>
             </ul>
           </div>
-          <img src="images/오늘의라면.png" alt="Today's Ramyeon" class="proj-image">
+          <img src="images/오늘의라면.png" alt="Today's Ramyeon" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">DRIZ <span class="pdate">2021.03 – 2021.07</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>DRIZ <span class="pdate">2021.03 – 2021.07</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <ul class="duty">
           <li>Developed full administrative page for store and order management</li>
           <li>Developed user-facing app for intuitive ordering and delivery experience</li>
@@ -837,29 +961,30 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Administrative page for store and order management</b><span class="detail-sub">→ First project at the company. Built administrative features for managing store menus and information, and monitoring order status.</span></li>
-              <li><b>User-facing app for ordering and delivery</b><span class="detail-sub">→ Developed in React Native with live previews; built order history and delivery status tracking for users.</span></li>
+              <li><b>Administrative page for store and order management</b><span class="detail-sub">First project at the company. Built administrative features for managing store menus and information, and monitoring order status.</span></li>
+              <li><b>User-facing app for ordering and delivery</b><span class="detail-sub">Developed in React Native with live previews; built order history and delivery status tracking for users.</span></li>
             </ul>
           </div>
-          <img src="images/드리지.png" alt="DRIZ" class="proj-image">
+          <img src="images/드리지.png" alt="DRIZ" class="proj-image" loading="lazy">
         </div></div>
       </div>
       </div></div>
     </div>
 
     <div class="career-job collapsed" id="job-etc">
-      <div class="job-head">
+      <div class="job-head" tabindex="0" data-toggle>
         <div class="job-head-main">
-          <span class="company">ETC</span>
-          <span class="period">Personal Projects · KakaoTech Bootcamp</span>
-          <span class="proj-count">4 Projects</span>
+          <h3 class="company">ETC</h3>
+          <span class="period">Personal projects, KakaoTech Bootcamp</span>
+          <span class="proj-count">4 projects</span>
         </div>
-        <span class="job-chevron">▾</span>
+        <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
       <div class="proj-item">
-        <div class="proj-title">C++ Network Game Server Learning Project <span class="pdate">2026.07 – Present</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>C++ Network Game Server Learning Project <span class="pdate">2026.07 – present</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">A step-by-step server architecture lab that compares connection handling from v1 through v6 in one GUI</p>
         <a href="https://github.com/1sanguk/CPP_Server" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
@@ -872,18 +997,19 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Expanded connection handling step by step</b><span class="detail-sub">→ Started with a server that handles one client at a time, then implemented thread-per-connection, reusable thread pools, Linux epoll, and Windows IOCP. Each version addresses a limitation found in the previous one.</span></li>
-              <li><b>Handled data transfer and shutdown safely</b><span class="detail-sub">→ Added partial-send handling and per-client send queues to preserve message order when large payloads cannot be sent in one write. Also defined a safe shutdown sequence for active work and threads.</span></li>
-              <li><b>Verified results with load tests and automated checks</b><span class="detail-sub">→ The Linux server processed all 560,000 messages with 28,000 concurrent connections inside a Docker network. At 30,000 attempted connections, the client-side ephemeral port range was exhausted first; all messages from the 28,231 established clients were processed. The Windows IOCP Debug build completed 20,000/20,000 Echo responses at 2,000 burst connections and maintained 12,000 connections while completing 120,000/120,000 Echo responses when connection concurrency was limited to 64. From 2,500 burst connections, backlog 128 and 16 pending AcceptEx calls could not absorb the full spike, causing some refusals. Every test completed pending I/O draining and exited with code 0. Console output was redirected to NUL during measurement to prevent stdout from becoming the bottleneck.</span></li>
-              <li><b>Built a cross-platform GUI for comparing server designs</b><span class="detail-sub">→ The GUI launches any server version, connects up to 200 clients for interactive testing, sends individual, delayed, or repeated messages, and aggregates Echo responses. It detects which versions can run on the host OS, selects Native or Docker execution, and builds missing binaries with CMake.</span></li>
+              <li><b>Expanded connection handling step by step</b><span class="detail-sub">Started with a server that handles one client at a time, then implemented thread-per-connection, reusable thread pools, Linux epoll, and Windows IOCP. Each version addresses a limitation found in the previous one.</span></li>
+              <li><b>Handled data transfer and shutdown safely</b><span class="detail-sub">Added partial-send handling and per-client send queues to preserve message order when large payloads cannot be sent in one write. Also defined a safe shutdown sequence for active work and threads.</span></li>
+              <li><b>Verified results with load tests and automated checks</b><span class="detail-sub">The Linux server processed all 560,000 messages with 28,000 concurrent connections inside a Docker network. At 30,000 attempted connections, the client-side ephemeral port range was exhausted first; all messages from the 28,231 established clients were processed. The Windows IOCP Debug build completed 20,000/20,000 Echo responses at 2,000 burst connections and maintained 12,000 connections while completing 120,000/120,000 Echo responses when connection concurrency was limited to 64. From 2,500 burst connections, backlog 128 and 16 pending AcceptEx calls could not absorb the full spike, causing some refusals. Every test completed pending I/O draining and exited with code 0. Console output was redirected to NUL during measurement to prevent stdout from becoming the bottleneck.</span></li>
+              <li><b>Built a cross-platform GUI for comparing server designs</b><span class="detail-sub">The GUI launches any server version, connects up to 200 clients for interactive testing, sends individual, delayed, or repeated messages, and aggregates Echo responses. It detects which versions can run on the host OS, selects Native or Docker execution, and builds missing binaries with CMake.</span></li>
             </ul>
           </div>
-          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image">
+          <img src="images/server-architecture-lab.png" alt="MMO Server Architecture Lab GUI" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Kakao Terms RAG Performance Challenge <span class="pdate">2026.08.11 – 2026.08.13</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Kakao Terms RAG Performance Challenge <span class="pdate">2026.08.11 – 2026.08.13</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">A RAG system that answers questions about Kakao terms with supporting clauses, plus an answer-evaluation tool</p>
         <a href="https://github.com/1sanguk/AI_Performance_Contest" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
@@ -895,38 +1021,40 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Improved evidence retrieval by combining keyword and semantic search</b><span class="detail-sub">→ Combined BM25, which is strong at exact terms and numbers, with BGE-M3 semantic retrieval through RRF. Removed duplicate results and supplied the answer model with the most relevant source text so numeric conditions and exceptions were less likely to be omitted.</span></li>
-              <li><b>Built an answer and evaluation pipeline for a limited GPU environment</b><span class="detail-sub">→ Quantized Qwen2.5-7B-Instruct to 4-bit and prepared the terms data, search indexes, and FastAPI service in one Colab notebook. A separate Gemini-based evaluator checked candidate answers and returned scores in a fixed JSON schema.</span></li>
-              <li><b>Raised the score to 93.915 through controlled experiments</b><span class="detail-sub">→ Changed one variable at a time, including stronger evidence emphasis, recovery of omitted source passages, and duplicate removal, while recording results and selection reasons. The official practice evaluation reached MRR 1.0000, Key Fact F1 0.8080, LLM Judge 99.350, and a total score of 93.915, a 5.724-point gain over the initial baseline and a Top 5 finish among 17 teams.</span></li>
+              <li><b>Improved evidence retrieval by combining keyword and semantic search</b><span class="detail-sub">Combined BM25, which is strong at exact terms and numbers, with BGE-M3 semantic retrieval through RRF. Removed duplicate results and supplied the answer model with the most relevant source text so numeric conditions and exceptions were less likely to be omitted.</span></li>
+              <li><b>Built an answer and evaluation pipeline for a limited GPU environment</b><span class="detail-sub">Quantized Qwen2.5-7B-Instruct to 4-bit and prepared the terms data, search indexes, and FastAPI service in one Colab notebook. A separate Gemini-based evaluator checked candidate answers and returned scores in a fixed JSON schema.</span></li>
+              <li><b>Raised the score to 93.915 through controlled experiments</b><span class="detail-sub">Changed one variable at a time, including stronger evidence emphasis, recovery of omitted source passages, and duplicate removal, while recording results and selection reasons. The official practice evaluation reached MRR 1.0000, Key Fact F1 0.8080, LLM Judge 99.350, and a total score of 93.915, a 5.724-point gain over the initial baseline and a Top 5 finish among 17 teams.</span></li>
             </ul>
           </div>
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">RPG &amp; Game-Specialized Korean Mini-GPT Chatbot <span class="pdate">2026.05 – On Hold</span><span class="proj-chevron">▾</span></div>
-        <p class="proj-genre">KakaoTech Bootcamp Deep Dive · GPT Architecture from Scratch + Qwen3 Local LLM + RAG / LangChain / LangGraph / Claude API</p>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>RPG &amp; Game-Specialized Korean Mini-GPT Chatbot <span class="pdate">2026.05 – on hold</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">KakaoTech Bootcamp deep dive: GPT architecture from scratch, Qwen3 local LLM, RAG/LangChain/LangGraph/Claude API</p>
         <a href="https://github.com/1sanguk/KTB-Deepdive/tree/main/LLM_Project/chatbot" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
-          <li>Designed GPT (~97M params) &amp; jamo-unit BPE tokenizer from scratch; completed multi-stage training (continuation → QA → span → DPO)</li>
-          <li>BM25+FAISS hybrid RAG + LangGraph 4-graph pipeline / Qwen3-1.7B local LLM in BF16 &amp; GGUF Q4_K_M modes</li>
-          <li>Claude Haiku auto question classification routing + 4-panel real-time comparison UI, FastAPI + SSE streaming</li>
+          <li>Designed GPT (~97M params) and a jamo-unit BPE tokenizer from scratch; completed multi-stage training (continuation, QA, span, DPO)</li>
+          <li>BM25+FAISS hybrid RAG with a LangGraph 4-graph pipeline; served Qwen3-1.7B local LLM in BF16 and GGUF Q4_K_M modes</li>
+          <li>Claude Haiku automatic question routing, 4-panel real-time comparison UI, FastAPI + SSE streaming</li>
         </ul>
         <div class="tags"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>Qwen3</span><span>GGUF</span><span>llama-cpp</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>GPT (~97M params) &amp; jamo-unit BPE tokenizer from scratch + multi-stage training</b><span class="detail-sub">→ Implemented a tokenizer that decomposes Korean via NFD into jamo units and applies BPE. Designed a GPT decoder (CausalSelfAttention + MLP(GELU) + Pre-norm) from scratch, and built a staged training pipeline on kowikitext + AI Hub data: continuation → QA fine-tuning → span extraction → DPO preference learning, with bf16 mixed precision and cosine LR decay.</span></li>
-              <li><b>BM25+FAISS hybrid RAG + LangGraph 4-graph pipeline / Qwen3-1.7B local LLM in two modes</b><span class="detail-sub">→ Upgraded from TF-IDF to a BM25+FAISS hybrid retriever, improving routing accuracy from 73.3% to 82.7%. Built 4 LangGraph StateGraphs (SOP_GPT / Claude / Qwen BF16 / Qwen Q4) using a node factory pattern. Integrated Qwen3-1.7B as both BF16 via Transformers+MPS and GGUF Q4_K_M via llama-cpp — benchmarked on 100 KorQuAD questions, Q4_K_M was 3.3× faster with &lt;2%p accuracy gap.</span></li>
-              <li><b>Claude Haiku auto routing + 4-panel comparison UI + FastAPI SSE streaming</b><span class="detail-sub">→ Claude Haiku classifies each question into casual / factual / general and routes it to the appropriate chain automatically. All 4 models (SOP_GPT · Claude · Qwen BF16 · Qwen Q4) stream responses simultaneously in a 4-panel UI via FastAPI + SSE. Login secured with PBKDF2-HMAC-SHA256; conversation context persisted across sessions via LangGraph MemorySaver (short-term) + JSON files (long-term).</span></li>
+              <li><b>GPT (~97M params) and jamo-unit BPE tokenizer from scratch, with multi-stage training</b><span class="detail-sub">Implemented a tokenizer that decomposes Korean via NFD into jamo units and applies BPE. Designed a GPT decoder (CausalSelfAttention + MLP(GELU) + Pre-norm) from scratch, and built a staged training pipeline on kowikitext and AI Hub data: continuation, QA fine-tuning, span extraction, then DPO preference learning, with bf16 mixed precision and cosine LR decay.</span></li>
+              <li><b>BM25+FAISS hybrid RAG, LangGraph 4-graph pipeline, and Qwen3-1.7B in two modes</b><span class="detail-sub">Upgraded from TF-IDF to a BM25+FAISS hybrid retriever, improving routing accuracy from 73.3% to 82.7%. Built 4 LangGraph StateGraphs (SOP_GPT, Claude, Qwen BF16, Qwen Q4) using a node factory pattern. Integrated Qwen3-1.7B as both BF16 via Transformers+MPS and GGUF Q4_K_M via llama-cpp; benchmarked on 100 KorQuAD questions, Q4_K_M was 3.3× faster with a &lt;2%p accuracy gap.</span></li>
+              <li><b>Claude Haiku auto routing, 4-panel comparison UI, and FastAPI SSE streaming</b><span class="detail-sub">Claude Haiku classifies each question as casual, factual, or general and routes it to the appropriate chain automatically. All 4 models (SOP_GPT, Claude, Qwen BF16, Qwen Q4) stream responses simultaneously in a 4-panel UI via FastAPI + SSE. Login is secured with PBKDF2-HMAC-SHA256, and conversation context persists across sessions via LangGraph MemorySaver (short-term) and JSON files (long-term).</span></li>
             </ul>
           </div>
-          <img src="images/chatbot.png" alt="RPG &amp; Game-Specialized Korean Mini-GPT Chatbot" class="proj-image">
+          <img src="images/chatbot.png" alt="RPG &amp; Game-Specialized Korean Mini-GPT Chatbot" class="proj-image" loading="lazy">
         </div></div>
       </div>
 
       <div class="proj-item">
-        <div class="proj-title">Giftie · AI Hackathon <span class="pdate">2026.08.18 – 2026.08.21</span><span class="proj-chevron">▾</span></div>
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Giftie (AI Hackathon) <span class="pdate">2026.08.18 – 2026.08.21</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
         <p class="proj-genre">An AI relationship-management service that records gifts and cash contributions and recommends when, what, and how to reciprocate</p>
         <a href="https://github.com/KTB-AI-Hackerton-19/Giftie" target="_blank" rel="noopener" class="proj-github">GitHub</a>
         <ul class="duty">
@@ -938,27 +1066,34 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Designed the initial AI service and data flow</b><span class="detail-sub">→ Normalized gift information from manual input and images into one shared format, then separated the flow into records, calendar entries, notifications, and return-gift recommendations. A common input contract let teammates implement features independently.</span></li>
-              <li><b>Aligned FE, BE, and AI development as PM</b><span class="detail-sub">→ Divided responsibilities among frontend, backend, and AI services and documented the order in which data moves through them. Reviewed implementation status and API request and response formats, then resolved mismatched assumptions by restating and sharing the agreed rules.</span></li>
-              <li><b>Defined the deployment and cloud architecture</b><span class="detail-sub">→ Chose Vercel for the frontend, AWS EC2 for backend and AI services, and MySQL plus S3 for data. The frontend calls only the backend, which connects to the AI service, keeping service boundaries clear.</span></li>
-              <li><b>Completed a four-day MVP and reached the Top 8</b><span class="detail-sub">→ The team delivered a working demo with login, gift records, per-person history, calendar, notifications, and AI-powered reciprocation recommendations. Giftie advanced to the Top 8 among 20 teams.</span></li>
+              <li><b>Designed the initial AI service and data flow</b><span class="detail-sub">Normalized gift information from manual input and images into one shared format, then separated the flow into records, calendar entries, notifications, and return-gift recommendations. A common input contract let teammates implement features independently.</span></li>
+              <li><b>Aligned FE, BE, and AI development as PM</b><span class="detail-sub">Divided responsibilities among frontend, backend, and AI services and documented the order in which data moves through them. Reviewed implementation status and API request and response formats, then resolved mismatched assumptions by restating and sharing the agreed rules.</span></li>
+              <li><b>Defined the deployment and cloud architecture</b><span class="detail-sub">Chose Vercel for the frontend, AWS EC2 for backend and AI services, and MySQL plus S3 for data. The frontend calls only the backend, which connects to the AI service, keeping service boundaries clear.</span></li>
+              <li><b>Completed a four-day MVP and reached the Top 8</b><span class="detail-sub">The team delivered a working demo with login, gift records, per-person history, calendar, notifications, and AI-powered reciprocation recommendations. Giftie advanced to the Top 8 among 20 teams.</span></li>
             </ul>
           </div>
         </div></div>
       </div>
       </div></div>
     </div>
-
-    </div></div>
   </div>
 </section>
 
-<button class="top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
-
-<footer>
-  © 2026 Park Sang Ouk (Steve Park) · <a href="https://github.com/1sanguk" target="_blank" rel="noopener">github.com/1sanguk</a>
+<footer class="contact">
+  <div class="wrap contact-main">
+    <p class="contact-title">When I find a problem,<br>I follow it to the structure.</p>
+    <div class="contact-list">
+      <a href="https://github.com/1sanguk" target="_blank" rel="noopener" class="contact-mail">github.com/1sanguk</a>
+      <p class="contact-cred">Pusan National University, Computer Science &amp; Engineering<br>Engineer Information Processing, OPIc IH</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="copyright">© 2026 Park Sang Ouk (Steve Park)</p>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<button class="top-btn" id="topBtn" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+
+<script src="script.js?v=20260930"></script>
 </body>
 </html>
