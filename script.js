@@ -205,6 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
             else items.forEach(({ node, original }) => (node.nodeValue = original));
           };
           requestAnimationFrame(tick);
+          // if animation frames are paused (background tab), still land on the real numbers
+          setTimeout(() => items.forEach(({ node, original }) => (node.nodeValue = original)), 1600);
           countObserver.unobserve(entry.target);
         });
       },
