@@ -1378,6 +1378,148 @@ body {
   color: var(--accent);
 }
 
+.deep-grid.no-side {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.deep-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.deep-links .proj-github {
+  margin-top: 0.875rem;
+}
+
+/* ── AI workflow ── */
+.ai-flow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  counter-reset: aiflow;
+}
+
+.ai-flow li {
+  position: relative;
+  padding: 1.125rem 1.125rem 1.25rem;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  counter-increment: aiflow;
+}
+
+.ai-flow li::before {
+  content: counter(aiflow, decimal-leading-zero);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.ai-flow b {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.ai-flow span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8438rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.ai-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.ai-card {
+  padding: 1.75rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ai-card.is-wide {
+  grid-column: 1 / -1;
+}
+
+.ai-card h3,
+.ai-card h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1875rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.ai-axis + .ai-axis {
+  margin-top: 3rem;
+}
+
+.ai-axis-head {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--ink);
+}
+
+.ai-axis-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 900;
+}
+
+.ai-axis-head h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ai-axis-head p {
+  max-width: 50rem;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.ai-cases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.ai-cases .incident dl div {
+  grid-template-columns: 6rem minmax(0, 1fr);
+}
+
+.ai-card .duty li b {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.fx .ai-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lift);
+  border-color: var(--accent-mid);
+}
+
 /* ── Incidents ── */
 .incidents {
   display: grid;
@@ -2137,8 +2279,14 @@ body {
   }
 
   .career-rows,
-  .incidents {
+  .incidents,
+  .ai-cards,
+  .ai-cases {
     grid-template-columns: 1fr;
+  }
+
+  .ai-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .career-cols {
@@ -2375,13 +2523,24 @@ body {
     height: 4.5rem;
   }
 
-  .incident {
+  .incident,
+  .ai-card {
     padding: 1.5rem 1.25rem;
   }
 
-  .incident dl div {
+  .ai-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .incident dl div,
+  .ai-cases .incident dl div {
     grid-template-columns: 1fr;
     gap: 0.125rem;
+  }
+
+  .ai-axis-head {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
   }
 
   .career-timeline {
@@ -2639,6 +2798,7 @@ body {
   .deep-head,
   .diagram,
   .incident,
+  .ai-card,
   .proj-item,
   .game,
   .case {

@@ -234,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // printing shows every animated element in its final state
     window.addEventListener("beforeprint", () => {
       document.documentElement.classList.remove("fx");
+      counters.forEach((items) => items.forEach(({ node, original }) => (node.nodeValue = original)));
     });
   }
 });

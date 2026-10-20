@@ -6,7 +6,7 @@
 <title>Steve Park | Game Server / Backend Developer Portfolio</title>
 <meta name="description" content="Portfolio of Steve Park (Park Sang Ouk), a game server and backend developer who built and ran live servers for five mobile games.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="style.css?v=20261007b">
+<link rel="stylesheet" href="style.css?v=20261015c">
 <script>
   (() => {
     const storageKey = 'portfolio_analytics_opt_out';
@@ -51,13 +51,14 @@
     <a href="#top" class="brand"><b>Steve Park</b><span lang="ko">박상욱</span></a>
     <ul class="mini-toc">
       <li><a href="#introduce">About</a></li>
-      <li><a href="#edu">Education</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#career">Career</a></li>
       <li><a href="#impact">Results</a></li>
       <li><a href="#highlights">Highlights</a></li>
       <li><a href="#incidents">Incidents</a></li>
       <li><a href="#career-detail">Projects</a></li>
+      <li><a href="#ai-workflow">AI workflow</a></li>
+      <li><a href="#edu">Education</a></li>
     </ul>
     <a href="index.html" class="lang-switch" lang="ko">한국어</a>
   </div>
@@ -112,35 +113,6 @@
     <div class="intro-body">
       <p>Over 4 years as a game server and backend developer, I've built hands-on experience that spans far beyond maintenance and new features, covering performance optimization, operational infrastructure, and real-time server design. Directly responsible for live services running across Korea, Japan, Taiwan, and English-speaking regions, I've tracked down and resolved issues that cut straight to the heart of stability and performance: eliminating login bottlenecks, migrating ranking systems to Redis, building a chat server from the ground up, stabilizing payments, and executing DB migrations.</p>
       <p>Years of incident response and structural refactoring have reinforced one conviction: patching surface symptoms is a temporary fix, but understanding the root cause and redesigning the structure is what actually lasts. Backend work happens entirely out of sight, but the quieter the server, the more freely users stay immersed, and the more the operations team can focus on building rather than firefighting. I find meaning in that invisible work, where silence is the only sign that anything was done at all.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section reveal" id="edu">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">Education / training / certifications</div>
-        <h2 class="section-title">Education, training,<br>and certifications</h2>
-      </div>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-col">
-        <h3>Education</h3>
-        <div class="edu-item"><span class="period">2017.03 – 2022.08</span><b>Pusan National University</b><span class="sub">Computer Science &amp; Engineering, Busan, graduated</span></div>
-        <div class="edu-item"><span class="period">2013.09 – 2014.06</span><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science, Hong Kong, attended (degree not completed)</span></div>
-        <div class="edu-item"><span class="period">2009.09 – 2013.06</span><b>International School of Qingdao</b><span class="sub">Secondary school, Qingdao, China, graduated</span></div>
-      </div>
-      <div class="edu-col">
-        <h3>Training</h3>
-        <div class="edu-item"><span class="period">2026.05.12 – 2026.11.12</span><b>KakaoTech Bootcamp, Generative AI Course</b><span class="sub">Korea Radio Promotion Association, in progress</span></div>
-        <div class="edu-item"><span class="period">2023.11.29 – 2024.01.17</span><b>Game Application Programming Course</b><span class="sub">Seoul Game Academy Busan, left the program upon employment</span></div>
-      </div>
-      <div class="edu-col" id="lang-cert">
-        <h3>Language / certifications</h3>
-        <div class="edu-item"><span class="period">2026.03.25</span><b>OPIc IH (English)</b><span class="sub">ACTFL</span></div>
-        <div class="edu-item"><span class="period">2024.06</span><b>Engineer Information Processing Certificate</b><span class="sub">Human Resources Development Service of Korea, 24201210507Z</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -371,7 +343,7 @@
     <div class="section-head">
       <div>
         <div class="section-label">Highlight projects</div>
-        <h2 class="section-title">Four projects where I<br>followed the problem through</h2>
+        <h2 class="section-title">Five projects where I<br>followed the problem through</h2>
       </div>
       <p class="section-desc">Each project is laid out as situation, task, how I solved it, and result. Where the structure changed, a diagram shows how. Select a title to collapse a project.</p>
     </div>
@@ -481,7 +453,7 @@
       </div>
     </article>
 
-    <article class="deep" id="deep-myhome">
+    <article class="deep collapsed" id="deep-myhome">
       <header class="deep-head" tabindex="0" data-toggle>
         <span class="deep-num">02</span>
         <div>
@@ -548,7 +520,7 @@
       </div>
     </article>
 
-    <article class="deep" id="deep-chungbuk">
+    <article class="deep collapsed" id="deep-chungbuk">
       <header class="deep-head" tabindex="0" data-toggle>
         <span class="deep-num">03</span>
         <div>
@@ -604,7 +576,7 @@
       </div>
     </article>
 
-    <article class="deep" id="deep-cpp">
+    <article class="deep collapsed" id="deep-cpp">
       <header class="deep-head" tabindex="0" data-toggle>
         <span class="deep-num">04</span>
         <div>
@@ -681,6 +653,83 @@
           </section>
         </div>
         <aside class="deep-side"><img src="images/server-architecture-lab.png" alt="Server architecture comparison GUI" loading="lazy"></aside>
+      </div>
+    </article>
+    <article class="deep collapsed" id="deep-dameokja">
+      <header class="deep-head" tabindex="0" data-toggle>
+        <span class="deep-num">05</span>
+        <div>
+          <h3 class="deep-title">Dameokja</h3>
+          <p class="deep-meta">Kakao Tech Bootcamp team project, 2026.08 – present</p>
+          <p class="deep-context">A service that records fridge inventory from receipt or food photos and recommends dishes you can cook with what you have</p>
+          <p class="deep-team"><b>Team and role</b>I own AI in a team of 5 (2 backend, 1 frontend, 1 AI, 1 cloud). I designed and built the photo recognition AI, designed the recipe recommendation AI, and wrote all 8 AI design documents, each of which was approved. CI/CD was set up by the cloud teammate.</p>
+          <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>PP-OCRv5</span><span>MobileNetV3</span><span>YOLO-World</span><span>Gemma</span><span>RunPod</span><span>AWS S3</span></div>
+          <div class="deep-links"><a href="https://dameokja.com" target="_blank" rel="noopener" class="proj-github">Service</a><a href="https://github.com/100-hours-a-week/KTB4-5th-AI" target="_blank" rel="noopener" class="proj-github">AI repository</a><a href="https://github.com/100-hours-a-week/KTB4-5th-wiki/wiki/AI-Wiki" target="_blank" rel="noopener" class="proj-github">AI design wiki</a></div>
+        </div>
+        <span class="deep-chevron chev" aria-hidden="true"></span>
+      </header>
+      <div class="deep-kpis">
+        <div class="stat-pair"><span class="stat-name">Average per photo (early CPU → GPU)</span><span class="stat-value"><s>30.2 s</s><strong>about 5–6 s</strong></span></div>
+        <div class="stat-pair"><span class="stat-name">One product dictionary lookup</span><span class="stat-value"><s>0.5 s</s><strong>0.0002 s</strong></span></div>
+        <div class="stat-pair"><span class="stat-name">Photo type classification (345 unseen)</span><span class="stat-value"><strong>97.4%</strong></span></div>
+      </div>
+      <div class="deep-grid no-side">
+        <div class="deep-main">
+          <section class="deep-block">
+            <h4>Situation</h4>
+            <ul class="duty">
+              <li>Writing down every grocery item and remembering use-by dates is hard, so food gets thrown away uneaten</li>
+              <li>I wanted to see how far the service could go on the smallest possible budget, so I first tested every model on one CPU server (4 cores, 16GB) with no GPU</li>
+              <li>A misread use-by date can affect health, so mistakes by the AI must never harm the user</li>
+            </ul>
+          </section>
+          <section class="deep-block">
+            <h4>Task</h4>
+            <ul class="chips"><li>Photo type classification</li><li>Reading receipts and finding product lines</li><li>Settling product names and categories</li><li>Use-by date candidates</li><li>Speed and stability</li></ul>
+          </section>
+
+          <figure class="diagram">
+            <figcaption>From one photo to inventory candidates</figcaption>
+            <ol class="pipe">
+              <li><b>Classify the photo</b><span>Receipt, food, or other in 0.01 s</span></li>
+              <li><b>Read the text</b><span>Text and positions; card and phone numbers are masked</span></li>
+              <li><b>Find product lines</b><span>Group name, quantity, and price by position</span></li>
+              <li><b>Settle name and category</b><span>Word rules, then the dictionary; the AI model only for unknown lines</span></li>
+            </ol>
+            <p class="note">Everything returned is a candidate. Weak values are marked "needs review", and items are saved only after the user confirms them.</p>
+          </figure>
+
+          <section class="deep-block">
+            <h4>How I solved it</h4>
+            <ol class="steps">
+              <li><b>Resolve with rules and search first; use the AI model last</b><p>After classifying the image and grouping product lines by OCR position, clear terms are handled by rules and names and categories are searched in a dictionary built from roughly 238,000 Food Safety Korea records. Only unresolved lines go to Gemma, and its answer is checked against the dictionary again. For a receipt with malformed input, accepting only lines containing both quantity and price moved recognition from 0/3 to 3/3; a six-item receipt completed without any AI call.</p></li>
+              <li><b>Separate memory, queue, and search-index bottlenecks</b><p>After about 67 photos, memory grew to 12.3GB and killed the server. Controlled configuration comparisons traced it to the OCR engine's memory pre-allocation, and disabling only that option let all 36 test images complete. Measuring worker counts and PostgreSQL query plans then cut CPU processing from 30.2 s to 12.7 s per photo. Moving only model execution to a low-budget GPU server brought the current average to roughly 5–6 s.</p></li>
+              <li><b>Turn data limits and honest evaluation into safeguards</b><p>Processed-food data misclassified fruit and vegetables, so 763 conflicting entries were disabled and raw-produce data was added. Tuning data was kept separate from unseen data, producing an F1 of 82.3% on a holdout of eight receipts and 28 products. Because that remains below the 0.90 release target, AI output is treated only as a candidate and saved after user confirmation.</p></li>
+            </ol>
+          </section>
+
+          <figure class="diagram">
+            <figcaption>Evaluation: data used for tuning kept apart from unseen data</figcaption>
+            <table class="vtable">
+              <thead><tr><th>Evaluation set</th><th>Precision / Recall / F1</th><th>How to read it</th></tr></thead>
+              <tbody>
+                <tr><td>3 receipts, 7 items (first run)</td><td>83.3% / 71.4% / 76.9%</td><td>Rules were tuned while looking at these 3</td></tr>
+                <tr><td>Same 3 (after tuning)</td><td>100% / 100% / 100%</td><td>Seen data, not a measure of real skill</td></tr>
+                <tr><td>8 receipts, 28 items</td><td><b>91.3% / 75.0% / 82.3%</b></td><td>The 5 new receipts were not used for tuning</td></tr>
+              </tbody>
+            </table>
+            <p class="note">Precision is the share of found items that were correct; recall is the share of real items that were found. Receipt item detection (0.82) is still below the launch bar (0.90), so every result goes to the user for review.</p>
+          </figure>
+
+          <section class="deep-block">
+            <h4>Result</h4>
+            <ul class="duty">
+              <li>Built the API and preprocessing server plus the model-execution server for photo recognition, with all 144 automated feature tests passing</li>
+              <li>Only dates read from the package are treated as confirmed; otherwise a range from official data or "needs review" is shown</li>
+              <li>Recipe recommendation is fully designed and planned for the next version (v3)</li>
+            </ul>
+          </section>
+        </div>
       </div>
     </article>
   </div>
@@ -1125,12 +1174,33 @@
         <div class="job-head-main">
           <h3 class="company">ETC</h3>
           <span class="period">Personal projects, KakaoTech Bootcamp</span>
-          <span class="proj-count">4 projects</span>
+          <span class="proj-count">5 projects</span>
         </div>
         <span class="job-chevron chev" aria-hidden="true"></span>
       </div>
       <div class="job-collapsible"><div class="job-collapsible-inner">
 
+      <div class="proj-item">
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Dameokja (Kakao Tech Bootcamp team project) <span class="pdate">2026.08 – present</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Records fridge inventory from receipt or food photos and recommends dishes from what you have (AI owner)</p>
+        <a href="https://github.com/100-hours-a-week/KTB4-5th-AI" target="_blank" rel="noopener" class="proj-github">GitHub</a>
+        <ul class="duty">
+          <li>Designed and built the photo recognition AI: photo classification, OCR, product line detection, product dictionary, and an AI model as the last step</li>
+          <li>Fixed memory, queue, and search index bottlenecks to cut a photo from 30.2 s to 12.7 s on CPU, then moved to a low-budget GPU for about 5–6 s on average</li>
+          <li>Wrote and got approval for 8 AI design documents; 144 automated tests passing</li>
+        </ul>
+        <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>PP-OCRv5</span><span>Gemma</span><span>RunPod</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>Photo recognition that settles by search first and uses the AI model last</b><span class="detail-sub">MobileNetV3 classifies the photo first, and PP-OCRv5 reads text with positions to group product lines. Names and categories are settled by word rules and a product dictionary search (about 238,000 records) before Gemma handles only unknown lines. Results come back as candidates and are saved only after the user confirms them.</span></li>
+              <li><b>Speed and stability from measured bottlenecks</b><span class="detail-sub">Turning off only the engine feature that kept memory after each analysis stopped the crashes, and fixing the queue worker count and the search index cut the CPU average per photo from 30.2 s to 12.7 s. Still short of service speed, model execution moved to a low-budget GPU server (RunPod), now about 5–6 s on average.</span></li>
+              <li><b>Evaluation without inflation</b><span class="detail-sub">With a golden set and holdout kept apart, F1 was 82.3% on 8 receipts and 28 items. Because that is below the launch bar (0.90), every result stays subject to user review.</span></li>
+            </ul>
+          </div>
+        </div></div>
+      </div>
       <div class="proj-item">
         <div class="proj-title" role="button" tabindex="0" data-toggle>C++ Network Game Server Learning Project <span class="pdate">2026.07 – present</span></div>
         <span class="proj-chevron chev" aria-hidden="true"></span>
@@ -1228,6 +1298,197 @@
   </div>
 </section>
 
+<section class="section reveal" id="ai-workflow">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">AI workflow</div>
+        <h2 class="section-title">AI executes quickly;<br>I control it with gates</h2>
+      </div>
+      <p class="section-desc">I actively delegate design, implementation, debugging, and testing to AI, but its output never goes straight in. I define scope, permissions, and acceptance criteria first, then approve only results that pass document-to-code analysis, automated tests, and performance targets. This control model is organized into technique, intent, and cognition across Dameokja, Giftie, and the C++ server.</p>
+    </div>
+
+    <ol class="ai-flow">
+      <li><b>Rules and permissions</b><span>Limit scope, forbidden actions, and editable files</span></li>
+      <li><b>Acceptance criteria</b><span>Define output, tests, and performance targets first</span></li>
+      <li><b>Execute small</b><span>Split independent work and delegate in parallel</span></li>
+      <li><b>Analyze differences</b><span>Compare design docs, code, output, and rationale</span></li>
+      <li><b>Verify automatically</b><span>Static checks, regression tests, golden set, holdout</span></li>
+      <li><b>Approve and record</b><span>Accept only justified changes and keep the reason</span></li>
+    </ol>
+
+    <div class="ai-axis">
+      <div class="ai-axis-head"><span class="ai-axis-num">1</span><div><h3>Technique</h3><p>Before accepting AI-written code, I verify that it runs, does not break existing behavior, remains maintainable, and does not expose sensitive data or secrets.</p></div></div>
+      <div class="ai-cards">
+        <article class="ai-card">
+          <h4>Maintainability and requirements</h4>
+          <ul class="duty">
+            <li>Code is split by deployment target (API server and GPU inference server), so changing one side does not shake the other.</li>
+            <li>AI-written code follows the existing style and must pass static checks (ruff) before it goes in.</li>
+            <li>Before building Dameokja's AI, I wrote 8 design documents, got all of them approved, and built only within that scope.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>Checking that it works correctly</h4>
+          <ul class="duty">
+            <li>I wrote automated tests for core paths such as image classification, OCR, product-name matching, and error handling. All 144 tests—110 for the API and preprocessing server and 34 for the model-execution server—run after each code change to catch regressions.</li>
+            <li>Evaluation uses a hand-labeled golden set and a holdout untouched during tuning.</li>
+            <li>After an engine setting change I check that recognized text on 36 photos is unchanged; after a rule change I re-run other receipts.</li>
+            <li>Giftie exposes only two external APIs: image input and direct input. An automated test checks the published endpoint list so the internal recommendation API cannot be exposed again by mistake.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>Preparing for failures in production</h4>
+          <ul class="duty">
+            <li>I do not assume model responses always arrive in a valid format. After a missing comma in JSON stopped an entire analysis, I added response recovery and a regression test that reproduces the failure.</li>
+            <li>If the GPU server stops responding temporarily, the request retries only a limited number of times and then switches to manual input.</li>
+            <li>I compare AI-written deployment guides with the real startup procedure. When one guide started only the API server and omitted the model server (Ollama), I added the correct order and a check for each step.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>Security</h4>
+          <ul class="duty">
+            <li>Card and phone numbers on receipts are masked before anything is stored or logged.</li>
+            <li>Every AI server request except a single health check is authenticated with an internal API key, and photos are exchanged only through temporary storage URLs.</li>
+            <li>Secrets never go in code, and hard-to-undo actions such as git push are blocked for the AI by rule; I do them myself.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="ai-axis">
+      <div class="ai-axis-head"><span class="ai-axis-num">2</span><div><h3>Intent</h3><p>I do not put all context into one prompt. A harness connects shared rules, role-specific contracts, task checklists, and verification commands so each AI worker reads only the instructions needed for its job.</p></div></div>
+      <div class="ai-cards">
+        <article class="ai-card">
+          <h4>An AI harness built from role-specific documents</h4>
+          <ul class="duty">
+            <li><b>Entry point:</b> <code>Agents.md</code> defines the project map, shared coding rules, forbidden actions, and which detailed documents to load, acting as the harness router.</li>
+            <li><b>Role contracts:</b> product requirements, architecture, API and data contracts, domain rules, UI/UX, security, operations, and test criteria live in separate documents. A backend worker prioritizes consistency and concurrency rules, an AI worker loads input/output and evaluation criteria, and a UI worker follows screen specifications.</li>
+            <li><b>Task-scoped context:</b> workers do not receive every document on every task. They load only the code and contracts connected to the current change, then pull in adjacent documents when a boundary is touched.</li>
+            <li><b>State and verification:</b> task checklists record not-started, in-progress, and verified states with evidence, while backend, frontend, data, and integration tests act as approval gates matched to the type of change.</li>
+            <li><b>Permission control:</b> exploration is read-only, implementation can edit only assigned files, and high-impact actions such as secret access, external transmission, and deployment are blocked or require my approval.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>A different working mode per project</h4>
+          <ul class="duty">
+            <li>The C++ server is for building my own skill, so the rule is that the AI never writes the code for me and only gives hints and reviews. I write the code; the AI points out bugs and design issues.</li>
+            <li>On Dameokja and Giftie I actively delegate implementation to AI, but first split requirements into small tasks with explicit acceptance criteria and assign only one feature or problem at a time.</li>
+            <li>Planning, exploration, implementation, and verification agents receive explicit roles and file ownership. Independent backend, AI, and UI work runs in parallel; each agent follows its role document, and shared types or API-boundary changes are checked again during integration.</li>
+            <li>I read AI-generated diffs and review whether business rules, concurrency, data consistency, and security boundaries remain intact.</li>
+            <li>Completion means passing unit, integration, and regression tests plus performance targets—not merely generating code. Failures are narrowed down and sent back through the loop.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>Documents as executable project state</h4>
+          <ul class="duty">
+            <li>On the C++ server each version's feedback is recorded with a status of "not applied, done, or kept on purpose". I changed the rules so the original note stays and "what was improved" accumulates beneath it.</li>
+            <li>On Dameokja, design documents and the experiment log are the starting point for the next task, so new sessions continue on the same standards.</li>
+            <li>When implementation changes, I update the related requirements, architecture, and API documents plus the task checklist. A new AI session can resume from current document state and remaining verification items without relying on chat history.</li>
+          </ul>
+        </article>
+        <article class="ai-card">
+          <h4>Narrowing scope before delegating</h4>
+          <ul class="duty">
+            <li>On Giftie the AI had left three APIs, one of them a development-only recommendation API still exposed. I cut it to two (image input and direct input) and moved recommendation inside.</li>
+            <li>Defining one format for typed and photo input up front let the team split records, schedules, alerts, and recommendations.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="ai-axis">
+      <div class="ai-axis-head"><span class="ai-axis-num">3</span><div><h3>Cognition</h3><p>I accept AI-made work only when I can explain why it is built that way, how it behaves, and where it breaks. These are real cases where I did not take the AI's result at face value.</p></div></div>
+      <div class="ai-cases">
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">C++ server</span><span class="incident-when">Understanding behavior</span></div>
+          <h3>When v1 looked like it served two clients at once</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>While building the architecture comparison GUI, it showed each message in the shared chat the moment it was sent.</dd></div>
+            <div><dt>What I caught</dt><dd>v1 handles one client at a time, so the second client's message must not be processed while the first is connected. The screen was showing data that had only reached the OS buffer, not what the server processed.</dd></div>
+            <div><dt>Result</dt><dd>Messages now appear only when the server's echo comes back, so v1's waiting is visible. The [CHAT] tag in individual views also suggested broadcasting, so it was removed and the description now says replies are only collected for display.</dd></div>
+          </dl>
+        </article>
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">C++ server</span><span class="incident-when">Fair comparison</span></div>
+          <h3>Comparing 200 clients on Windows with 2,000 on Linux</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>It placed a 2,000-client Linux epoll run next to a 200-client Windows IOCP run.</dd></div>
+            <div><dt>What I caught</dt><dd>Different conditions read as "epoll handles 10x more". One run was a load test, the other only a functional check.</dd></div>
+            <div><dt>Result</dt><dd>The two numbers are not used as a performance comparison, and Windows was re-measured in steps starting from 500 burst connections. Published numbers always come with the environment and limits (such as the ephemeral port range).</dd></div>
+          </dl>
+        </article>
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">Dameokja</span><span class="incident-when">Predicting risk</span></div>
+          <h3>"If short names are excluded, won't watermelon break too?"</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>To stop short names from matching by accident, it excluded short names from similar-name search.</dd></div>
+            <div><dt>What I caught</dt><dd>I pointed out up front that genuinely short ingredients like "watermelon" (수박) would also stop matching, and it did disappear from results.</dd></div>
+            <div><dt>Result</dt><dd>30 fruits, 14 vegetables, rice, and beans were registered directly, keeping the false matches blocked while common ingredients are found again.</dd></div>
+          </dl>
+        </article>
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">Dameokja</span><span class="incident-when">Explanation vs. output</span></div>
+          <h3>Checking the AI's explanation against the real output</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>It summarized a receipt result as "quantities are missing".</dd></div>
+            <div><dt>What I caught</dt><dd>The actual output had quantities of 1 and 2, and instead the "Barista Chocolat" item was missing entirely.</dd></div>
+            <div><dt>Result</dt><dd>The missing item was split out and traced stage by stage: whether OCR failed to read it or the AI model did not select it.</dd></div>
+          </dl>
+        </article>
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">Dameokja</span><span class="incident-when">Understanding structure</span></div>
+          <h3>Not stopping at "it accumulates", going down to memory structure</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>It explained the crashes as "the number of processed photos piles up".</dd></div>
+            <div><dt>What I caught</dt><dd>Accumulation alone did not explain the size, so I kept asking until it was clear the OCR engine reserves new memory for each image size and never returns it.</dd></div>
+            <div><dt>Result</dt><dd>Turning off only that feature let all 36 photos pass (1.5GB normally, 3.2GB peak); rebuilding the engine stays only as a safety net.</dd></div>
+          </dl>
+        </article>
+        <article class="incident">
+          <div class="incident-top"><span class="incident-game">Dameokja</span><span class="incident-when">Docs vs. code</span></div>
+          <h3>Automating the reasoning check when docs and code differ</h3>
+          <dl>
+            <div><dt>What the AI did</dt><dd>The architecture document said "one worker handles everything".</dd></div>
+            <div><dt>Automated check</dt><dd>When the implementation differs from the document, the AI now identifies the changed area and explains why it diverged, together with its impact on requirements, tests, and measured results.</dd></div>
+            <div><dt>Approval rule</dt><dd>If the rationale is sound and the implementation satisfies requirements and tests, the code stays and the document is updated. If the evidence is weak or the change violates intent, the code or document is revised and verification runs again.</dd></div>
+            <div><dt>Result</dt><dd>Here, two workers sharing the load inside one process matched the intended behavior and performance criteria, so the implementation stayed and the architecture document was automatically updated to reflect the code.</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="edu">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Education / training / certifications</div>
+        <h2 class="section-title">Education, training,<br>and certifications</h2>
+      </div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-col">
+        <h3>Education</h3>
+        <div class="edu-item"><span class="period">2017.03 – 2022.08</span><b>Pusan National University</b><span class="sub">Computer Science &amp; Engineering, Busan, graduated</span></div>
+        <div class="edu-item"><span class="period">2013.09 – 2014.06</span><b>Hong Kong Polytechnic University</b><span class="sub">Computer Science, Hong Kong, attended (degree not completed)</span></div>
+        <div class="edu-item"><span class="period">2009.09 – 2013.06</span><b>International School of Qingdao</b><span class="sub">Secondary school, Qingdao, China, graduated</span></div>
+      </div>
+      <div class="edu-col">
+        <h3>Training</h3>
+        <div class="edu-item"><span class="period">2026.05.12 – 2026.11.12</span><b>KakaoTech Bootcamp, Generative AI Course</b><span class="sub">Korea Radio Promotion Association, in progress</span></div>
+        <div class="edu-item"><span class="period">2023.11.29 – 2024.01.17</span><b>Game Application Programming Course</b><span class="sub">Seoul Game Academy Busan, left the program upon employment</span></div>
+      </div>
+      <div class="edu-col" id="lang-cert">
+        <h3>Language / certifications</h3>
+        <div class="edu-item"><span class="period">2026.03.25</span><b>OPIc IH (English)</b><span class="sub">ACTFL</span></div>
+        <div class="edu-item"><span class="period">2024.06</span><b>Engineer Information Processing Certificate</b><span class="sub">Human Resources Development Service of Korea, 24201210507Z</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="contact">
   <div class="wrap contact-main">
     <p class="contact-title">When I find a problem,<br>I follow it to the structure.</p>
@@ -1244,6 +1505,6 @@
 
 <button class="top-btn" id="topBtn" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
 
-<script src="script.js?v=20261007b"></script>
+<script src="script.js?v=20261015b"></script>
 </body>
 </html>
