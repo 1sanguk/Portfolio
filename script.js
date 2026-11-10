@@ -61,6 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll(".game-detail-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+
+      event.preventDefault();
+      target.closest(".career-job")?.classList.remove("collapsed");
+      target.closest(".proj-item")?.classList.add("open");
+      target.closest(".deep")?.classList.remove("collapsed");
+      history.replaceState(null, "", link.getAttribute("href"));
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
   document.addEventListener("keydown", (e) => {
     if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-toggle]")) {
       e.preventDefault();

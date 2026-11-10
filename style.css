@@ -666,6 +666,31 @@ body {
   color: var(--faint);
 }
 
+.game-detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: 2.25rem;
+  margin-top: auto;
+  padding: 0.5rem 0.875rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.game-stack + .game-detail-link {
+  margin-top: 1rem;
+}
+
+.game-detail-link:hover {
+  color: #fff;
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
 /* ── Case study ── */
 .case {
   display: grid;
