@@ -361,7 +361,8 @@
           <p class="deep-meta">SKYWALK, 2024.12 – 2026.02 (1 year 3 months)</p>
           <p class="deep-context">Cozy life simulation SNS, 10K+ users, peak CCU 500–1,000</p>
           <p class="deep-team"><b>Team and role</b>Server content developer in a team of 2 server, 5 client, and 1 UI developers. After the other server developer left mid-project, I owned the server alone. Key technical decisions such as channel distribution and scale-out were reviewed with the CTO before being applied.</p>
-          <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
+          <p class="deep-team"><b>Server layout</b>Game logic runs on a C# WebSocket server, while real-time sync for the plaza, village, chat, and land registry runs on Go TCP (protobuf) servers. The account DB tells the server which shard holds each user, requests are routed to that game DB, and session keys and rankings live in Redis.</p>
+          <div class="tags"><span>Go</span><span>C#</span><span>WebSocket</span><span>TCP / protobuf</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         </div>
         <span class="deep-chevron chev" aria-hidden="true"></span>
       </header>
@@ -375,7 +376,7 @@
           <section class="deep-block">
             <h4>Situation</h4>
             <ul class="duty">
-              <li>Each login API held its own lock, so sessions queued one after another under load</li>
+              <li>The login flow mixed DB row locks, locks on objects shared across sessions, and Redis locks, so under load even different users' sessions queued one after another</li>
               <li>The plaza and village packed all users into a single channel, causing lag and disconnections</li>
               <li>Every ranking request read MySQL directly, creating heavy load under concurrent requests</li>
               <li>There was no real-time chat between users</li>
@@ -385,8 +386,8 @@
           <section class="deep-block">
             <h4>How I found the problem</h4>
             <ul class="duty">
-              <li>I reproduced login times of 30 seconds to 3 minutes under concentrated live traffic, traced the login API flow, and found that per-request locks were serializing every session</li>
-              <li>I split login, item, plaza, and chat paths with a custom load-test bot and per-stage timings, which exposed remaining connection-pool and missing-index bottlenecks after the lock issue</li>
+              <li>I reproduced login times of 30 seconds to 3 minutes under concentrated live traffic, traced the login API flow, and found that three kinds of locks, separate from the per-session processing threads, were serializing requests from different users</li>
+              <li>I connected 1,000+ custom load-test bots at once and split login, item, plaza, and chat paths with per-stage timings, which exposed remaining connection-pool and missing-index bottlenecks after the lock issue</li>
             </ul>
           </section>
           <section class="deep-block">
@@ -396,12 +397,12 @@
           <section class="deep-block">
             <h4>How I solved it</h4>
             <ol class="steps">
-              <li><b>Login bottleneck: less lock contention, independent work in parallel</b><p>Found that the locks attached to each login API were serializing requests. Reduced contention around the request-wide locks and separated independent work so it runs in parallel. The remaining bottleneck was cleared by expanding the DB connection pool and adding missing indexes.</p></li>
+              <li><b>Login bottleneck: less lock contention, independent work in parallel</b><p>After taking over the server alone, I traced the login code, where DB row locks, shared-object locks, and Redis locks overlapped and serialized requests. I kept each lock only around what it actually had to protect, reduced contention around the request-wide locks, and separated independent work so it runs in parallel. The remaining bottleneck was cleared by expanding the DB connection pool and adding missing indexes.</p></li>
               <li><b>Channel pool: place users in the least-loaded channel</b><p>Gave the plaza and village a pool of 5 channels by default and designed distribution logic that assigns new users to the channel with the fewest users. Per-channel user state is isolated so only users in the same channel interact. Per-channel user counters are protected against race conditions under concurrent joins with Go's sync.Mutex.</p></li>
               <li><b>Auto scale-out: 5 new channels at 25 of 30</b><p>When all channels approach 25 of their 30-user capacity, 5 channels are provisioned at once. New users are then placed gradually to prevent a thundering herd onto the new channels. The 30-user capacity was confirmed through blind playtesting.</p></li>
               <li><b>New chat server</b><p>Agreed on the spec with the planning team, then built the chat server from design through implementation. Also added the village and district servers, with interactive items, interaction motions, and an address system inside the village.</p></li>
               <li><b>Ranking: from direct MySQL reads to Redis</b><p>Contribution and fashion-match scores are written to Redis in real time, and reads go through paging and Redis caching. Ranking views no longer hit the DB repeatedly.</p></li>
-              <li><b>Operations tool and query tuning</b><p>Finalized requirements with the operations team, then designed and built the ops tool on ASP.NET Core. Applied indexing and query optimization to lagging paths, cutting read/update time for large item and ranking data from 5–15 s to 2–6 s.</p></li>
+              <li><b>Operations tool and query tuning</b><p>Finalized requirements with the operations team, then designed and built the ops tool and a coupon server on ASP.NET Core Blazor. Server logs are uploaded to S3 and loaded into BigQuery for analytics. Applied indexing and query optimization to lagging paths, cutting read/update time for large item and ranking data from 5–15 s to 2–6 s.</p></li>
             </ol>
           </section>
 
@@ -513,10 +514,10 @@
           <section class="deep-block">
             <h4>How I solved it</h4>
             <ol class="steps">
-              <li><b>Payments: retries that never grant twice</b><p>Added automatic retries when a payment fails because of network delay. Before each retry, prior payment records and grant records are cross-checked so an item that was already granted is not granted again, and payments that completed without the item being granted are safely recovered.</p></li>
-              <li><b>MySQL 5.7 to 8.0</b><p>Found the places where 8.0 breaks compatibility, such as the authentication method and GROUP BY handling, fixed the source code, tested, and deployed. Applied indexing and optimization to key queries at the same time.</p></li>
-              <li><b>A dashboard the operations team reads directly</b><p>Agreed on the metrics with the operations team, then built currency, token, and log dashboards with BigQuery and Looker Studio. The team could check data without going through the dev team.</p></li>
-              <li><b>4-region operations and documentation</b><p>Tracked down and fixed errors caused by region-specific content, and built new content. Documented content and bug lists and kept them current so other developers could quickly understand the operating history.</p></li>
+              <li><b>Payments: retries that never grant twice</b><p>On top of the existing payment confirmation and missed-grant retry APIs, I added automatic retries when a payment fails because of network delay. Before each retry, prior payment records and grant records are cross-checked so an item that was already granted is not granted again, and payments that completed without the item being granted are safely recovered.</p></li>
+              <li><b>MySQL 5.7 to 8.0, rolled out region by region</b><p>Fixed three compatibility breaks in 8.0: connections failing under the new default authentication (caching_sha2_password), fixed by changing the driver and connection settings; GROUP BY queries broken by the removal of implicit sorting and by ONLY_FULL_GROUP_BY, fixed by making the order explicit; and column names colliding with new reserved words such as rank and groups. Japan, global, and Taiwan went first (July 2024) and Korea followed (November 2024). Applied indexing and optimization to key queries at the same time.</p></li>
+              <li><b>A dashboard the operations team reads directly</b><p>Agreed on the metrics with the operations team, then built currency, token, and log dashboards with BigQuery and Looker Studio. The team could check data without going through the dev team. I later extended the same approach to all four regions plus Girl Globe and Yumi's Cells, building Adjust, retention, revenue, and active-user dashboards myself.</p></li>
+              <li><b>4-region operations and documentation</b><p>Tracked down and fixed errors caused by region-specific content, and built new content. Documented content and bug lists and kept them current so other developers could quickly understand the operating history. I also maintained and extended the Java ops tool.</p></li>
             </ol>
           </section>
 
@@ -900,15 +901,15 @@
         <ul class="duty">
           <li>Login bottleneck fix (30 s to 3 min down to 10–30 s), ranking Redis migration (10–20 s to 1–2 s), new chat server, channel distribution logic</li>
         </ul>
-        <div class="tags"><span>Go</span><span>C#</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
+        <div class="tags"><span>Go</span><span>C#</span><span>WebSocket</span><span>TCP / protobuf</span><span>ASP.NET Core</span><span>MySQL</span><span>Redis</span><span>BigQuery</span></div>
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Reduced query latency and login bottlenecks</b><span class="detail-sub">While building on the CocoMine Sanrio Characters codebase, identified lagging paths and applied indexing and query optimization, reducing item and ranking data read/update time from 5–15 s to 2–6 s. In the login flow, reduced contention from locks that blocked the full request and separated independent work for parallel execution. Expanded the DB connection pool and added indexes, cutting login time from 30 s to 3 min down to 10–30 s.</span></li>
+              <li><b>Reduced query latency and login bottlenecks</b><span class="detail-sub">While building on the CocoMine Sanrio Characters codebase, identified lagging paths and applied indexing and query optimization, reducing item and ranking data read/update time from 5–15 s to 2–6 s. In the login flow, traced the DB row locks, shared-object locks, and Redis locks in the login code, reduced contention from locks that blocked the full request, and separated independent work for parallel execution. Expanded the DB connection pool and added indexes, cutting login time from 30 s to 3 min down to 10–30 s.</span></li>
               <li><b>Developed chat, plaza, village, and district servers for diverse user interactions</b><span class="detail-sub">Added village and district servers for new content variety, and introduced interactive items, interaction motions, and an address system within the village.</span></li>
               <li><b>Redis-based ranking management and game server content development</b><span class="detail-sub">Migrated the frequently queried ranking system to Redis, reducing query time from 10–20 s to 1–2 s.</span></li>
               <li><b>Team collaboration and technical direction review</b><span class="detail-sub">Worked as one of two server developers in a team of 2 server, 5 client, and 1 UI developers, handling server-side content development. Coordinated implementation schedules and test plans in team meetings, and reviewed key technical decisions such as channel distribution and scale-out logic with the CTO before applying them. After the other server developer left mid-project, continued solo; after launch, independently identified and resolved structural issues in the existing codebase.</span></li>
-              <li><b>Pre-launch load testing with a custom bot</b><span class="detail-sub">Built an automated load-testing bot covering connection, login, and basic gameplay to verify stability before launch. Identified high load on the login, item, and plaza/chat paths, then restructured those areas and reviewed the codebase for lock contention, race conditions, and potential deadlocks.</span></li>
+              <li><b>Pre-launch load testing with a custom bot</b><span class="detail-sub">Built an automated load-testing bot covering connection, login, and basic gameplay and ran 1,000+ bots at once to verify stability before launch. Identified high load on the login, item, and plaza/chat paths, then restructured those areas and reviewed the codebase for lock contention, race conditions, and potential deadlocks.</span></li>
               <li><b>On-call incident response: missing event launch and login delays</b><span class="detail-sub">Responded to a late-night incident where a planning team event failed to go live; investigation revealed the data had been omitted from the commit. Received the re-committed file and hot-deployed without downtime to restore the event. Also resolved a separate incident where a specific user's excessive item count triggered a lock that delayed all other users' logins, applying indexing and a limit-based mitigation immediately, then redesigning the lock structure as a long-term fix.</span></li>
               <li><b>Production data mismatch response and prevention: achievement system</b><span class="detail-sub">After adding achievement features and passing staging tests, a data mismatch surfaced in production for users who had already sold or consumed the relevant items. Analyzed usage logs and transaction history to identify affected users and applied a bulk achievement update to restore correct state. Added more granular edge-case checks to the server-side achievement logic to prevent recurrence.</span></li>
             </ul>
@@ -995,14 +996,34 @@
         <div class="proj-detail"><div class="proj-detail-inner">
           <div class="proj-detail-text">
             <ul class="duty-detail">
-              <li><b>Stable service operation across KR/JP/TW/EN 4-region servers</b><span class="detail-sub">Tracked down and fixed errors caused by differing content per region; created and continuously updated a content and bug documentation list so other developers could also manage it smoothly.</span></li>
+              <li><b>Stable service operation across KR/JP/TW/EN 4-region servers</b><span class="detail-sub">Tracked down and fixed errors caused by differing content per region, maintained the Java ops tool, and created and continuously updated a content and bug documentation list so other developers could also manage it smoothly.</span></li>
               <li><b>Server performance improvement and new content development through data management and optimization</b><span class="detail-sub">Applied indexing and query optimization during new content development to ensure features like item systems worked correctly without data duplication.</span></li>
-              <li><b>MySQL version migration with source code fixes for compatibility and stability</b><span class="detail-sub">With MySQL 5.7 reaching end-of-life, an upgrade to 8.0 was required. Identified breaking changes (authentication method, GROUP BY handling, and more), updated source code, ran thorough testing, and deployed with zero issues.</span></li>
+              <li><b>MySQL version migration with source code fixes for compatibility and stability</b><span class="detail-sub">With MySQL 5.7 reaching end-of-life, an upgrade to 8.0 was required. Fixed the breaking changes (caching_sha2_password authentication, GROUP BY implicit sorting and ONLY_FULL_GROUP_BY, new reserved words such as rank and groups), updated source code, tested, and rolled out to Japan, global, and Taiwan first (July 2024) and Korea later (November 2024).</span></li>
               <li><b>Looker Studio data visualization dashboard to improve operations team efficiency</b><span class="detail-sub">Connected BigQuery with Looker Studio so game currency and log data could be checked at a glance on the dashboard, directly supporting the operations team's decision-making.</span></li>
               <li><b>On-call incident response: Japan server disk-full outage</b><span class="detail-sub">Responded to a late-night outage on the Japan server. Running df confirmed the disk was full due to accumulated log files, because the crontab-based log cleanup batch had been malfunctioning. Cleared old log files to restore the server, then audited and re-automated the batch job to prevent recurrence.</span></li>
             </ul>
           </div>
           <img src="images/놀러와마이홈.png" alt="Welcome to My Home" class="proj-image" loading="lazy">
+        </div></div>
+      </div>
+
+      <div class="proj-item" id="project-ops-tools">
+        <div class="proj-title" role="button" tabindex="0" data-toggle>Ops Tools and Data Dashboards (shared across titles) <span class="pdate">2024.01 – 2026.02</span></div>
+        <span class="proj-chevron chev" aria-hidden="true"></span>
+        <p class="proj-genre">Titles: Welcome to My Home (4 regions), CocoMine, CocoMine Sanrio, Girl Globe, Yumi's Cells</p>
+        <ul class="duty">
+          <li>Built Looker Studio KPI dashboards for all 5 games I worked on; developed a coupon server and ops tools</li>
+        </ul>
+        <div class="tags"><span>BigQuery</span><span>Looker Studio</span><span>ASP.NET Core Blazor</span><span>Java</span></div>
+        <div class="proj-detail"><div class="proj-detail-inner">
+          <div class="proj-detail-text">
+            <ul class="duty-detail">
+              <li><b>KPI dashboards for 5 games</b><span class="detail-sub">Built Adjust, retention, revenue, and active-user dashboards with BigQuery and Looker Studio for CocoMine, CocoMine Sanrio Characters, Welcome to My Home (Korea, Japan, global, and Taiwan regions), Girl Globe, and Yumi's Cells.</span></li>
+              <li><b>Coupon server</b><span class="detail-sub">Built the CocoMine coupon server on ASP.NET Core Blazor.</span></li>
+              <li><b>Ops tools</b><span class="detail-sub">The CocoMine ops tool, built on Blazor, covers user info, mail, notices, push, promotions, payment history, statistics, and server management, and can send remote commands to the game server and the Go servers. I also maintained the Java ops tool for Welcome to My Home.</span></li>
+              <li><b>Server process monitor</b><span class="detail-sub">A Blazor tool that manages the server process list from a config file and lets operators check status and start processes from the web.</span></li>
+            </ul>
+          </div>
         </div></div>
       </div>
       </div></div>
